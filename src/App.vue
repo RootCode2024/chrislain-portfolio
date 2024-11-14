@@ -3,6 +3,7 @@ import { RouterLink, RouterView } from 'vue-router'
 import { ref, onMounted } from 'vue'
 import HelloWorld from './components/HelloWorld.vue'
 import NavBar from './components/NavBar.vue'
+import CustomCursor from './components/CustomCursor.vue'
 
 const theme = ref('light')
 
@@ -25,11 +26,10 @@ const toggleTheme = () => {
 
 <template>
   <NavBar />
-  <div style="margin-top:50px">
+  <div class="h-screen lg:mt-48 mt-24">
     <RouterView />
   </div>
 </template>
 
 <style scoped>
-
 </style>

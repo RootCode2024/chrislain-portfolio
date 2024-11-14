@@ -1,9 +1,9 @@
 <script setup>
-import TheWelcome from '../components/TheWelcome.vue'
+import Heroe from '../components/Heroe.vue'
+import Works from '../components/Works.vue'
 </script>
 
 <template>
-  <main>
-    <TheWelcome />
-  </main>
+  <Heroe />
+  <works />
 </template>
