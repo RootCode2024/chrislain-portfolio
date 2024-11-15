@@ -6,10 +6,10 @@
 </script>
 
 <template>
-  <div class="flex flex-row justify-left items-left dark:bg-slate-800">
+  <div class="lg:flex lg:flex-row justify-left items-left dark:bg-slate-800">
     <div class="mx-auto my-auto flex justify-left px-4 sm:px-6 md:px-8">
       <div class="text-left">
-        <h1 class="text-2xl tracking-tight text-gray-900 dark:text-slate-200 sm:text-3xl md:text-5xl font-black">
+        <h1 class="mx-auto text-center lg:text-left text-2xl tracking-tight text-gray-900 dark:text-slate-200 sm:text-3xl md:text-5xl font-black">
           <span class="block xl:inline">
             <span class="mb-1 block">{{ t('create') }}</span>
             <span class="bg-gradient-to-r from-indigo-400 to-green-600 bg-clip-text text-transparent">
