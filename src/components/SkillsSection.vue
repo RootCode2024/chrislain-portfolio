@@ -1,48 +1,61 @@
 <template>
-  <div class=" flex items-center justify-center">
-    <div class="text-center text-white">
-      <h2 class="text-4xl font-bold mb-8">MY SKILLS</h2>
-
-      <!-- Diagram Tree -->
-      <div class="relative mx-auto max-w-5xl">
-        <!-- Connectors -->
-        <div class="absolute left-1/2 top-0 w-0.5 h-8 bg-gray-600"></div>
-        <div class="absolute left-1/2 bottom-0 w-0.5 h-8 bg-gray-600"></div>
-        <div class="absolute w-full h-px top-1/2 bg-gray-600"></div>
-
-        <!-- Skill Categories -->
-        <div class="flex justify-around mt-8">
-          <div class="flex flex-col items-center space-y-4">
-            <SkillCategory title="Frontend" :skills="frontendSkills" />
-          </div>
-          <div class="flex flex-col items-center space-y-4">
-            <SkillCategory title="Backend" :skills="backendSkills" />
-          </div>
-          <div class="flex flex-col items-center space-y-4">
-            <SkillCategory title="Other" :skills="otherSkills" />
-          </div>
-        </div>
-      </div>
-    </div>
+<div class="logos">
+  <div class="logo_items space-x-4">
+    <img class="mx-8" src="https://laravel.com/img/logomark.min.svg" alt="Laravel Logo">
+    <img class="mx-8" src="https://upload.wikimedia.org/wikipedia/commons/3/38/HTML5_Badge.svg" alt="HTML5 Logo">
+    <img class="mx-8" src="https://upload.wikimedia.org/wikipedia/commons/2/20/WordPress_logo.svg" alt="WordPress Logo">
+    <img class="mx-8" src="https://upload.wikimedia.org/wikipedia/commons/3/33/Figma-logo.svg" alt="Figma Logo">
+    <img class="mx-8" src="https://upload.wikimedia.org/wikipedia/commons/0/0a/MySQL_textlogo.svg" alt="MySQL Logo">
+    <img class="mx-8" src="https://upload.wikimedia.org/wikipedia/commons/e/e0/Git-logo.svg" alt="Git Logo">
+    <img class="mx-8" src="https://vuejs.org/logo.svg" alt="Vue.js Logo">
+    <img class="mx-8" src="https://tailwindcss.com/_next/static/media/tailwindcss-mark.3c5441fc7a190fb1800d4a5c7f07ba4b1345a9c8.svg" alt="Tailwind CSS Logo">
+    <img class="mx-8" src="https://static.canva.com/web/images/8439b51bb7a19f6e65ce1064bc37c197.svg" alt="Canva Logo" >
+    <img class="mx-8" src="https://laravel.com/img/logomark.min.svg" alt="Laravel Logo">
+    <img class="mx-8" src="https://upload.wikimedia.org/wikipedia/commons/3/38/HTML5_Badge.svg" alt="HTML5 Logo">
+    <img class="mx-8" src="https://upload.wikimedia.org/wikipedia/commons/2/20/WordPress_logo.svg" alt="WordPress Logo">
+    <img class="mx-8" src="https://upload.wikimedia.org/wikipedia/commons/3/33/Figma-logo.svg" alt="Figma Logo">
+    <img class="mx-8" src="https://upload.wikimedia.org/wikipedia/commons/0/0a/MySQL_textlogo.svg" alt="MySQL Logo">
+    <img class="mx-8" src="https://upload.wikimedia.org/wikipedia/commons/e/e0/Git-logo.svg" alt="Git Logo">
+    <img class="mx-8" src="https://vuejs.org/logo.svg" alt="Vue.js Logo">
+    <img class="mx-8" src="https://tailwindcss.com/_next/static/media/tailwindcss-mark.3c5441fc7a190fb1800d4a5c7f07ba4b1345a9c8.svg" alt="Tailwind CSS Logo">
+    <img class="mx-8" src="https://static.canva.com/web/images/8439b51bb7a19f6e65ce1064bc37c197.svg" alt="Canva Logo" >
   </div>
+</div>
 </template>
 
-<script setup>
-import SkillCategory from './SkillCategory.vue'
 
-const frontendSkills = [
-  "HTML", "CSS", "JavaScript", "Vue.js", "Tailwind CSS", "Nuxt.js", "SSR", "Performance Optimization"
-]
-const backendSkills = [
-  "PHP", "Laravel", "Node.js", "Express", "REST API", "SQL", "MySQL", "JWT/OAuth"
-]
-const otherSkills = [
-  "Git", "GitHub", "Linux", "WordPress", "Figma", "Adobe XD", "UI/UX Design"
-]
-</script>
 
 <style scoped>
-.diagram {
+.logos {
+  display: flex;
+  overflow: hidden;
+  padding: 30px 0;
+  white-space: nowrap;
   position: relative;
+  content: "";
+  z-index: 2;
 }
+
+.logo_items {
+  display: flex;
+  animation: slides 10s infinite linear;
+}
+
+.logo_items img {
+  max-height: 60px;
+  padding-right: 100px; /* espace entre les images */
+}
+.logos:hover .logo_items {
+  animation-play-state: paused;
+}
+
+@keyframes slides {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
 </style>

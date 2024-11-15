@@ -1,18 +1,31 @@
 <script setup>
-  import { AcademicCapIcon, HomeIcon as HomeIconSolid } from '@heroicons/vue/24/outline'
+  // import { AcademicCapIcon, HomeIcon as HomeIconSolid } from '@heroicons/vue/24/outline'
   import { HomeIcon,  UserIcon, DocumentTextIcon, EnvelopeIcon, BriefcaseIcon } from '@heroicons/vue/24/solid'
-  import { ref, defineProps } from 'vue';
+  import { ref } from 'vue';
   import { useI18n } from 'vue-i18n';
-  import { RouterLink, RouterView } from 'vue-router'
+  import { RouterLink } from 'vue-router'
 
   const { locale } = useI18n();
 
   const theme = ref(localStorage.getItem('theme') || 'light');
 
-  const changeLanguage = (event) => {
-    const selectedLang = event.target.value;
-    locale.value = selectedLang;
-  };
+  // const currentFlag = ref('./../assets/images/flag-usa.svg');
+  // const currentLanguage = ref('English');
+
+
+  const dropdownOpen = ref(false);
+  const toggleDropdown = () => {
+    dropdownOpen.value = !dropdownOpen.value;
+  }
+
+
+  const locales = ref('en');
+  const changeLanguage = (selectedLang) => {
+  locale.value = selectedLang;
+  
+  locales.value = selectedLang;
+};
+
 
   const toggleTheme = () => {
     theme.value = theme.value === 'dark' ? 'light' : 'dark';
@@ -61,10 +74,26 @@
           <span>{{ $t('contact') }}</span>
         </RouterLink>
 
-        <select @change="changeLanguage($event)" style="appearance: none;" class="bg-transparent focus:outline-none ml-28">
-        <option value="en">🇬🇧</option>
-        <option value="fr">🇫🇷</option>
-        </select>
+        <div @click="toggleDropdown" class="relative ml-12">
+          <div class="selected-option flex items-center cursor-pointer mt-2" style="transition: transform 0.3s ease;">
+            <div v-if="locales === 'en'">
+              <img src="./../assets/images/flag-usa.svg" alt="Current Language" class="w-5 h-5 mr-2" />
+            </div>
+            <div v-else-if="locales === 'fr'">
+              <img src="./../assets/images/flag-france.svg" alt="Current Language" class="w-5 h-5 mr-2" />
+            </div>
+          </div>
+          <div v-if="dropdownOpen" class="absolute mt-1 shadow-lg z-10">
+            <div @click="changeLanguage('en')" v-if="locales === 'fr'" class="flex items-center bg-transparent cursor-pointer hover:bg-transparent">
+              <img src="./../assets/images/flag-usa.svg" alt="USA Flag" class="w-5 h-5" />
+            </div>
+            <div @click="changeLanguage('fr')" v-if="locales === 'en'" class="flex items-center bg-transparent cursor-pointer hover:bg-transparent">
+              <img src="./../assets/images/flag-france.svg" alt="France Flag" class="w-5 h-5" />
+            </div>
+          </div>
+        </div>
+
+
         <button @click="toggleTheme" class="theme-toggle-btn">
             <!-- Icône pour le mode sombre -->
             <span v-if="theme === 'dark'" class="icon">

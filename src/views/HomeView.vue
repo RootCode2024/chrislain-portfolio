@@ -1,11 +1,11 @@
 <script setup>
-import Heroe from '../components/Heroe.vue'
+import HeroeSection from '../components/HeroeSection.vue'
 import Works from '../components/Works.vue'
 import SkillsSection from '../components/SkillsSection.vue'
 </script>
 
 <template>
-  <Heroe />
+  <HeroeSection />
   <SkillsSection />
   <works />
 </template>

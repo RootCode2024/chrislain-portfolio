@@ -1,21 +1,22 @@
 <script setup>
-import { useI18n } from 'vue-i18n' // Import de useI18n pour utiliser les traductions
+  import { useI18n } from 'vue-i18n'
+  import DotLottie from './DotLottie.vue';
 
-const { t } = useI18n() // Utilisation du hook pour accéder aux messages de traduction
+  const { t } = useI18n()
 </script>
 
 <template>
-  <div class="flex justify-center items-center dark:bg-slate-800">
-    <div class="mx-auto flex justify-center px-4 sm:px-6 md:px-8">
-      <div class="text-center">
-        <h1 class="text-4xl tracking-tight text-gray-900 dark:text-slate-200 sm:text-5xl md:text-6xl font-black">
+  <div class="flex flex-row justify-left items-left dark:bg-slate-800">
+    <div class="mx-auto my-auto flex justify-left px-4 sm:px-6 md:px-8">
+      <div class="text-left">
+        <h1 class="text-2xl tracking-tight text-gray-900 dark:text-slate-200 sm:text-3xl md:text-5xl font-black">
           <span class="block xl:inline">
             <span class="mb-1 block">{{ t('create') }}</span>
             <span class="bg-gradient-to-r from-indigo-400 to-green-600 bg-clip-text text-transparent">
               {{ t('amazingWebExperiences') }}
             </span>
           </span>
-          <div class="mt-2">10X {{ t('moreEngaging') }}
+          <div class="mt-2">{{ t('moreEngaging') }}
             <span class="relative mt-3 whitespace-nowrap text-blue-600">
               <svg aria-hidden="true" viewBox="0 0 418 42"
                 class="absolute top-3/4 left-0 right-0 m-auto h-[0.58em] w-fit fill-indigo-400/50"
@@ -28,18 +29,21 @@ const { t } = useI18n() // Utilisation du hook pour accéder aux messages de tra
             </span>
           </div>
         </h1>
-        <p class="mx-auto mt-3 max-w-xl text-lg text-gray-500 dark:text-slate-400 sm:mt-5 md:mt-5">
+        <p class="mt-3 max-w-xl text-lg text-gray-500 dark:text-slate-400 sm:mt-5 md:mt-5">
           {{ t('introDescription') }}
         </p>
-        <div class="mt-5 sm:mt-8 sm:flex sm:justify-center">
+        <div class="mt-5 sm:mt-8 sm:flex sm:justify-left">
           <div class="rounded-md shadow">
             <a
-              class="flex w-full items-center justify-center rounded-md border border-transparent bg-blue-600 px-8 py-3 text-base font-medium text-white hover:bg-blue-700 md:py-4 md:px-10 md:text-lg"
+              class="flex w-full items-left justify-left rounded-md border border-transparent bg-blue-600 px-4 py-2 text-base font-medium text-white hover:bg-blue-700 md:py-2 md:px-5 md:text-lg"
               href="#">{{ t('viewProjects') }} 🚀
             </a>
           </div>
         </div>
       </div>
+    </div>
+    <div class="flex justify-end">
+      <DotLottie />
     </div>
   </div>
 </template>
