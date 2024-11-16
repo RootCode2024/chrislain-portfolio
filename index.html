@@ -2,13 +2,34 @@
 <html lang="">
   <head>
     <meta charset="UTF-8">
-    <link rel="icon" href="/src/assets/images/chrislain-logo-light.png">
+    <link rel="icon" href="/src/assets/images/chrislain-light-logo.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Code With Chris</title>
-    <script src="https://cdn.tailwindcss.com"></script>
   </head>
+  <style>
+      /* Mode clair (light) */
+  body.light {
+    background-color: #ffffff;
+    color: #000000;
+  }
+
+  /* Mode sombre (dark) */
+  body.dark {
+    background-color: #000000;
+    color: #ffffff;
+  }
+
+  </style>
   <body>
     <div id="app"></div>
     <script type="module" src="/src/main.js"></script>
+    <script>
+        const toggleTheme = () => {
+    theme.value = theme.value === 'dark' ? 'light' : 'dark';
+    document.body.classList.remove('light', 'dark');
+    document.body.classList.add(theme.value);
+    localStorage.setItem('theme', theme.value);
+  };
+    </script>
   </body>
 </html>

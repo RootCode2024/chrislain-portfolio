@@ -1,37 +1,22 @@
 /* semantic color variables for this project */
 :root {
   --color-background: var(--vt-c-white);
-  --color-accent: #e0e0e0;
+  --color-accent: #ffffff;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --color-background: var(--vt-c-black);
-    --color-accent: #222;
+    --color-accent: #000000;
   }
 }
 
 body {
   min-height: 100vh;
-  color: var(--color-text);
+  color: var(--color-accent);
   height: 36rem;
-  background-image: 
-  repeating-linear-gradient(
-    0deg,
-    var(--color-accent) 0px,
-    var(--color-accent) 0px,
-    transparent 1px,
-    transparent 190px
-  ),
-  repeating-linear-gradient(
-    90deg,
-    var(--color-accent) 0px,
-    var(--color-accent) 0px,
-    transparent 1px,
-    transparent 190px
-  );
+
 background-position: center center;
 transition: background-color 0.1s , color 0.1s;
-
-  background-color: var(--color-background);
+background-color: var(--color-background);
 }

@@ -38,7 +38,7 @@
 
 .logo_items {
   display: flex;
-  animation: slides 10s infinite linear;
+  animation: slides 20s infinite linear;
 }
 
 .logo_items img {

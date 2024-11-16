@@ -18,6 +18,13 @@
             "tag": "VueJS"
         }
     },
+    "sections": {
+        "footer":{
+            "description" : "I'm a passionate web developer with a love for building unique digital experiences. I'm always looking for new challenges and opportunities to learn and grow.",
+            "copyright" : "All right reserved."
+        }
+    },
+    "nickName" : "Code With Chris",
     "home": "Home",
     "about": "About",
     "resume": "Resume",

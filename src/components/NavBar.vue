@@ -9,10 +9,6 @@
 
   const theme = ref(localStorage.getItem('theme') || 'light');
 
-  // const currentFlag = ref('./../assets/images/flag-usa.svg');
-  // const currentLanguage = ref('English');
-
-
   const dropdownOpen = ref(false);
   const toggleDropdown = () => {
     dropdownOpen.value = !dropdownOpen.value;
@@ -22,7 +18,7 @@
   const locales = ref('en');
   const changeLanguage = (selectedLang) => {
   locale.value = selectedLang;
-  
+
   locales.value = selectedLang;
 };
 
@@ -59,11 +55,6 @@
           <span>{{ $t('about') }}</span>
         </RouterLink>
 
-        <a href="#works" class="flex space-x-2 hover:rounded-lg hover:border-transparent hover:bg-green-500">
-          <BriefcaseIcon class="h-6 w-6 text-gray-500" />
-          <span>{{ $t('works') }}</span>
-        </a>
-
         <RouterLink to="/resume" class="flex space-x-2 hover:rounded-lg hover:border-transparent hover:bg-green-500">
           <DocumentTextIcon class="h-6 w-6 text-gray-500" />
           <span>{{ $t('resume') }}</span>
@@ -83,7 +74,7 @@
               <img src="./../assets/images/flag-france.svg" alt="Current Language" class="w-5 h-5 mr-2" />
             </div>
           </div>
-          <div v-if="dropdownOpen" class="absolute mt-1 shadow-lg z-10">
+          <div v-if="dropdownOpen" class="absolute shadow-lg z-10">
             <div @click="changeLanguage('en')" v-if="locales === 'fr'" class="flex items-center bg-transparent cursor-pointer hover:bg-transparent">
               <img src="./../assets/images/flag-usa.svg" alt="USA Flag" class="w-5 h-5" />
             </div>
@@ -138,17 +129,7 @@
     height: 24px;
     fill: currentColor;
   }
-  /* Mode clair (light) */
-  body.light {
-    background-color: #ffffff;
-    color: #000000;
-  }
 
-  /* Mode sombre (dark) */
-  body.dark {
-    background-color: #000000;
-    color: #ffffff;
-  }
 
   /* Style des éléments en mode sombre et clair */
   a {

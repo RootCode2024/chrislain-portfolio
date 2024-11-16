@@ -18,6 +18,14 @@
             "tag": "VueJS"
         }
     },
+    "sections": {
+        "footer":{
+            "description" : "Je suis un développeur web passionné qui aime créer des expériences digitales uniques. Je suis toujours à la recherche de nouveaux défis et d'opportunités pour apprendre et grandir.",
+            "copyright" : "Tous droits réservés."
+
+        }
+    },
+    "nickName" : "Code With Chris",
     "home": "Accueil",
     "about": "À propos",
     "resume": "Mon CV",

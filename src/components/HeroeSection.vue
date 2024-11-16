@@ -6,24 +6,27 @@
 </script>
 
 <template>
-  <div class="lg:flex lg:flex-row justify-left items-left dark:bg-slate-800 max-w-full">
+  <div class="lg:flex lg:flex-row justify-left items-left max-w-full">
     <div class="mx-auto my-auto lg:flex justify-left px-4 sm:px-6 md:px-8">
       <div class="text-left">
-        <h1 class="mx-auto text-center lg:text-left text-2xl tracking-tight text-gray-900 dark:text-slate-200 sm:text-3xl md:text-5xl font-black">
+        <h1 class="mx-auto text-center lg:text-left text-2xl tracking-tight sm:text-3xl md:text-5xl font-black">
           <span class="block xl:inline">
             <span class="bg-gradient-to-r from-indigo-400 to-green-600 bg-clip-text text-transparent">
               {{ t('amazingWebExperiences') }}
             </span>
           </span>
-          <div class="mt-2 text-white">{{ t('moreEngaging') }}
-            <span class="relative mt-3 whitespace-nowrap text-blue-600">
+          <div class="mt-2">
+            <span class="text-indigo-400 dark:text-green-600">
+              {{ t('moreEngaging') }}
+            </span>
+            <span class="relative mt-3 whitespace-nowrap text-blue-600 dark:text-blue-400">
               <svg aria-hidden="true" viewBox="0 0 418 42"
-                class="absolute top-3/4 left-0 right-0 m-auto h-[0.58em] w-fit fill-indigo-400/50"
+                class="absolute top-3/4 left-0 right-0 m-auto h-[0.58em] w-fit fill-green-400/50 dark:fill-green-400/30"
                 preserveAspectRatio="none">
                 <path
                   d="M203.371.916c-26.013-2.078-76.686 1.963-124.73 9.946L67.3 12.749C35.421 18.062 18.2 21.766 6.004 25.934 1.244 27.561.828 27.778.874 28.61c.07 1.214.828 1.121 9.595-1.176 9.072-2.377 17.15-3.92 39.246-7.496C123.565 7.986 157.869 4.492 195.942 5.046c7.461.108 19.25 1.696 19.17 2.582-.107 1.183-7.874 4.31-25.75 10.366-21.992 7.45-35.43 12.534-36.701 13.884-2.173 2.308-.202 4.407 4.442 4.734 2.654.187 3.263.157 15.593-.78 35.401-2.686 57.944-3.488 88.365-3.143 46.327.526 75.721 2.23 130.788 7.584 19.787 1.924 20.814 1.98 24.557 1.332l.066-.011c1.201-.203 1.53-1.825.399-2.335-2.911-1.31-4.893-1.604-22.048-3.261-57.509-5.556-87.871-7.36-132.059-7.842-23.239-.254-33.617-.116-50.627.674-11.629.54-42.371 2.494-46.696 2.967-2.359.259 8.133-3.625 26.504-9.81 23.239-7.825 27.934-10.149 28.304-14.005.417-4.348-3.529-6-16.878-7.066Z">
                 </path>
-              </svg>
+              </svg><br>
               <span class="relative">{{ t('withPowerfulCode') }}</span>
             </span>
           </div>
@@ -34,15 +37,16 @@
         <div class="mt-5 sm:mt-8 sm:flex sm:justify-left">
           <div class="rounded-md shadow">
             <a
-              class="flex w-full items-left justify-left rounded-md border border-transparent bg-blue-600 px-4 py-2 text-base font-medium text-white hover:bg-blue-700 md:py-2 md:px-5 md:text-lg"
+              class="flex w-full items-left justify-left rounded-md border border-transparent bg-blue-600 hover:bg-blue-700 text-base font-medium text-white px-4 py-2 md:py-2 md:px-5 md:text-lg dark:bg-blue-500 dark:hover:bg-blue-600"
               href="#">{{ t('viewProjects') }}
             </a>
           </div>
         </div>
       </div>
     </div>
-    <div class="flex justify-right my-auto">
+    <div class="flex justify-right my-auto mx-auto">
       <DotLottie />
     </div>
   </div>
 </template>
+

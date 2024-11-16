@@ -1,32 +1,56 @@
 <template>
-  <section id="works" class="py-12">
+  <section class="py-24">
     <div class="container mx-auto px-4 text-center">
       <div class="w-full">
-        <!-- Titre et description traduits -->
-        <div class="relative">
-          <h2 class="text-3xl font-bold text-gray-800 dark:text-slate-200 mb-6">
+        <!-- Titre et description -->
+        <div class="relative mb-12">
+          <h2 class="text-4xl font-extrabold text-gray-800 dark:text-slate-200 mb-4">
             {{ $t('title') }}
           </h2>
-          <p class="text-gray-600 dark:text-slate-400 mb-8">
+          <p class="text-lg text-gray-600 dark:text-slate-400">
             {{ $t('description') }}
           </p>
+        </div>
 
-          <!-- Liste des projets traduits -->
-          <div v-for="(project, index) in translatedProjects" :key="index" class="sticky top-56 rounded-lg bottom-10 min-h-96 flex flex-col items-center justify-center">
-            <a :href="project.link" target="_blank">
-            <div class="flex w-full gap-4 rounded-lg" :class="project.className">
-              <div class="w-1/3 p-1">
-              <img :src="project.image" :alt="project.title" class="rounded" />
+        <!-- Liste des projets -->
+        <div class="flex flex-col space-y-16">
+          <div
+            v-for="(project, index) in translatedProjects"
+            :key="index"
+            class="rounded-lg h-auto flex flex-col lg:flex-row items-center justify-between gap-6 bg-white dark:bg-gray-700 p-6 shadow-lg hover:shadow-2xl transition-shadow"
+          >
+            <!-- Image -->
+            <div class="lg:w-1/3 w-full">
+              <img
+                :src="project.image"
+                :alt="project.title"
+                class="w-full h-64 object-cover rounded-lg"
+              />
             </div>
-            <div class="w-2/3 p-1">
-              <h2 class="text-lg font-bold flex justify-start lg:text-2xl">{{ project.title }}</h2>
-              <div class="flex gap-2">
-                <span class="bg-slate-900 text-white text-sm px-2 py-1 rounded-md">{{ project.tag }}</span>
+
+            <!-- Texte -->
+            <div class="lg:w-2/3 w-full text-left">
+              <h2 class="text-2xl lg:text-3xl font-bold text-gray-800 dark:text-white mb-3">
+                {{ project.title }}
+              </h2>
+              <div class="mb-4">
+                <span
+                  class="inline-block bg-gray-900 text-white text-sm px-3 py-1 rounded-md"
+                >
+                  {{ project.tag }}
+                </span>
               </div>
-              <p class="flex justify-start text-left text-lg italic mb-5">{{ project.description }}</p>
-              <!-- <a :href="project.link" target="_blank" class="bg-slate-900 hover:bg-slate-800 Active text-white text-sm py-2.5 px-5 mr-2 mb-2 rounded-lg mt-5 shadow-md hover:scale-105 transition duration-300">{{ $t('viewSite') }}</a> -->
+              <p class="text-gray-700 dark:text-gray-300 text-lg leading-relaxed mb-4">
+                {{ project.description }}
+              </p>
+              <a
+                :href="project.link"
+                target="_blank"
+                class="inline-block bg-slate-900 hover:bg-slate-800 text-white text-sm py-2 px-5 rounded-lg mt-2 shadow-md hover:scale-105 transition duration-300"
+              >
+                {{ $t('viewSite') }}
+              </a>
             </div>
-            </div></a>
           </div>
         </div>
       </div>
@@ -38,21 +62,21 @@
 import { computed } from 'vue';
 import { useI18n } from 'vue-i18n';
 
-const { t } = useI18n(); // Accès à la fonction de traduction
+const { t } = useI18n(); // Traductions
 
-// Définir les données des projets
+// Données des projets
 const projectsData = [
   {
     key: 'gie',
     image: '/src/assets/images/giehgd.png',
     link: 'https://www.holdinggroupdiama.com',
-    className: 'bg-green-500 mb-8',
+    className: 'bg-green-500',
   },
   {
     key: 'future',
     image: '/src/assets/images/fte.png',
     link: 'https://www.futuretransportexpo.com',
-    className: 'bg-indigo-500 mb-4',
+    className: 'bg-indigo-500',
   },
   {
     key: 'portfolio',
@@ -62,13 +86,13 @@ const projectsData = [
   },
 ];
 
-// Traduire les projets dynamiquement
+// Traduire les projets
 const translatedProjects = computed(() =>
   projectsData.map((project) => ({
     ...project,
-    title: t(`projects.${project.key}.title`), // Appel direct à la fonction t()
-    description: t(`projects.${project.key}.description`), // Appel direct à la fonction t()
-    tag: t(`projects.${project.key}.tag`, { defaultValue: ["website"] }),
+    title: t(`projects.${project.key}.title`),
+    description: t(`projects.${project.key}.description`),
+    tag: t(`projects.${project.key}.tag`, { defaultValue: 'Website' }),
   }))
 );
 </script>
