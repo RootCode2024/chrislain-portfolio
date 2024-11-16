@@ -6,17 +6,16 @@
 </script>
 
 <template>
-  <div class="lg:flex lg:flex-row justify-left items-left dark:bg-slate-800">
-    <div class="mx-auto my-auto flex justify-left px-4 sm:px-6 md:px-8">
+  <div class="lg:flex lg:flex-row justify-left items-left dark:bg-slate-800 max-w-full">
+    <div class="mx-auto my-auto lg:flex justify-left px-4 sm:px-6 md:px-8">
       <div class="text-left">
         <h1 class="mx-auto text-center lg:text-left text-2xl tracking-tight text-gray-900 dark:text-slate-200 sm:text-3xl md:text-5xl font-black">
           <span class="block xl:inline">
-            <span class="mb-1 block">{{ t('create') }}</span>
             <span class="bg-gradient-to-r from-indigo-400 to-green-600 bg-clip-text text-transparent">
               {{ t('amazingWebExperiences') }}
             </span>
           </span>
-          <div class="mt-2">{{ t('moreEngaging') }}
+          <div class="mt-2 text-white">{{ t('moreEngaging') }}
             <span class="relative mt-3 whitespace-nowrap text-blue-600">
               <svg aria-hidden="true" viewBox="0 0 418 42"
                 class="absolute top-3/4 left-0 right-0 m-auto h-[0.58em] w-fit fill-indigo-400/50"
@@ -29,20 +28,20 @@
             </span>
           </div>
         </h1>
-        <p class="mt-3 max-w-xl text-lg text-gray-500 dark:text-slate-400 sm:mt-5 md:mt-5">
+        <p class="mt-3 max-w-xl text-lg text-slate-800 dark:text-gray-100 sm:mt-5 md:mt-5">
           {{ t('introDescription') }}
         </p>
         <div class="mt-5 sm:mt-8 sm:flex sm:justify-left">
           <div class="rounded-md shadow">
             <a
               class="flex w-full items-left justify-left rounded-md border border-transparent bg-blue-600 px-4 py-2 text-base font-medium text-white hover:bg-blue-700 md:py-2 md:px-5 md:text-lg"
-              href="#">{{ t('viewProjects') }} 🚀
+              href="#">{{ t('viewProjects') }}
             </a>
           </div>
         </div>
       </div>
     </div>
-    <div class="flex justify-end">
+    <div class="flex justify-right my-auto">
       <DotLottie />
     </div>
   </div>

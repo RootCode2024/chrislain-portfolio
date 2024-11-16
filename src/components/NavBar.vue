@@ -40,12 +40,12 @@
     <nav>
       <ul>
 
-        <RouterLink to="/" class="mr-32 hover:bg-transparent">
+        <RouterLink to="/" class="mr-36 hover:bg-transparent">
           <div v-if="theme === 'dark'">
-            <img src="./../assets/images/chrislain-logo-dark.png" class="w-8 h-8">
+            <img src="./../assets/images/chrislain-dark-logo.png" class="w-8 h-8">
           </div>
           <div v-if="theme === 'light'">
-            <img src="./../assets/images/chrislain-logo-light.png" class="w-8 h-8">
+            <img src="./../assets/images/chrislain-light-logo.png" class="w-8 h-8">
           </div>
         </RouterLink>
 

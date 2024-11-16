@@ -1,43 +1,15 @@
 import { createI18n } from 'vue-i18n';
 
-// Messages pour différentes langues
-const messages = {
-  en: {
-    home: 'Home',
-    about: 'About',
-    resume: 'Resume',
-    contact: "Contact",
-    homeDetail: "This is an HomePage page",
-    works: "Works",
-    create: "Building",
-    amazingWebExperiences: "Chrislain AVOCEGAN",
-    moreEngaging: "Back-End Engineer",
-    withPowerfulCode: "with powerful code.",
-    introDescription: "Chris C0d3 Full, web solutions expert in Laravel, Vue.js, and Tailwind CSS. Your partner for innovative, optimized websites.",
-    viewProjects: "See my projects",
-  },
-  fr: {
-    home: 'Accueil',
-    about: 'À propos',
-    resume: 'Mon CV',
-    contact: 'Contact',
-    homeDetail: "Cette page est la page d'accueil",
-    works: "Réalisations",
-    create: "Créer",
-    amazingWebExperiences: "Chrislain AVOCEGAN",
-    moreEngaging: "Back-End Ingenieur",
-    withPowerfulCode: "avec un code puissant.",
-    introDescription: "Chris C0d3 Full, créateur de solutions web sécurisées et performantes en Laravel, Vue.js et Tailwind CSS. Votre partenaire pour des sites modernes, innovants et optimisés.",
-    viewProjects: "Voir mes projets",
-  },
-};
+// Importation des traductions
+import en from './locales/en.json';
+import fr from './locales/fr.json';
 
-
-// Initialisation de Vue I18n
+// Configuration de vue-i18n
 const i18n = createI18n({
-  legacy: false,   // Utilisation de la nouvelle API de Vue I18n
-  locale: 'en',    // Langue par défaut
-  messages,        // Messages pour les langues
+  legacy: false, // Utilise l'API composition pour i18n
+  locale: 'en', // Langue par défaut
+  fallbackLocale: 'fr', // Langue de secours
+  messages: { en, fr }, // Traductions
 });
 
 export default i18n;

@@ -1,0 +1,35 @@
+{
+    "title": "Mes Réalisations",
+    "description": "Voici quelques-uns des projets sur lesquels j'ai travaillé récemment.",
+    "projects": {
+        "gie": {
+            "title": "GIE Holding Group Diama",
+            "description": "Site web corporatif réalisé avec WordPress et Elementor pour une interface intuitive, offrant une présentation dynamique et professionnelle des services et projets de l'entreprise.",
+            "tag": "WordPress"
+        },
+        "future": {
+            "title": "Future Transport Expo",
+            "description": "Site vitrine pour Rohaya Holding, mettant en avant l'innovation dans les transports avec une interface moderne et des fonctionnalités interactives pour les visiteurs.",
+            "tag": "WordPress"
+        },
+        "portfolio": {
+            "title": "Portfolio personnel",
+            "description": "Portfolio interactif développé en VueJS, présentant une collection soignée de projets avec des personnalisations avancées pour une expérience utilisateur unique.",
+            "tag": "VueJS"
+        }
+    },
+    "home": "Accueil",
+    "about": "À propos",
+    "resume": "Mon CV",
+    "contact": "Contact",
+    "homeDetail": "Cette page est la page d'accueil",
+    "works": "Réalisations",
+    "create": "Créer",
+    "amazingWebExperiences": "Chrislain AVOCEGAN",
+    "moreEngaging": "Back-End Ingenieur",
+    "withPowerfulCode": "avec un code puissant.",
+    "introDescription": "Chris C0d3 Full, créateur de solutions web sécurisées et performantes en Laravel, Vue.js et Tailwind CSS. Votre partenaire pour des sites modernes, innovants et optimisés.",
+    "viewProjects": "Voir mes projets",
+    "viewSite": "Voir le site"
+}
+  

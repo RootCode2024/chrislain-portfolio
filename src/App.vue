@@ -1,9 +1,7 @@
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
+import { RouterView } from 'vue-router'
 import { ref, onMounted } from 'vue'
-import HelloWorld from './components/HelloWorld.vue'
 import NavBar from './components/NavBar.vue'
-import CustomCursor from './components/CustomCursor.vue'
 
 const theme = ref('light')
 
@@ -15,12 +13,7 @@ onMounted(() => {
   document.body.classList.add(theme.value);
 });
 
-const toggleTheme = () => {
-  theme.value = theme.value === 'dark' ? 'light' : 'dark';
-  document.body.classList.remove('light', 'dark');
-  document.body.classList.add(theme.value);
-  localStorage.setItem('theme', theme.value);
-};
+
 
 </script>
 
