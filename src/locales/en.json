@@ -36,8 +36,11 @@
             "description": "My web development skills."
         }
     },
+    "hi": "Hi, ",
+    "im": "I'm",
+    "name": "Chrislain AVOCEGAN",
     "nickName" : "ChrisCoder",
-    "im": "Hi, I'm",
+    "callMe": "Call Me ChrisCoder",
     "home": "Home",
     "about": "About",
     "resume": "Resume",
@@ -45,10 +48,9 @@
     "homeDetail": "This is an HomePage page",
     "works": "Works",
     "create": "Building",
-    "amazingWebExperiences": "Chrislain AVOCEGAN",
     "moreEngaging": "Back-End Engineer",
     "withPowerfulCode": "with powerful code.",
-    "introDescription": "Chris C0d3 Full, web solutions expert in Laravel, Vue.js, and Tailwind CSS. Your partner for innovative, optimized websites.",
+    "introDescription": "Your full-stack developer and Laravel expert. I spend my nights (and often my days) creating innovative web solutions with <a href='/projects' class='text-blue-500'>Laravel, Vue.js</a>, and <a href='/technologie' class='text-blue-500'>Tailwind CSS</a>, transforming ideas into intuitive, functional, and aesthetic digital experiences.Passionate about the logic of code, my motivation comes from the complexity of a project. With a strong appreciation for clean code aesthetics, I focus on producing smooth and efficient code. When I'm not coding, I enjoy diving into <a href='/mangas' class='text-blue-500'>mangas</a> and staying up-to-date with the latest trends in <a href='/technologie' class='text-blue-500'>technology</a>.Let's collaborate to bring your digital vision to life—don't hesitate to <a href='/contact' class='text-indigo-500 hover:underline hover:font-bold'>CONTACT ME</a>!",
     "haveProject": "Have a project ?",
     "viewSite": "See Website"
   }

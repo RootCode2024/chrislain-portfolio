@@ -16,6 +16,11 @@
             "title": "Portfolio personnel",
             "description": "Portfolio interactif développé en VueJS, présentant une collection soignée de projets avec des personnalisations avancées pour une expérience utilisateur unique.",
             "tag": "VueJS"
+        },
+        "flex-interim": {
+            "title": "Flex Interim",
+            "description": "Interactive portfolio developed with VueJS, showcasing a curated selection of projects with advanced customizations for a unique user experience.",
+            "tag": "SEO"
         }
     },
     "sections": {
@@ -32,8 +37,11 @@
             "description": "Mes competences en developpement web."
         }
     },
+    "hi": "Hey, ",
+    "im": "Je suis",
+    "name": "Chrislain AVOCEGAN",
     "nickName" : "ChrisCoder",
-    "im": "Hey, je suis",
+    "callMe" : "Appele Moi ChrisCoder",
     "home": "Accueil",
     "about": "À propos",
     "resume": "Mon CV",
@@ -41,10 +49,9 @@
     "homeDetail": "Cette page est la page d'accueil",
     "works": "Réalisations",
     "create": "Créer",
-    "amazingWebExperiences": "Chrislain AVOCEGAN",
     "moreEngaging": "Back-End Ingenieur",
     "withPowerfulCode": "avec un code puissant.",
-    "introDescription": "Chris C0d3 Full, créateur de solutions web sécurisées et performantes en Laravel, Vue.js et Tailwind CSS. Votre partenaire pour des sites modernes, innovants et optimisés.",
+    "introDescription": "Votre développeur full-stack et expert Laravel. Je passe mes nuits (et souvent mes journées) à créer des solutions web innovantes avec <a href='/projects' class='text-blue-500'>Laravel, Vue.js</a>, et <a href='/technologie' class='text-blue-500'>Tailwind CSS</a>, transformant des idées en expériences digitales intuitives, fonctionnelles et esthétiques.Passionné par la logique du code, ma motivation naît de la complexité de chaque projet. Avec un goût prononcé pour l'esthétique du code, je m'efforce de créer un code fluide et efficace. Lorsqu'il ne s'agit pas de code, j'aime me plonger dans les <a href='/mangas' class='text-blue-500'>mangas</a> et me tenir au courant des dernières tendances en <a href='/technologie' class='text-blue-500'>technologie</a>.Collaborons ensemble pour donner vie à votre vision digitale—n'hésitez pas à me <a href='/contact' class='text-blue-500'>CONTACTER</a> !",
     "haveProject": "Vous avez un projet ?",
     "viewSite": "Voir le site"
 }

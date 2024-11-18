@@ -8,7 +8,8 @@ module.exports = {
     extend: {
       colors: {
         'slate-700': '#01161E',  // Change bg-slate-700 to #01161E
-        'slate-100': '#EFF6E0'
+        'slate-100': '#EFF6E0',
+        'opacity-50': 'rgba(255, 255, 255, 0.999)',
       },
     },
   },

@@ -1,6 +1,7 @@
 <script setup>
-  import { useI18n } from 'vue-i18n'
+  import { useI18n } from 'vue-i18n';
   import DotLottie from './DotLottie.vue';
+  import NameAnimationComponent from './NameAnimationComponent.vue';
 
   const { t } = useI18n()
 </script>
@@ -11,8 +12,8 @@
       <div class="text-left">
         <h1 class="mx-auto text-center lg:text-left text-2xl tracking-tight sm:text-3xl md:text-5xl font-black">
           <span class="block xl:inline">
-            <span class="bg-gradient-to-r from-indigo-400 to-green-600 bg-clip-text text-transparent">
-              {{ $t('im') }} {{ $t('nickName') }}
+            <span class="bg-gradient-to-r from-indigo-400 to-green-600 bg-clip-text text-transparent text-center lg:text-left">
+              <NameAnimationComponent />
             </span>
           </span>
           <div class="mt-2">
@@ -31,15 +32,17 @@
             </span>
           </div>
         </h1>
-        <p class="mt-3 max-w-xl text-lg text-slate-800 dark:text-gray-100 sm:mt-5 md:mt-5">
-          {{ t('introDescription') }}
-        </p>
+        <div class="mt-3 max-w-xl text-lg text-slate-800 dark:text-gray-100 sm:mt-5 md:mt-5 text-justify"
+        v-html="t('introDescription')"></div>
         <div class="mt-5 sm:mt-8 sm:flex sm:justify-left">
-          <div class="rounded-md shadow">
-            <a
-              class="flex w-full items-left justify-left rounded-sm border border-transparent bg-slate-600 hover:bg-slate-700 text-base font-medium text-white px-4 py-2 md:py-2 md:px-5 md:text-lg dark:bg-slate-500 dark:hover:bg-slate-600"
-              href="#">
-              {{ t('haveProject') }}
+          <div class="">
+            <a href="" class="flex justify-between space-x-2 text-slate-700 underline underline-offset-4 hover:underline-offset-0 dark:text-slate-100">
+              <span>show my resume</span>
+              <span class="animate bounce-x">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3" />
+                </svg>
+              </span>
             </a>
           </div>
         </div>
@@ -51,3 +54,18 @@
   </div>
 </template>
 
+<style scoped>
+@keyframes bounceX {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(20px);
+  }
+}
+
+.bounce-x {
+  animation: bounceX 1.5s infinite;
+}
+
+</style>
