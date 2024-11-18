@@ -16,15 +16,28 @@
             "title": "Personal Portfolio",
             "description": "Interactive portfolio developed with VueJS, showcasing a curated selection of projects with advanced customizations for a unique user experience.",
             "tag": "VueJS"
+        },
+        "flex-interim": {
+            "title": "Flex Interim",
+            "description": "Interactive portfolio developed with VueJS, showcasing a curated selection of projects with advanced customizations for a unique user experience.",
+            "tag": "SEO"
         }
     },
     "sections": {
         "footer":{
+            "letsWork" : "LET'S WORK",
+            "together": "TOGETHER",
             "description" : "I'm a passionate web developer with a love for building unique digital experiences. I'm always looking for new challenges and opportunities to learn and grow.",
-            "copyright" : "All right reserved."
+            "copyright" : "All Rights Reserved.",
+            "makeAnAppointment" : "Make an Appointment"
+        },
+        "skills":{
+            "title": "Skills",
+            "description": "My web development skills."
         }
     },
-    "nickName" : "Code With Chris",
+    "nickName" : "ChrisCoder",
+    "im": "Hi, I'm",
     "home": "Home",
     "about": "About",
     "resume": "Resume",
@@ -36,7 +49,7 @@
     "moreEngaging": "Back-End Engineer",
     "withPowerfulCode": "with powerful code.",
     "introDescription": "Chris C0d3 Full, web solutions expert in Laravel, Vue.js, and Tailwind CSS. Your partner for innovative, optimized websites.",
-    "viewProjects": "See my projects",
+    "haveProject": "Have a project ?",
     "viewSite": "See Website"
   }
   

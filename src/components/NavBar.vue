@@ -1,6 +1,6 @@
 <script setup>
   // import { AcademicCapIcon, HomeIcon as HomeIconSolid } from '@heroicons/vue/24/outline'
-  import { HomeIcon,  UserIcon, DocumentTextIcon, EnvelopeIcon, BriefcaseIcon } from '@heroicons/vue/24/solid'
+  // import { HomeIcon,  UserIcon, DocumentTextIcon, EnvelopeIcon } from '@heroicons/vue/24/solid'
   import { ref } from 'vue';
   import { useI18n } from 'vue-i18n';
   import { RouterLink } from 'vue-router'
@@ -45,23 +45,19 @@
           </div>
         </RouterLink>
 
-        <RouterLink to="/" class="flex space-x-2 hover:rounded-lg hover:border-transparent hover:bg-green-500">
-          <HomeIcon class="h-6 w-6 text-gray-500" />
+        <RouterLink to="/" class="flex space-x-2 hover:rounded-lg hover:border-transparent hover:underline" :class="{ 'active-link': $route.path === '/' }">
           <span>{{ $t('home') }}</span>
         </RouterLink>
 
-        <RouterLink to="/about" class="flex space-x-2 hover:rounded-lg hover:border-transparent hover:bg-green-500">
-          <UserIcon class="h-6 w-6 text-gray-500" />
+        <RouterLink to="/about" class="flex space-x-2 hover:rounded-lg hover:border-transparent hover:underline" :class="{ 'active-link': $route.path === '/about' }">
           <span>{{ $t('about') }}</span>
         </RouterLink>
 
-        <RouterLink to="/resume" class="flex space-x-2 hover:rounded-lg hover:border-transparent hover:bg-green-500">
-          <DocumentTextIcon class="h-6 w-6 text-gray-500" />
+        <RouterLink to="/resume" class="flex space-x-2 hover:rounded-lg hover:border-transparent hover:underline" :class="{ 'active-link': $route.path === '/resume' }">
           <span>{{ $t('resume') }}</span>
         </RouterLink>
 
-        <RouterLink to="/contact" class="flex space-x-2 hover:rounded-lg hover:border-transparent hover:bg-green-500">
-          <EnvelopeIcon class="h-6 w-6 text-gray-500" />
+        <RouterLink to="/contact" class="flex space-x-2 hover:rounded-lg hover:border-transparent hover:underline" :class="{ 'active-link': $route.path === '/contact' }">
           <span>{{ $t('contact') }}</span>
         </RouterLink>
 
@@ -107,6 +103,15 @@
 
 
 <style>
+.active-link {
+  /* styles for active link */
+  background-color: #01161E;
+  border-radius: 4px;
+  padding: 1px 8px;
+  text-decoration: none;
+
+  color: #fff;
+}
   .theme-toggle-btn {
     background: none;
     border: none;
@@ -137,7 +142,7 @@
   }
 
   body.dark .navbar {
-    --navbar-bg: #000; /* Navbar en mode sombre */
+    --navbar-bg: #0C3647; /* Navbar en mode sombre */
   }
 
   .navbar {
@@ -145,12 +150,11 @@
     top: 30px; /* Espace de 30px du bord supérieur */
     left: 0;
     right: 0;
-    max-width: 900px;
+    max-width: 700px;
     margin: 0 auto 0 auto;
     border-radius: 20px;
     margin-bottom: 100px;
     background-color: var(--navbar-bg, #fff);
-    border: 1px solid;
     padding: 10px 20px;
     z-index: 1000;
   }
@@ -163,3 +167,4 @@
     justify-content: space-around;
   }
 </style>
+

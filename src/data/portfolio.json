@@ -1,0 +1,8 @@
+{
+    "socials": [
+        { "id": "1", "title": "GitHub", "icon":"/src/assets/images/github.svg", "link": "https://github.com/RootCode2024" },
+        { "id": "2", "title": "LinkedIn", "icon":"/src/assets/images/linkedin.svg", "link": "https://www.linkedin.com/in/chrislain-avocegan-314273315" },
+        { "id": "3", "title": "Facebook", "icon":"/src/assets/images/facebook.svg", "link": "https://facebook.com/chrislain.avocegan.1/" },
+        { "id": "4", "title": "Whatsapp", "icon":"/src/assets/images/whatsapp.svg", "link": "https://wa.me/221776815208" }
+    ]
+}

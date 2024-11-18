@@ -20,12 +20,20 @@
     },
     "sections": {
         "footer":{
+            "letsWork" : "ON TRAVAILLE",
+            "together": "ENSEMBLE",
             "description" : "Je suis un développeur web passionné qui aime créer des expériences digitales uniques. Je suis toujours à la recherche de nouveaux défis et d'opportunités pour apprendre et grandir.",
-            "copyright" : "Tous droits réservés."
+            "copyright" : "Tous droits réservés.",
+            "makeAnAppointment" : "Agender un Rendez-vous"
 
+        },
+        "skills":{
+            "title": "Competences",
+            "description": "Mes competences en developpement web."
         }
     },
-    "nickName" : "Code With Chris",
+    "nickName" : "ChrisCoder",
+    "im": "Hey, je suis",
     "home": "Accueil",
     "about": "À propos",
     "resume": "Mon CV",
@@ -37,7 +45,7 @@
     "moreEngaging": "Back-End Ingenieur",
     "withPowerfulCode": "avec un code puissant.",
     "introDescription": "Chris C0d3 Full, créateur de solutions web sécurisées et performantes en Laravel, Vue.js et Tailwind CSS. Votre partenaire pour des sites modernes, innovants et optimisés.",
-    "viewProjects": "Voir mes projets",
+    "haveProject": "Vous avez un projet ?",
     "viewSite": "Voir le site"
 }
   

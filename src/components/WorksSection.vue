@@ -2,57 +2,37 @@
   <section class="py-24">
     <div class="container mx-auto px-4 text-center">
       <div class="w-full">
-        <!-- Titre et description -->
-        <div class="relative mb-12">
-          <h2 class="text-4xl font-extrabold text-gray-800 dark:text-slate-200 mb-4">
-            {{ $t('title') }}
-          </h2>
-          <p class="text-lg text-gray-600 dark:text-slate-400">
-            {{ $t('description') }}
-          </p>
-        </div>
+
 
         <!-- Liste des projets -->
-        <div class="flex flex-col space-y-16">
-          <div
-            v-for="(project, index) in translatedProjects"
-            :key="index"
-            class="rounded-lg h-auto flex flex-col lg:flex-row items-center justify-between gap-6 bg-white dark:bg-gray-700 p-6 shadow-lg hover:shadow-2xl transition-shadow"
-          >
-            <!-- Image -->
-            <div class="lg:w-1/3 w-full">
-              <img
-                :src="project.image"
-                :alt="project.title"
-                class="w-full h-64 object-cover rounded-lg"
-              />
-            </div>
-
-            <!-- Texte -->
-            <div class="lg:w-2/3 w-full text-left">
-              <h2 class="text-2xl lg:text-3xl font-bold text-gray-800 dark:text-white mb-3">
-                {{ project.title }}
-              </h2>
-              <div class="mb-4">
-                <span
-                  class="inline-block bg-gray-900 text-white text-sm px-3 py-1 rounded-md"
-                >
-                  {{ project.tag }}
-                </span>
-              </div>
-              <p class="text-gray-700 dark:text-gray-300 text-lg leading-relaxed mb-4">
-                {{ project.description }}
-              </p>
-              <a
-                :href="project.link"
-                target="_blank"
-                class="inline-block bg-slate-900 hover:bg-slate-800 text-white text-sm py-2 px-5 rounded-lg mt-2 shadow-md hover:scale-105 transition duration-300"
+        <div class="mt-10 lg:mt-30 mb-10 lg:mb-30 p-2 lg:p-0">
+            <h1 class="text-2xl lg:text-4xl text-bold lg:flex lg:justify-start">{{ $t('works') }}.</h1>
+            <hr />
+            <div class="mt-5 lg:mt-10 grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div
+                class="overflow-hidden rounded-lg p-2 lg:p-4 first:ml-0 link shadow-lg"
+                v-for="(project, index) in translatedProjects"
+                  :key="index"
               >
-                {{ $t('viewSite') }}
-              </a>
+                <div
+                  class="relative rounded-lg overflow-hidden transition-all ease-out duration-300 h-48 mob:h-auto"
+                >
+                  <img
+                  class="h-full w-full object-cover hover:scale-110 transition-all ease-out duration-300"
+                    :src="project.image"
+                    :alt="project.title"
+                  />
+                </div>
+                <h2 class="flex justify-start text-3xl">
+                  {{ project.title }}
+                </h2>
+                <h3 class="flex justify-start text-md opacity-50">
+                  <span class="bg-slate-700 dark:bg-slate-100 text-slate-100 dark:text-slate-700 p-1 rounded">{{ project.tag }}</span>
+                </h3>
+              </div>
             </div>
-          </div>
         </div>
+
       </div>
     </div>
   </section>
@@ -82,6 +62,12 @@ const projectsData = [
     key: 'portfolio',
     image: '/src/assets/images/portfolio.png',
     link: 'https://www.chrislainavocegan.site',
+    className: 'bg-gray-500',
+  },
+  {
+    key: 'flex-interim',
+    image: '/src/assets/images/portfolio.png',
+    link: 'https://www.flex-interim.com',
     className: 'bg-gray-500',
   },
 ];

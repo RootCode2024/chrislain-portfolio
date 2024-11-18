@@ -26,7 +26,7 @@ onMounted(() => {
 <template>
   <div class="flex flex-col min-h-screen">
     <NavBar :toggleTheme="toggleTheme" />
-    <div class="flex-grow lg:mt-48 mt-24">
+    <div class="flex-grow lg:mt-16 mt-24">
       <RouterView />
     </div>
     <Footer />

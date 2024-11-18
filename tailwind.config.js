@@ -5,7 +5,13 @@ module.exports = {
   ],
   darkMode: 'class',  // Active le mode sombre basé sur la classe 'dark'
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        'slate-700': '#01161E',  // Change bg-slate-700 to #01161E
+        'slate-100': '#EFF6E0'
+      },
+    },
   },
   plugins: [],
 }
+

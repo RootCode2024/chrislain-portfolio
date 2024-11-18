@@ -6,13 +6,13 @@
 </script>
 
 <template>
-  <div class="lg:flex lg:flex-row justify-left items-left max-w-full">
-    <div class="mx-auto my-auto lg:flex justify-left px-4 sm:px-6 md:px-8">
+  <div class="lg:flex lg:flex-row justify-center items-center max-w-full">
+    <div class="mx-auto lg:flex justify-left px-4 sm:px-6 md:px-8">
       <div class="text-left">
         <h1 class="mx-auto text-center lg:text-left text-2xl tracking-tight sm:text-3xl md:text-5xl font-black">
           <span class="block xl:inline">
             <span class="bg-gradient-to-r from-indigo-400 to-green-600 bg-clip-text text-transparent">
-              {{ t('amazingWebExperiences') }}
+              {{ $t('im') }} {{ $t('nickName') }}
             </span>
           </span>
           <div class="mt-2">
@@ -37,14 +37,15 @@
         <div class="mt-5 sm:mt-8 sm:flex sm:justify-left">
           <div class="rounded-md shadow">
             <a
-              class="flex w-full items-left justify-left rounded-md border border-transparent bg-blue-600 hover:bg-blue-700 text-base font-medium text-white px-4 py-2 md:py-2 md:px-5 md:text-lg dark:bg-blue-500 dark:hover:bg-blue-600"
-              href="#">{{ t('viewProjects') }}
+              class="flex w-full items-left justify-left rounded-sm border border-transparent bg-slate-600 hover:bg-slate-700 text-base font-medium text-white px-4 py-2 md:py-2 md:px-5 md:text-lg dark:bg-slate-500 dark:hover:bg-slate-600"
+              href="#">
+              {{ t('haveProject') }}
             </a>
           </div>
         </div>
       </div>
     </div>
-    <div class="flex justify-right my-auto mx-auto">
+    <div class="flex justify-center mx-auto">
       <DotLottie />
     </div>
   </div>
