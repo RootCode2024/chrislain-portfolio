@@ -52,5 +52,117 @@
             "copyright" : "All rights reserved.",
             "makeAnAppointment" : "Schedule an Appointment"
         }
-    }
+    },
+    "about": {
+        "title": "About me",
+        "description": "I am a passionate web developer who loves to create unique digital experiences. I am always looking for new challenges and opportunities to learn and grow.",
+        "longDescription": "I am Chrislain Avocegan, also known as ChrisCoder. A passionate full-stack web developer, I combine technical expertise and creativity to design modern, efficient, and intuitive web solutions. With a specialization in Laravel, Vue.js, PHP, Tailwind CSS, and WordPress, I have collaborated on a variety of projects ranging from showcase websites to robust web applications for businesses and individuals. My journey has allowed me to master the entire development process, from initial design to final deployment, while ensuring optimal user experiences. What sets me apart: Technical skills: A deep understanding of back-end and front-end technologies, combined with a sensitivity for UX/UI design. Successful projects: I have worked on projects such as NH High School, a school management application, or Glory's Nails, a stylish website for a women's beauty salon. Continuous learning: Passionate about innovation, I spend time learning new technologies and techniques to constantly improve my skills. My approach: My goal is to solve complex problems with simple, elegant, and functional solutions. Whether it's for a startup seeking visibility or an established business looking to optimize its processes, I strive to offer personalized services tailored to each need. When I'm not coding, I enjoy activities like rollerblading, reading inspiring manga, or creating graphic designs.",
+        "myResume": "My Resume",
+        "sections": {
+            "workedYears": {
+                "title": "Years of experience",
+                "description": "I have worked over 5 years in web development, mainly using Laravel and Vue.js for exciting projects."
+            },
+            "workedProjects": {
+                "title": "Projects worked on",
+                "description": "I have worked on over 20 projects, including dynamic websites and full-stack web applications."
+            },
+            "certifications": {
+                "title": "Certifications",
+                "description": "I have obtained over 10 certifications in web development, mainly using Laravel and Vue.js for exciting projects."
+            },
+            "happyClients": {
+                "title": "Happy clients",
+                "description": "I have worked on over 20 projects, including dynamic websites and full-stack web applications."
+            }
+        }
+    },
+    "resume": {
+        "downloadButton": "Download",
+        "header": {
+        "name": "Chrislain Avocegan",
+        "title": "Full-Stack Developer"
+        },
+        "contact": {
+        "title": "Contact",
+        "phone": "Phone",
+        "email": "Email",
+        "address": "Address",
+        "city": "Dakar, Senegal"
+        },
+        "education": {
+            "title": "Education",
+            "items": [
+                {
+                "degree": "Bachelor's in Software Engineering",
+                "institution": "IPG-ISTI, Dakar",
+                "year": "2018 - 2021"
+                },
+                {
+                "degree": "Scientific High School Diploma",
+                "institution": "Porto-Novo, Benin",
+                "year": "2016 - 2017"
+                }
+            ]
+        },
+        "experience": {
+        "title": "Professional Experience",
+        "items": [
+            {
+            "role": "Project Manager Laravel/Flutter",
+            "company": "Nahema-Heaven Co.",
+            "period": "Since February 2023",
+            "details": [
+                "Project planning and schedule management",
+                "Resource and budget management",
+                "Risk management (identification and mitigation)"
+            ]
+            },
+            {
+            "role": "WordPress Developer",
+            "company": "Rohaya Holding, Rufisque",
+            "period": "September 2022 - January 2023",
+            "details": [
+                "Designing mockups with Figma",
+                "Building responsive websites with WordPress",
+                "Participating in project follow-up meetings"
+            ]
+            },
+            {
+            "role": "Project Assistant Intern",
+            "company": "PMD Developer, Dakar",
+            "period": "February 2020 - June 2022",
+            "details": [
+                "Backend development with PHP",
+                "Contributing to project plans development"
+            ]
+            }
+        ]
+        },
+        "skills": {
+        "title": "Skills",
+        "items": [
+            "Languages and Frameworks: Laravel, Vue.js, WordPress",
+            "Design: Figma, Canvas",
+            "CSS Framework: Tailwind CSS"
+        ]
+        },
+        "interests": {
+        "title": "Interests",
+        "items": [
+            "Reading",
+            "Roller-blading",
+            "Photography",
+            "Sports"
+        ]
+        },
+        "dialog": {
+        "title": "Choose the Resume language",
+        "languageLabel": "Language",
+        "french": "French",
+        "english": "English",
+        "submitButton": "Download",
+        "closeButton": "Close"
+        }
+    }      
 }

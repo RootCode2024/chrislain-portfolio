@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from 'vue';
+import { ref, onMounted } from 'vue';
 import { useI18n } from 'vue-i18n';
 import { RouterLink } from 'vue-router';
 
@@ -9,6 +9,11 @@ const theme = ref(localStorage.getItem('theme') || 'light');
 const dropdownOpen = ref(false);
 const mobileMenuOpen = ref(false);
 
+/**
+ * Toggle the dropdown menu open or closed.
+ *
+ * @returns {void}
+ */
 const toggleDropdown = () => {
   dropdownOpen.value = !dropdownOpen.value;
 };
@@ -22,6 +27,10 @@ const changeLanguage = (selectedLang) => {
   locale.value = selectedLang;
   locales.value = selectedLang;
 };
+
+onMounted(() => {
+  changeLanguage(locales.value);
+});
 
 const toggleTheme = () => {
   theme.value = theme.value === 'dark' ? 'light' : 'dark';
@@ -67,7 +76,7 @@ const toggleTheme = () => {
             {{ $t('home.navBar.contact') }}
           </RouterLink>
         </li>
-        
+
         <li>
           <!-- Language Dropdown -->
           <div @click="toggleDropdown" class="relative">
