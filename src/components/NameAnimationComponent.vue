@@ -1,21 +1,15 @@
 <template>
-  <div class="container">
-    <div class="text"></div>
-  </div>
+  <div class="text"></div>
 </template>
 
 <script setup>
-import { onMounted, ref, computed, watch } from 'vue';
-import { useI18n } from 'vue-i18n';
+import { onMounted, ref, computed, watch } from 'vue'
+import { useI18n } from 'vue-i18n'
 
-const { t, locale } = useI18n();
+const { t, locale } = useI18n()
 
 // Variable pour gérer la langue sélectionnée
-const locales = ref('en');
-const changeLanguage = (selectedLang) => {
-  locale.value = selectedLang;
-  locales.value = selectedLang;
-};
+
 
 // Définition de la classe TextScramble
 class TextScramble {
@@ -56,7 +50,7 @@ class TextScramble {
           char = this.randomChar();
           this.queue[i].char = char;
         }
-        output += `<span class="dud">${char}</span>`;
+        output += `<span>${char}</span>`;
       } else {
         output += from;
       }
@@ -77,10 +71,9 @@ class TextScramble {
 
 // Variables réactives pour gérer l'animation et le contenu des phrases
 const phrases = computed(() => [
-  t('hi'),
-  t('im'),
-  t('name'),
-  t('callMe')
+  t('home.heroe.hi'),
+  t('home.heroe.im'),
+  t('home.heroe.callMe')
 ]);
 
 const counter = ref(0);
@@ -91,7 +84,7 @@ const next = () => {
   if (counter.value < phrases.value.length) {
     if (fx.value) {
       fx.value.setText(phrases.value[counter.value]).then(() => {
-        setTimeout(next, 2000);
+        setTimeout(next, 1500);
       });
     }
     counter.value++;
@@ -117,6 +110,6 @@ watch(locale, () => {
 
 <style scoped>
 .text {
-  @apply bg-gradient-to-r from-indigo-400 to-green-600 bg-clip-text text-transparent tracking-tight text-center lg:text-start sm:text-xl lg:text-5xl;
+  @apply bg-gradient-to-r from-indigo-400 to-green-600 bg-clip-text text-transparent tracking-tight;
 }
 </style>

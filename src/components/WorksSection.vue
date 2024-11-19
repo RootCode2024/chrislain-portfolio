@@ -6,11 +6,11 @@
 
         <!-- Liste des projets -->
         <div class="mt-10 lg:mt-30 mb-10 lg:mb-30 p-2 lg:p-0">
-            <h1 class="text-2xl lg:text-4xl text-bold lg:flex lg:justify-start">{{ $t('works') }}.</h1>
+            <h1 class="text-2xl lg:text-4xl font-thin lg:flex lg:justify-start">{{ $t('home.projects.title') }}.</h1>
             <hr />
             <div class="mt-5 lg:mt-10 grid grid-cols-1 md:grid-cols-2 gap-4">
               <div
-                class="overflow-hidden rounded-lg p-2 lg:p-4 first:ml-0 link shadow-lg"
+                class="overflow-hidden rounded-lg p-2 lg:p-4 first:ml-0 link shadow-sm"
                 v-for="(project, index) in translatedProjects"
                   :key="index"
               >
@@ -23,11 +23,11 @@
                     :alt="project.title"
                   />
                 </div>
-                <h2 class="flex justify-start text-3xl">
+                <h2 class="flex justify-start text-3xl my-2">
                   {{ project.title }}
                 </h2>
                 <h3 class="flex justify-start text-md opacity-50">
-                  <span class="bg-slate-700 dark:bg-slate-100 text-slate-100 dark:text-slate-700 p-1 rounded">{{ project.tag }}</span>
+                  <span class="bg-slate-700 dark:bg-slate-100 text-slate-100 dark:text-slate-700 p-1 rounded-xl">{{ project.tag }}</span>
                 </h3>
               </div>
             </div>
@@ -76,9 +76,9 @@ const projectsData = [
 const translatedProjects = computed(() =>
   projectsData.map((project) => ({
     ...project,
-    title: t(`projects.${project.key}.title`),
-    description: t(`projects.${project.key}.description`),
-    tag: t(`projects.${project.key}.tag`, { defaultValue: 'Website' }),
+    title: t(`home.projects.${project.key}.title`),
+    description: t(`home.projects.${project.key}.description`),
+    tag: t(`home.projects.${project.key}.tag`, { defaultValue: 'Website' }),
   }))
 );
 </script>

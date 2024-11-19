@@ -30,6 +30,6 @@ const openCalendlyPopup = () => {
 
 <template>
   <button @click="openCalendlyPopup" class="bg-black dark:bg-slate-200 dark:text-black text-white py-2 px-4 rounded hover:bg-gray-700 dark:hover:bg-slate-800 dark:hover:text-white transition duration-300">
-    {{ $t('sections.footer.makeAnAppointment') }}
+    {{ $t('home.footer.makeAnAppointment') }}
   </button>
 </template>

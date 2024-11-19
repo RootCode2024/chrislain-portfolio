@@ -7,14 +7,14 @@
   <footer class="relative py-8 px-8">
     <div class="mt-5 lg:mt-40 p-2 lg:p-0">
       <div>
-        <h1 class="text-2xl lg:text-4xl">Contact.</h1>
+        <h1 class="text-2xl lg:text-4xl">{{ $t('home.navBar.contact') }}.</h1>
         <div class="flex justify-between">
           <div class="mt-10 w-1/2">
             <h1 class="text-3xl md:text-6xl lg:text-6xl lgl:text-8xl">
-              {{ $t('sections.footer.letsWork') }}
+              {{ $t('home.footer.letsWork') }}
             </h1>
             <h1 class="text-3xl md:text-6xl lg:text-6xl lgl:text-8xl">
-              {{ $t('sections.footer.together') }}
+              {{ $t('home.footer.together') }}
             </h1>
             <div class="my-5">
               <CalendlyComponent />
@@ -24,13 +24,13 @@
             </div>
           </div>
           <div class="my-auto p-2 w-1/2">
-            <p class="text-lg italic">{{ $t('sections.footer.description') }}</p>
+            <p class="text-lg italic">{{ $t('home.footer.description') }}</p>
           </div>
         </div>
       </div>
     </div>
     <h1 class="text-sm text-center font-bold mt-2 lg:mt-10 p-2 lg:p-0">
-      <p>&copy; 2024 Chrislain AVOCEGAN | {{ $t('sections.footer.copyright') }}</p>
+      <p>&copy; 2024 Chrislain AVOCEGAN | {{ $t('home.footer.copyright') }}</p>
     </h1>
     
     <div class="gradient-circle-bottom"></div>

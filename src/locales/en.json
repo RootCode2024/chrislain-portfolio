@@ -1,57 +1,56 @@
 {
-    "title": "My Projects",
-    "description": "Here are some projects I've worked on recently.",
-    "projects": {
-        "gie": {
-            "title": "GIE Holding Group Diama",
-            "description": "Corporate website built with WordPress and Elementor for an intuitive interface, offering a dynamic and professional presentation of the company's services and projects.",
-            "tag": "WordPress"
+    "home": {
+        "navBar": {
+            "home": "Home",
+            "about": "About",
+            "resume": "Resume",
+            "contact": "Contact",
+            "works": "Works"
         },
-        "future": {
-            "title": "Future Transport Expo",
-            "description": "Website for Rohaya Holding, highlighting innovation in transportation with a modern interface and interactive features for visitors.",
-            "tag": "WordPress"
-        },
-        "portfolio": {
-            "title": "Personal Portfolio",
-            "description": "Interactive portfolio developed with VueJS, showcasing a curated selection of projects with advanced customizations for a unique user experience.",
-            "tag": "VueJS"
-        },
-        "flex-interim": {
-            "title": "Flex Interim",
-            "description": "Interactive portfolio developed with VueJS, showcasing a curated selection of projects with advanced customizations for a unique user experience.",
-            "tag": "SEO"
-        }
-    },
-    "sections": {
-        "footer":{
-            "letsWork" : "LET'S WORK",
-            "together": "TOGETHER",
-            "description" : "I'm a passionate web developer with a love for building unique digital experiences. I'm always looking for new challenges and opportunities to learn and grow.",
-            "copyright" : "All Rights Reserved.",
-            "makeAnAppointment" : "Make an Appointment"
+        "heroe": {
+            "hi": "Hey, ",
+            "im": "I am Chrislain",
+            "fullName": "Chrislain AVOCEGAN",
+            "callMe" : "Call Me ChrisCoder",
+            "nickName" : "ChrisCoder",
+            "myWork": "Full Stack Developer",
+            "introDescription": "Your full-stack developer and Laravel expert. I spend my nights (and often my days) creating innovative web solutions with <a href='/projects' class='text-blue-500'>Laravel, Vue.js</a>, and <a href='/technologie' class='text-blue-500'>Tailwind CSS</a>, turning ideas into intuitive, functional, and aesthetic digital experiences. Passionate about code logic, my motivation arises from the complexity of each project. With a strong taste for code aesthetics, I strive to create smooth and efficient code.",
+            "myResume": "My Resume"
         },
         "skills":{
             "title": "Skills",
-            "description": "My web development skills."
+            "description": "My skills in web development."
+        },
+        "projects": {
+            "title": "My Works",
+            "description": "Here are some projects I have worked on recently.",
+            "gie": {
+                "title": "GIE Holding Group Diama",
+                "description": "Corporate website created with WordPress and Elementor for an intuitive interface, offering a dynamic and professional presentation of the company's services and projects.",
+                "tag": "WordPress"
+            },
+            "future": {
+                "title": "Future Transport Expo",
+                "description": "Showcase site for Rohaya Holding, highlighting innovation in transport with a modern interface and interactive features for visitors.",
+                "tag": "WordPress"
+            },
+            "portfolio": {
+                "title": "Personal Portfolio",
+                "description": "Interactive portfolio developed in VueJS, presenting a curated collection of projects with advanced customizations for a unique user experience.",
+                "tag": "VueJS"
+            },
+            "flex-interim": {
+                "title": "Flex Interim",
+                "description": "Interactive portfolio developed with VueJS, showcasing a curated selection of projects with advanced customizations for a unique user experience.",
+                "tag": "SEO"
+            }
+        },
+        "footer":{
+            "letsWork" : "LET'S WORK",
+            "together": "TOGETHER",
+            "description" : "I am a passionate web developer who loves to create unique digital experiences. I am always looking for new challenges and opportunities to learn and grow.",
+            "copyright" : "All rights reserved.",
+            "makeAnAppointment" : "Schedule an Appointment"
         }
-    },
-    "hi": "Hi, ",
-    "im": "I'm",
-    "name": "Chrislain AVOCEGAN",
-    "nickName" : "ChrisCoder",
-    "callMe": "Call Me ChrisCoder",
-    "home": "Home",
-    "about": "About",
-    "resume": "Resume",
-    "contact": "Contact",
-    "homeDetail": "This is an HomePage page",
-    "works": "Works",
-    "create": "Building",
-    "moreEngaging": "Back-End Engineer",
-    "withPowerfulCode": "with powerful code.",
-    "introDescription": "Your full-stack developer and Laravel expert. I spend my nights (and often my days) creating innovative web solutions with <a href='/projects' class='text-blue-500'>Laravel, Vue.js</a>, and <a href='/technologie' class='text-blue-500'>Tailwind CSS</a>, transforming ideas into intuitive, functional, and aesthetic digital experiences.Passionate about the logic of code, my motivation comes from the complexity of a project. With a strong appreciation for clean code aesthetics, I focus on producing smooth and efficient code. When I'm not coding, I enjoy diving into <a href='/mangas' class='text-blue-500'>mangas</a> and staying up-to-date with the latest trends in <a href='/technologie' class='text-blue-500'>technology</a>.Let's collaborate to bring your digital vision to life—don't hesitate to <a href='/contact' class='text-indigo-500 hover:underline hover:font-bold'>CONTACT ME</a>!",
-    "haveProject": "Have a project ?",
-    "viewSite": "See Website"
-  }
-  
+    }
+}
