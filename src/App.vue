@@ -1,7 +1,7 @@
 <script setup>
 import { RouterView } from 'vue-router';
-import NavBar from './components/NavBar.vue';
-import Footer from './components/FooterComponent.vue';
+import NavBar from './components/partials/NavBarComponent.vue';
+import Footer from './components/partials/FooterComponent.vue';
 import useTheme from './components/useTheme';
 
 const { toggleTheme } = useTheme();

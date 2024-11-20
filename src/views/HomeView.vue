@@ -1,7 +1,7 @@
 <script setup>
-import HeroeSection from '../components/HeroeSection.vue'
-import WorksSection from '../components/WorksSection.vue'
-import SkillsSection from '../components/SkillsSection.vue'
+import HeroeSection from '../components/home/HeroeSection.vue'
+import SkillsSection from '../components/home/SkillsSection.vue'
+import WorksSection from '../components/home/WorksSection.vue'
 
 import { ref, onMounted } from 'vue'
 
@@ -21,5 +21,5 @@ onMounted(() => {
 <template>
   <HeroeSection />
   <SkillsSection />
-  <worksSection />
+  <WorksSection />
 </template>

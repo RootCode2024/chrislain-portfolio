@@ -1,6 +1,6 @@
 <script setup>
-  import CalendlyComponent from './CalendlyComponent.vue';
-  import SocialsSection from './SocialsSection.vue';
+  import CalendlyComponent from '@/components/elements/CalendlyComponent.vue';
+  import SocialsSection from '@/components/elements/SocialsSection.vue';
 </script>
 
 <template>
@@ -32,7 +32,7 @@
     <h1 class="text-sm text-center font-bold mt-2 lg:mt-10 p-2 lg:p-0">
       <p>&copy; 2024 Chrislain AVOCEGAN | {{ $t('home.footer.copyright') }}</p>
     </h1>
-    
+
     <div class="gradient-circle-bottom"></div>
   </footer>
 </template>

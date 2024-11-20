@@ -45,7 +45,7 @@ const toggleTheme = () => {
     <nav>
       <!-- Logo -->
       <RouterLink to="/" class="">
-        <img :src="`/src/assets/images/chrislain-${theme}-logo.png`" class="w-8 h-8">
+        <img :src="`/src/assets/images/chrislain-${theme}-logo.png`" alt="Logo Chrislain" class="w-8 h-8">
       </RouterLink>
 
       <!-- Hamburger menu for mobile -->
@@ -86,10 +86,10 @@ const toggleTheme = () => {
             </div>
             <div v-if="dropdownOpen" class="absolute shadow-lg z-10">
               <div @click="changeLanguage('en')" class="cursor-pointer" v-if="locales === 'fr'">
-                <img src="./../assets/images/flag-usa.svg" alt="USA Flag" class="w-5 h-5" />
+                <img src="/src/assets/images/flag-usa.svg" alt="USA Flag" class="w-5 h-5" />
               </div>
               <div @click="changeLanguage('fr')" class="cursor-pointer" v-else>
-                <img src="./../assets/images/flag-france.svg" alt="France Flag" class="w-5 h-5" />
+                <img src="/src/assets/images/flag-france.svg" alt="France Flag" class="w-5 h-5" />
               </div>
             </div>
           </div>

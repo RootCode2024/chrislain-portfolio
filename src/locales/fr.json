@@ -86,9 +86,9 @@
           },
           "contact": {
             "title": "Contact",
-            "phone": "Téléphone :",
-            "email": "Email :",
-            "address": "Adresse :",
+            "phone": "Téléphone",
+            "email": "Email",
+            "address": "Adresse",
             "city": "Dakar, Sénégal"
           },
           "education": {

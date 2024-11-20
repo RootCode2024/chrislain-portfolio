@@ -12,7 +12,7 @@ const defaultLang = savedLang || browserLang || 'en'; // Priorité : Sauvegardé
 const i18n = createI18n({
   legacy: false, // Utilise l'API composition pour i18n
   locale: defaultLang, // Définit la langue initiale
-  fallbackLocale: 'fr', // Langue de secours
+  fallbackLocale: 'en', // Langue de secours
   messages: { en, fr }, // Traductions
   allowHtml: true,
 });

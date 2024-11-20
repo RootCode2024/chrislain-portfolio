@@ -1,7 +1,7 @@
 <script setup>
   import { useI18n } from 'vue-i18n'
-  import DotLottie from './DotLottie.vue'
-  import NameAnimationComponent from './NameAnimationComponent.vue'
+  import DotLottie from './../icons/DotLottie.vue'
+  import NameAnimationComponent from './../elements/NameAnimationComponent.vue'
 
   const { t } = useI18n()
 </script>
@@ -24,14 +24,14 @@
         v-html="t('home.heroe.introDescription')"></div>
         <div class="mt-5 sm:mt-8 sm:flex sm:justify-left">
           <div class="">
-            <a href="" class="flex justify-between space-x-2 text-slate-700 underline underline-offset-4 hover:underline-offset-0 dark:text-slate-100">
+            <RouterLink to="/resume" class="flex justify-between space-x-2 text-slate-700 underline underline-offset-4 hover:underline-offset-0 dark:text-slate-100">
               <span>{{ $t('home.heroe.myResume') }}</span>
               <span class="animate bounce-x">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3" />
                 </svg>
               </span>
-            </a>
+            </RouterLink>
           </div>
         </div>
       </div>
