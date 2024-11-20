@@ -18,9 +18,25 @@
     background-color: #01161E;
     color: #EFF6E0;
   }
+  .gradient-circle {
+  position: absolute;
+  pointer-events: none;
+  z-index: 100;
+  top: -30px;
+  height: 40px;
+  width: 100%;
+  opacity: 0.5;
+  filter: blur(40px);
+  background: radial-gradient(
+    circle,
+    rgb(112, 255, 176) 0%,
+    rgba(94, 158, 255, 0.8) 100%
+  );
+}
 
   </style>
   <body>
+    <div class="gradient-circle"></div>
     <div id="app"></div>
     <script type="module" src="/src/main.js"></script>
     <script>

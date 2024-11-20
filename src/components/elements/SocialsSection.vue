@@ -1,6 +1,5 @@
 <script setup>
   import datas from './../../data/portfolio.json'
-console.log(datas)
 </script>
 
 <template>

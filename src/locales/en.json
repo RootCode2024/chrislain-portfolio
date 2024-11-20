@@ -148,13 +148,13 @@
         ]
         },
         "interests": {
-        "title": "Interests",
-        "items": [
-            "Reading",
-            "Roller-blading",
-            "Photography",
-            "Sports"
-        ]
+            "title": "Interests",
+            "items": [
+                "Reading",
+                "Roller-blading",
+                "Photography",
+                "Sports"
+            ]
         },
         "dialog": {
         "title": "Choose the Resume language",
@@ -164,5 +164,27 @@
         "submitButton": "Download",
         "closeButton": "Close"
         }
-    }      
+    },
+    "contact": {
+        "title": "Get In Touch",
+        "form": {
+          "nameLabel": "Your Name",
+          "emailLabel": "Your Email",
+          "messageLabel": "Your Message",
+          "sendButton": "Send",
+          "sendingButton": "Sending...",
+          "successMessage": "Message sent successfully!",
+          "errorMessage": "An error occurred. Please try again later."
+        },
+        "information": {
+          "title": "Contact Information",
+          "emailLabel": "Email",
+          "phoneLabel": "Phone",
+          "comeUpLabel": "Find me on ComeUp",
+          "securityMessage": "For optimal security, you can also reach me through Come Up, a secure platform that guarantees payment protection and client satisfaction. It&apos;s a trusted way to collaborate with transparency and confidence."
+        },
+        "location": {
+          "title": "My Location"
+        }
+      }      
 }

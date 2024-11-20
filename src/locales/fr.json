@@ -165,6 +165,28 @@
             "submitButton": "Télécharger",
             "closeButton": "Fermer"
           }
-        }      
+        },
+        "contact": {
+          "title": "Entrez En Contact",
+          "form": {
+            "nameLabel": "Votre Nom",
+            "emailLabel": "Votre Email",
+            "messageLabel": "Votre Message",
+            "sendButton": "Envoyer",
+            "sendingButton": "Envoi...",
+            "successMessage": "Message envoyé avec succès !",
+            "errorMessage": "Une erreur s'est produite. Veuillez réessayer plus tard."
+          },
+          "information": {
+            "title": "Informations de Contact",
+            "emailLabel": "Email",
+            "phoneLabel": "Téléphone",
+            "comeUpLabel": "Retrouvez-moi sur ComeUp",
+            "securityMessage": "Pour une sécurité optimale, vous pouvez également me contacter via Come Up, une plateforme sécurisée qui garantit la protection des paiements et la satisfaction des clients. C'est un moyen fiable de collaborer en toute transparence et confiance."
+          },
+          "location": {
+            "title": "Ma Localisation"
+          }
+        }    
 }
   
