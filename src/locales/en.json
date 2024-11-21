@@ -14,7 +14,7 @@
             "callMe" : "Call Me ChrisCoder",
             "nickName" : "ChrisCoder",
             "myWork": "Full Stack Developer",
-            "introDescription": "Your full-stack developer and Laravel expert. I spend my nights (and often my days) creating innovative web solutions with <a href='/projects' class='text-blue-500'>Laravel, Vue.js</a>, and <a href='/technologie' class='text-blue-500'>Tailwind CSS</a>, turning ideas into intuitive, functional, and aesthetic digital experiences. Passionate about code logic, my motivation arises from the complexity of each project. With a strong taste for code aesthetics, I strive to create smooth and efficient code.",
+            "introDescription": "Your full-stack developer and Laravel expert. I spend my nights (and often my days) creating innovative web solutions with <a href='/projects' class='text-blue-500'>Laravel, Vue.js</a>, and <a href='/technologie' class='text-blue-500'>Tailwind CSS</a>, turning ideas into intuitive, functional, and aesthetic digital experiences. Passionate about code logic, my motivation arises from the complexity of each <a href='/projects' class='text-blue-500 hover:underline hover:underline-offset-2'>project</a>. With a strong taste for code aesthetics, I strive to create smooth and efficient code.",
             "myResume": "My Resume"
         },
         "skills":{
@@ -78,6 +78,7 @@
         }
     },
     "resume": {
+        "title": "Resume",
         "downloadButton": "Download",
         "header": {
         "name": "Chrislain Avocegan",
@@ -186,5 +187,5 @@
         "location": {
           "title": "My Location"
         }
-      }      
+    }      
 }

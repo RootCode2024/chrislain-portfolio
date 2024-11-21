@@ -78,115 +78,116 @@
             }
         }
     },
-        "resume": {
-          "downloadButton": "Télécharger",
-          "header": {
-            "name": "Chrislain Avocegan",
-            "title": "Développeur Full-Stack"
+    "resume": {
+      "title": "CV",
+      "downloadButton": "Télécharger",
+      "header": {
+        "name": "Chrislain Avocegan",
+        "title": "Développeur Full-Stack"
+      },
+      "contact": {
+        "title": "Contact",
+        "phone": "Téléphone",
+        "email": "Email",
+        "address": "Adresse",
+        "city": "Dakar, Sénégal"
+      },
+      "education": {
+        "title": "Formation",
+        "items": [
+          {
+            "degree": "Licence en Génie Logiciel",
+            "institution": "IPG-ISTI, Dakar",
+            "year": "2018 - 2021"
           },
-          "contact": {
-            "title": "Contact",
-            "phone": "Téléphone",
-            "email": "Email",
-            "address": "Adresse",
-            "city": "Dakar, Sénégal"
-          },
-          "education": {
-            "title": "Formation",
-            "items": [
-              {
-                "degree": "Licence en Génie Logiciel",
-                "institution": "IPG-ISTI, Dakar",
-                "year": "2018 - 2021"
-              },
-              {
-                "degree": "Baccalauréat Série Scientifique",
-                "institution": "Porto-Novo, Bénin",
-                "year": "2016 - 2017"
-              }
-            ]
-          },
-          "experience": {
-            "title": "Expérience Professionnelle",
-            "items": [
-              {
-                "role": "Chargé de Projet Laravel/Flutter",
-                "company": "Nahema-Heaven Co.",
-                "period": "Depuis Février 2023",
-                "details": [
-                  "Élaboration du plan de projet et gestion des calendriers",
-                  "Gestion des ressources et du budget",
-                  "Gestion des risques (identification et réactions aux imprévus)"
-                ]
-              },
-              {
-                "role": "Développeur WordPress",
-                "company": "Rohaya Holding, Rufisque",
-                "period": "Septembre 2022 - Janvier 2023",
-                "details": [
-                  "Élaboration de maquettes avec Figma",
-                  "Création de sites web responsive avec WordPress",
-                  "Participation aux réunions et suivi des projets"
-                ]
-              },
-              {
-                "role": "Stagiaire Chargé de Projet",
-                "company": "PMD Developer, Dakar",
-                "period": "Février 2020 - Juin 2022",
-                "details": [
-                  "Développement backend avec PHP",
-                  "Participation à l'élaboration des plans de projet"
-                ]
-              }
-            ]
-          },
-          "skills": {
-            "title": "Compétences",
-            "items": [
-              "Langages et Frameworks : Laravel, Vue.js, WordPress",
-              "Design : Figma, Canvas",
-              "CSS Framework : Tailwind CSS"
-            ]
-          },
-          "interests": {
-            "title": "Centres d'Intérêt",
-            "items": [
-              "Lecture",
-              "Roller-blade",
-              "Photographie",
-              "Sport"
-            ]
-          },
-          "dialog": {
-            "title": "Choisissez la langue du CV",
-            "languageLabel": "Langue",
-            "french": "Français",
-            "english": "Anglais",
-            "submitButton": "Télécharger",
-            "closeButton": "Fermer"
+          {
+            "degree": "Baccalauréat Série Scientifique",
+            "institution": "Porto-Novo, Bénin",
+            "year": "2016 - 2017"
           }
-        },
-        "contact": {
-          "title": "Entrez En Contact",
-          "form": {
-            "nameLabel": "Votre Nom",
-            "emailLabel": "Votre Email",
-            "messageLabel": "Votre Message",
-            "sendButton": "Envoyer",
-            "sendingButton": "Envoi...",
-            "successMessage": "Message envoyé avec succès !",
-            "errorMessage": "Une erreur s'est produite. Veuillez réessayer plus tard."
+        ]
+      },
+      "experience": {
+        "title": "Expérience Professionnelle",
+        "items": [
+          {
+            "role": "Chargé de Projet Laravel/Flutter",
+            "company": "Nahema-Heaven Co.",
+            "period": "Depuis Février 2023",
+            "details": [
+              "Élaboration du plan de projet et gestion des calendriers",
+              "Gestion des ressources et du budget",
+              "Gestion des risques (identification et réactions aux imprévus)"
+            ]
           },
-          "information": {
-            "title": "Informations de Contact",
-            "emailLabel": "Email",
-            "phoneLabel": "Téléphone",
-            "comeUpLabel": "Retrouvez-moi sur ComeUp",
-            "securityMessage": "Pour une sécurité optimale, vous pouvez également me contacter via Come Up, une plateforme sécurisée qui garantit la protection des paiements et la satisfaction des clients. C'est un moyen fiable de collaborer en toute transparence et confiance."
+          {
+            "role": "Développeur WordPress",
+            "company": "Rohaya Holding, Rufisque",
+            "period": "Septembre 2022 - Janvier 2023",
+            "details": [
+              "Élaboration de maquettes avec Figma",
+              "Création de sites web responsive avec WordPress",
+              "Participation aux réunions et suivi des projets"
+            ]
           },
-          "location": {
-            "title": "Ma Localisation"
+          {
+            "role": "Stagiaire Chargé de Projet",
+            "company": "PMD Developer, Dakar",
+            "period": "Février 2020 - Juin 2022",
+            "details": [
+              "Développement backend avec PHP",
+              "Participation à l'élaboration des plans de projet"
+            ]
           }
-        }    
+        ]
+      },
+      "skills": {
+        "title": "Compétences",
+        "items": [
+          "Langages et Frameworks : Laravel, Vue.js, WordPress",
+          "Design : Figma, Canvas",
+          "CSS Framework : Tailwind CSS"
+        ]
+      },
+      "interests": {
+        "title": "Centres d'Intérêt",
+        "items": [
+          "Lecture",
+          "Roller-blade",
+          "Photographie",
+          "Sport"
+        ]
+      },
+      "dialog": {
+        "title": "Choisissez la langue du CV",
+        "languageLabel": "Langue",
+        "french": "Français",
+        "english": "Anglais",
+        "submitButton": "Télécharger",
+        "closeButton": "Fermer"
+      }
+    },
+    "contact": {
+      "title": "Entrez En Contact",
+      "form": {
+        "nameLabel": "Votre Nom",
+        "emailLabel": "Votre Email",
+        "messageLabel": "Votre Message",
+        "sendButton": "Envoyer",
+        "sendingButton": "Envoi...",
+        "successMessage": "Message envoyé avec succès !",
+        "errorMessage": "Une erreur s'est produite. Veuillez réessayer plus tard."
+      },
+      "information": {
+        "title": "Informations de Contact",
+        "emailLabel": "Email",
+        "phoneLabel": "Téléphone",
+        "comeUpLabel": "Retrouvez-moi sur ComeUp",
+        "securityMessage": "Pour une sécurité optimale, vous pouvez également me contacter via Come Up, une plateforme sécurisée qui garantit la protection des paiements et la satisfaction des clients. C'est un moyen fiable de collaborer en toute transparence et confiance."
+      },
+      "location": {
+        "title": "Ma Localisation"
+      }
+    }    
 }
   

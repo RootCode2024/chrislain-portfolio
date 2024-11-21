@@ -1,16 +1,9 @@
-<script setup>
-import { useI18n } from 'vue-i18n';
-
-const { t } = useI18n();
-</script>
-
-
 <template>
-  <section class="py-12">
+  <section class="py-12 animate-fade-up animate-duration-[2000ms] animate-alternate">
     <div class="container mx-auto px-4 text-center">
       <div class="w-full">
         <!-- Liste des Compétences -->
-        <div class="mt-10 lg:mt-30 mb-10 lg:mb-30 p-2 lg:p-0">
+        <div class="p-2 lg:p-0">
           <h2 class="text-2xl lg:text-4xl font-thin lg:flex lg:justify-start">
             {{ t('home.skills.title') }}.
           </h2>
@@ -44,6 +37,12 @@ const { t } = useI18n();
     </div>
   </section>
 </template>
+
+<script setup>
+  import { useI18n } from 'vue-i18n'
+
+  const { t } = useI18n()
+</script>
 
 <style scoped>
 .logos {

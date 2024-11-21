@@ -1,13 +1,14 @@
 <template>
   <div class="relative">
-    <!-- Page Content -->
     <div class="container mx-auto mb-10">
       <div class="max-w-6xl mx-auto p-6">
-        <h1 class="text-3xl font-bold mb-6">{{ t('contact.title') }}</h1>
+        <h2 class="text-2xl animate-fade-right lg:text-4xl font-thin my-5 lg:flex lg:justify-start bg-gradient-to-b from-indigo-400 to-green-600 bg-clip-text text-transparent tracking-tight">
+          {{ t('contact.title') }}.
+        </h2>
 
         <div class="grid grid-cols-1 lg:grid-cols-2 lg:gap-8">
           <!-- Formulaire de contact -->
-          <form @submit.prevent="handleSubmit" method="POST" class="mb-6 lg:mb-0">
+          <form @submit.prevent="handleSubmit" class="mb-6 lg:mb-0 animate-fade-left">
             <div class="mb-4">
               <label for="name" class="block text-sm font-bold mb-2">{{ t('contact.form.nameLabel') }}</label>
               <input
@@ -62,7 +63,7 @@
           </form>
 
           <!-- Informations de contact -->
-          <div>
+          <div class="animate-fade animate-duration-[2000ms] animate-alternate">
             <h2 class="text-2xl font-bold mb-8 underline underline-offset-4">
               {{ t('contact.information.title') }}
             </h2>
@@ -109,58 +110,57 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
-import { useI18n } from 'vue-i18n';
+  import emailjs from "emailjs-com";
+  import { ref } from "vue";
+  import { useI18n } from "vue-i18n";
 
-// Initialisation de `useI18n` pour la traduction
-const { t } = useI18n();
+  const { t } = useI18n();
 
-// Données du formulaire
-const formData = ref({
-  name: "",
-  email: "",
-  message: "",
-});
+  // Données du formulaire
+  const formData = ref({
+    name: "",
+    email: "",
+    message: "",
+  });
 
-// États pour gérer l'affichage
-const isLoading = ref(false);
-const success = ref(false);
-const error = ref("");
+  // États pour gérer le feedback utilisateur
+  const isLoading = ref(false);
+  const success = ref(false);
+  const error = ref(false);
 
-// Fonction pour gérer la soumission du formulaire
-const handleSubmit = async () => {
-  try {
-    isLoading.value = true; // Indique que le formulaire est en cours de traitement
-    const response = await fetch("/api/sendMail", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(formData.value),
-    });
+  // Fonction pour envoyer l'email
+  const handleSubmit = () => {
+    isLoading.value = true;
+    success.value = false;
+    error.value = false;
 
-    if (response.ok) {
-      // Réinitialisation du formulaire en cas de succès
-      success.value = true;
-      formData.value = { name: "", email: "", message: "" };
-    } else {
-      // Gestion d'une erreur côté serveur
-      error.value = t('contact.form.errorMessage');
-    }
-  } catch (err) {
-    // Gestion des erreurs réseau ou côté client
-    console.error("Erreur lors de l'envoi du formulaire :", err);
-    error.value = t('contact.form.errorMessage');
-  } finally {
-    isLoading.value = false; // Fin du chargement
+    emailjs
+      .send(
+        "service_s8592se",
+        "template_ik22uc1",
+        formData.value,
+        "L8vifVhyMRH4ZlB9v"
+      )
+      .then(
+        () => {
+          success.value = true; // Succès
+          formData.value = { name: "", email: "", message: "" };
 
-    // Réinitialisation des états après un délai
-    setTimeout(() => {
-      success.value = false;
-      error.value = "";
-    }, 2000);
-  }
-};
+          // Réinitialiser success après 5 secondes
+          setTimeout(() => {
+            success.value = false;
+          }, 5000);
+        },
+        (err) => {
+          console.error("Erreur :", err);
+          error.value = true; // Erreur
+        }
+      )
+      .finally(() => {
+        isLoading.value = false; // Fin du chargement
+      });
+  };
+
 </script>
 
 <style scoped>

@@ -1,11 +1,11 @@
 <template>
-  <section class="py-24">
+  <section class="py-6 animate-fade-up animate-duration-[2000ms] animate-alternate">
     <div class="container mx-auto px-4 text-center">
       <div class="w-full">
 
 
         <!-- Liste des projets -->
-        <div class="mt-10 lg:mt-30 mb-10 lg:mb-30 p-2 lg:p-0">
+        <div class="mt-10 lg:mt-10 mb-10 lg:mb-30 p-2 lg:p-0">
             <h1 class="text-2xl lg:text-4xl font-thin lg:flex lg:justify-start">{{ $t('home.projects.title') }}.</h1>
             <hr />
             <div class="mt-5 lg:mt-10 grid grid-cols-1 md:grid-cols-2 gap-4">

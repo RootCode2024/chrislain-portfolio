@@ -44,7 +44,7 @@ const toggleTheme = () => {
   <header class="navbar">
     <nav>
       <!-- Logo -->
-      <RouterLink to="/" class="">
+      <RouterLink to="/">
         <img :src="`/src/assets/images/chrislain-${theme}-logo.png`" alt="Logo Chrislain" class="w-8 h-8">
       </RouterLink>
 
@@ -55,24 +55,24 @@ const toggleTheme = () => {
       </button>
 
       <!-- Navigation links -->
-      <ul :class="['flex justify-between mx-auto px-auto text-center space-x-6', mobileMenuOpen ? 'open' : '']">
+      <ul :class="['flex justify-between mx-auto px-auto text-center space-x-6', mobileMenuOpen ? 'block' : 'hidden md:flex']">
         <li>
-          <RouterLink to="/" class="hover:bg-slate-200 dark:hover:text-slate-800 rounded-md py-1 px-4" :class="{ 'dark:bg-slate-700 bg-slate-100 rounded-md py-1 px-4 dark:text-white text-slate-700': $route.path === '/' }">
+          <RouterLink to="/" class="hover:bg-slate-500 dark:hover:text-slate-300 rounded-md py-1 px-4" :class="{ 'dark:bg-slate-700 bg-slate-100 rounded-md py-1 px-4 dark:text-white text-slate-700': $route.path === '/' }">
             {{ $t('home.navBar.home') }}
           </RouterLink>
         </li>
         <li>
-          <RouterLink to="/about" class="hover:bg-slate-200 dark:hover:text-slate-800 rounded-md py-1 px-4" :class="{ 'dark:bg-slate-700 bg-slate-100 rounded-md py-1 px-4 dark:text-white text-slate-700': $route.path === '/about' }">
+          <RouterLink to="/about" class="hover:bg-slate-500 dark:hover:text-slate-300 rounded-md py-1 px-4" :class="{ 'dark:bg-slate-700 bg-slate-100 rounded-md py-1 px-4 dark:text-white text-slate-700': $route.path === '/about' }">
             {{ $t('home.navBar.about') }}
           </RouterLink>
         </li>
         <li>
-          <RouterLink to="/resume" class="hover:bg-slate-200 dark:hover:text-slate-800 rounded-md py-1 px-4" :class="{ 'dark:bg-slate-700 bg-slate-100 rounded-md py-1 px-4 dark:text-white text-slate-700': $route.path === '/resume' }">
+          <RouterLink to="/resume" class="hover:bg-slate-500 dark:hover:text-slate-300 rounded-md py-1 px-4" :class="{ 'dark:bg-slate-700 bg-slate-100 rounded-md py-1 px-4 dark:text-white text-slate-700': $route.path === '/resume' }">
             {{ $t('home.navBar.resume') }}
           </RouterLink>
         </li>
         <li>
-          <RouterLink to="/contact" class="hover:bg-slate-200 dark:hover:text-slate-800 rounded-md py-1 px-4" :class="{ 'dark:bg-slate-700 bg-slate-100 rounded-md py-1 px-4 dark:text-white text-slate-700': $route.path === '/contact' }">
+          <RouterLink to="/contact" class="hover:bg-slate-500 dark:hover:text-slate-300 rounded-md py-1 px-4" :class="{ 'dark:bg-slate-700 bg-slate-100 rounded-md py-1 px-4 dark:text-white text-slate-700': $route.path === '/contact' }">
             {{ $t('home.navBar.contact') }}
           </RouterLink>
         </li>
@@ -112,63 +112,70 @@ const toggleTheme = () => {
 </template>
 
 <style scoped>
+.navbar {
+  position: fixed;
+  top: 30px;
+  left: 0;
+  right: 0;
+  max-width: 700px;
+  margin: 0 auto;
+  border-radius: 20px;
+  background-color: var(--navbar-bg, #fff);
+  @apply dark:bg-slate-600;
+  @apply dark:opacity-90;
+  padding: 10px 20px;
+  z-index: 1000;
+}
 
+.navbar nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Mobile-specific styles */
+.mobile-menu-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+}
+
+.nav-links.open {
+  display: block;
+}
+
+@media (max-width: 768px) {
   .navbar {
-    position: fixed;
-    top: 30px;
-    left: 0;
-    right: 0;
-    max-width: 700px;
-    margin: 0 auto;
-    border-radius: 20px;
-    background-color: var(--navbar-bg, #fff);
-    @apply dark:bg-slate-600;
-    @apply dark:opacity-90;
-    padding: 10px 20px;
-    z-index: 1000;
+    max-width: 100%;
+    border-radius: 0;
+    top: 0;
+    margin: auto;
   }
 
-  .navbar nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  /* Mobile-specific styles */
   .mobile-menu-btn {
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-size: 1.5rem;
-  }
-
-  .nav-links.open {
     display: block;
   }
 
-  @media (max-width: 768px) {
-    .nav-links {
-      display: none;
-      flex-direction: column;
-      gap: 10px;
-      position: absolute;
-      top: 70px;
-      left: 0;
-      right: 0;
-      @apply bg-slate-300 dark:bg-slate-700 text-center;
-      border-radius: 0 0 10px 10px;
-      padding: 10px;
-    }
-
-    .navbar {
-      max-width: 100%;
-      border-radius: 0;
-      top: 0;
-      margin: auto;
-    }
-
-    .mobile-menu-btn {
-      display: block;
-    }
+  .navbar ul {
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    right: 0;
+    @apply bg-slate-300 dark:bg-slate-700 text-center;
+    border-radius: 0 0 10px 10px;
+    padding: 10px;
   }
+
+  .navbar ul.open {
+    display: flex;
+  }
+
+  .navbar .nav-links {
+    display: flex;
+  }
+}
 </style>

@@ -1,99 +1,127 @@
 <template>
-  <div>
-
-    <!-- Bouton de téléchargement -->
-    <div class="w-full max-w-7xl px-4 md:px-5 lg:px-5 flex justify-end md:fixed fixed">
-      <button
-        class="print-button bg-slate-700 dark:bg-slate-600 text-white px-4 py-2 rounded hover:bg-slate-600"
-        @click="showDialog = true"
-      >
-        {{ t('resume.downloadButton') }}
-      </button>
-    </div>
-
-    <!-- CV -->
-    <section class="cv-container bg-slate-200 dark:bg-slate-800">
-      <div class="header">
-        <h1>{{ t('resume.header.name') }}</h1>
-        <h2>{{ t('resume.header.title') }}</h2>
-      </div>
-      <div class="content">
-        <!-- Coordonnées -->
-        <div class="section">
-          <h3>{{ t('resume.contact.title') }}</h3>
-          <p><strong>{{ t('resume.contact.phone') }} : </strong>+221 77 681 52 08</p>
-          <p><strong>{{ t('resume.contact.email') }} : </strong>chrislainavocegan24@gmail.com</p>
-          <p><strong>{{ t('resume.contact.address') }} : </strong>Dakar, Sénégal.</p>
+  <div class="relative">
+        <!-- Bouton de téléchargement -->
+        <div class="w-full max-w-5xl z-50 px-4 md:px-5 lg:px-5 flex justify-end fixed animate-fade-right">
+          <button
+            class="print-button bg-slate-700 dark:bg-slate-600 text-white px-4 py-2 rounded hover:bg-slate-600 transition-colors duration-300"
+            @click="showDialog = true"
+          >
+            {{ t('resume.downloadButton') }}
+          </button>
         </div>
+    <div class="container mx-auto mb-10 animate-fade-up animate-duration-[2000ms] animate-alternate">
+      <div class="max-w-6xl mx-auto p-6">
+        <!-- Titre animé -->
+        <h2
+          class="text-2xl lg:text-4xl animate-fade-right font-thin my-5 lg:flex lg:justify-start bg-gradient-to-b from-indigo-400 to-green-600 bg-clip-text text-transparent tracking-tight animate-fade-in-down"
+        >
+          {{ t('resume.title') }}.
+        </h2>
 
-        <!-- Formation -->
-        <div class="section">
-          <h3>{{ t('resume.education.title') }}</h3>
-          <ul>
-            <li v-for="(education, index) in educations" :key="index">
-              <strong>{{ education.degree }} - {{ education.institution }}</strong>
-              <br />
-              {{ education.year }}
-            </li>
-          </ul>
-        </div>
 
-        <!-- Expérience Professionnelle -->
-        <div class="section">
-          <h3>{{ t('resume.experience.title') }}</h3>
-          <ul>
-            <li v-for="(item, index) in experiences" :key="index">
-              <strong>{{ item.role }} - {{ item.company }}</strong>
-              <br />
-              <em>{{ item.period }}</em>
-              <ul>
-                <li v-for="(detail, detailIndex) in item.details" :key="detailIndex">
-                  {{ detail }}
+        <!-- CV -->
+        <section class="cv-container bg-slate-200 dark:bg-slate-800 p-4 rounded-lg animate-fade-in">
+          <div class="header">
+            <h1 class="text-xl font-bold">{{ t('resume.header.name') }}</h1>
+            <h2 class="text-lg font-semibold">{{ t('resume.header.title') }}</h2>
+          </div>
+          <div class="content space-y-6">
+            <!-- Coordonnées -->
+            <div class="section">
+              <h3 class="font-semibold">{{ t('resume.contact.title') }}</h3>
+              <p><strong>{{ t('resume.contact.phone') }} :</strong> +221 77 681 52 08</p>
+              <p><strong>{{ t('resume.contact.email') }} :</strong> chrislainavocegan24@gmail.com</p>
+              <p><strong>{{ t('resume.contact.address') }} :</strong> Dakar, Sénégal.</p>
+            </div>
+
+            <!-- Formation -->
+            <div class="section">
+              <h3 class="font-semibold">{{ t('resume.education.title') }}</h3>
+              <ul class="list-disc pl-5 space-y-2">
+                <li v-for="(education, index) in educations" :key="index">
+                  <strong>{{ education.degree }} - {{ education.institution }}</strong>
+                  <br />
+                  {{ education.year }}
                 </li>
               </ul>
-            </li>
-          </ul>
-        </div>
+            </div>
 
-      <!-- Compétences -->
-        <div class="section">
-          <h3>{{ t('resume.skills.title') }}</h3>
-          <ul>
-            <li v-for="(skill, skillIndex) in skills" :key="skillIndex">
-              {{ skill }}
-            </li>
-          </ul>
-        </div>
+            <!-- Expérience Professionnelle -->
+            <div class="section">
+              <h3 class="font-semibold">{{ t('resume.experience.title') }}</h3>
+              <ul class="list-disc pl-5 space-y-4">
+                <li v-for="(item, index) in experiences" :key="index">
+                  <strong>{{ item.role }} - {{ item.company }}</strong>
+                  <br />
+                  <em>{{ item.period }}</em>
+                  <ul class="list-disc pl-5">
+                    <li v-for="(detail, detailIndex) in item.details" :key="detailIndex">
+                      {{ detail }}
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
 
-        <!-- Centres d'intérêt -->
-        <div class="section">
-          <h3>{{ t('resume.interests.title') }}</h3>
-          <ul>
-            <li v-for="(interest, interestIndex) in interests" :key="interestIndex">
-              {{ interest }}
-            </li>
-          </ul>
-        </div>
-      </div>
-    </section>
+            <!-- Compétences -->
+            <div class="section">
+              <h3 class="font-semibold">{{ t('resume.skills.title') }}</h3>
+              <ul class="list-disc pl-5 space-y-2">
+                <li v-for="(skill, skillIndex) in skills" :key="skillIndex">
+                  {{ skill }}
+                </li>
+              </ul>
+            </div>
 
-    <!-- Dialog pour choisir la langue -->
-    <div v-show="showDialog" class="dialog-overlay">
-      <div class="dialog bg-slate-100 dark:bg-slate-700">
-        <h2>{{ t('resume.dialog.title') }}</h2>
-        <form @submit.prevent="downloadResume">
-          <label for="lang">{{ t('resume.dialog.languageLabel') }}</label>
-          <select v-model="selectedLanguage" class="text-black" id="lang">
-            <option value="fr" class="text-black">{{ t('resume.dialog.french') }}</option>
-            <option value="en" class="text-black">{{ t('resume.dialog.english') }}</option>
-          </select>
-          <button type="submit" class="bg-green-400 hover:bg-green-600">{{ t('resume.dialog.submitButton') }}</button>
-        </form>
-        <button class="close-button bg-red-800 hover:bg-red-950 mt-3" @click="showDialog = false">{{ t('resume.dialog.closeButton') }}</button>
+            <!-- Centres d'intérêt -->
+            <div class="section">
+              <h3 class="font-semibold">{{ t('resume.interests.title') }}</h3>
+              <ul class="list-disc pl-5 space-y-2">
+                <li v-for="(interest, interestIndex) in interests" :key="interestIndex">
+                  {{ interest }}
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- Dialog pour choisir la langue -->
+        <div
+          v-show="showDialog"
+          class="dialog-overlay fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center animate-fade-in"
+        >
+          <div class="dialog bg-slate-100 dark:bg-slate-700 p-6 rounded-lg shadow-lg">
+            <h2 class="font-bold text-lg mb-4">{{ t('resume.dialog.title') }}</h2>
+            <form @submit.prevent="downloadResume" class="space-y-4">
+              <label for="lang" class="block font-medium">{{ t('resume.dialog.languageLabel') }}</label>
+              <select
+                v-model="selectedLanguage"
+                class="text-black w-full p-2 rounded-md"
+                id="lang"
+              >
+                <option value="fr">{{ t('resume.dialog.french') }}</option>
+                <option value="en">{{ t('resume.dialog.english') }}</option>
+              </select>
+              <button
+                type="submit"
+                class="bg-green-400 hover:bg-green-600 text-white py-2 px-4 rounded transition-all duration-300 w-full"
+              >
+                {{ t('resume.dialog.submitButton') }}
+              </button>
+            </form>
+            <button
+              class="close-button bg-red-800 hover:bg-red-950 text-white py-2 px-4 rounded mt-3 transition-colors duration-300 w-full"
+              @click="showDialog = false"
+            >
+              {{ t('resume.dialog.closeButton') }}
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </template>
+
 
 <script setup>
   import { ref, watch } from 'vue';

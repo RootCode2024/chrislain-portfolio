@@ -4,12 +4,12 @@
 </script>
 
 <template>
-  <footer class="relative py-8 px-8">
-    <div class="mt-5 lg:mt-40 p-2 lg:p-0">
+  <footer class="relative py-4 px-8">
+    <div class="mt-5 lg:mt-20 p-2 lg:p-0">
       <div>
         <h1 class="text-2xl lg:text-4xl">{{ $t('home.navBar.contact') }}.</h1>
-        <div class="flex justify-between">
-          <div class="mt-10 w-1/2">
+        <div class="md:flex md:justify-between">
+          <div class="mt-10 lg:w-1/2">
             <h1 class="text-3xl md:text-6xl lg:text-6xl lgl:text-8xl">
               {{ $t('home.footer.letsWork') }}
             </h1>
@@ -23,8 +23,8 @@
               <SocialsSection />
             </div>
           </div>
-          <div class="my-auto p-2 w-1/2">
-            <p class="text-lg italic">{{ $t('home.footer.description') }}</p>
+          <div class="my-auto p-2 lg:w-1/2">
+            <p class="text-lg italic text-justify">{{ $t('home.footer.description') }}</p>
           </div>
         </div>
       </div>
