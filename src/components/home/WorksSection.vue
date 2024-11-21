@@ -48,28 +48,28 @@ const { t } = useI18n(); // Traductions
 const projectsData = [
   {
     key: 'gie',
-    image: '/src/assets/images/giehgd.png',
+    image: '/assets/images/giehgd.png',
     link: 'https://www.holdinggroupdiama.com',
     className: 'bg-green-500',
     imageAlt: 'Projet Gie holding group diama par Chris'
   },
   {
     key: 'future',
-    image: '/src/assets/images/fte.png',
+    image: '/assets/images/fte.png',
     link: 'https://www.futuretransportexpo.com',
     className: 'bg-indigo-500',
     imageAlt: 'Projet Future Transport Expo par Chris'
   },
   {
     key: 'portfolio',
-    image: '/src/assets/images/portfolio.png',
+    image: '/assets/images/portfolio.png',
     link: 'https://www.chrislainavocegan.site',
     className: 'bg-gray-500',
     imageAlt: 'Projet Portfolio par Chris'
   },
   {
     key: 'flex-interim',
-    image: '/src/assets/images/flexinterim.png',
+    image: '/assets/images/flexinterim.png',
     link: 'https://www.flex-interim.com',
     className: 'bg-gray-500',
     imageAlt: 'Projet SEO Flex Interim par Chris'
