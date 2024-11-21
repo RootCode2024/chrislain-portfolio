@@ -3,6 +3,7 @@ import { RouterView } from 'vue-router';
 import NavBar from './components/partials/NavBarComponent.vue';
 import Footer from './components/partials/FooterComponent.vue';
 import useTheme from './components/useTheme';
+import { inject } from "@vercel/analytics"
 
 const { toggleTheme } = useTheme();
 </script>
