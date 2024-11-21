@@ -48,7 +48,7 @@
                 </svg>
             </button>
           </div>
-          <div class="w-2/3 h-2/3 sm:border rounded-lg bg-slate-700 dark:bg-slate-100 border-gray-200 relative">
+          <div class="md:w-2/3 md:h-2/3 sm:border rounded-lg bg-slate-700 dark:bg-slate-100 border-gray-200 relative">
             <img class="sm:mt-2 sm:ml-2 animate-fade-up w-full h-full object-cover rounded-lg" src="/src/assets/images/chrislain.jpg" alt="Chrislain AVOCEGAN Photo" />
           </div>
         </div>
@@ -59,8 +59,52 @@
 
 <script setup>
   import { useI18n } from 'vue-i18n'
-
+  import { useHead } from '@vueuse/head'
   const { t } = useI18n()
+
+
+useHead({
+  title: 'About - Code With Chris',
+  meta: [
+    {
+      name: 'description',
+      content: 'En savoir plus sur Chrislain AVOCEGAN, développeur web full stack passionné, spécialisé en Laravel, Vue.js, et Tailwind CSS. Découvrez son parcours, ses compétences et ses valeurs.'
+    },
+    {
+      name: 'keywords',
+      content: 'À propos, Code With Chris, Chrislain AVOCEGAN, Laravel, Vue.js, Tailwind CSS, Développeur Full Stack, Parcours, Compétences'
+    },
+    {
+      property: 'og:title',
+      content: 'À propos - Code With Chris'
+    },
+    {
+      property: 'og:description',
+      content: 'Découvrez l’histoire, les compétences, et les projets de Chrislain AVOCEGAN, développeur web full stack spécialisé en Laravel et Vue.js.'
+    },
+    {
+      property: 'og:image',
+      content: 'https://chrislainavocegan.site/preview-image.png'
+    },
+    {
+      property: 'og:url',
+      content: 'https://chrislainavocegan.site/about'
+    },
+    {
+      property: 'og:type',
+      content: 'profile'
+    },
+    {
+      name: 'author',
+      content: 'Chrislain AVOCEGAN'
+    },
+    {
+      name: 'robots',
+      content: 'index, follow'
+    }
+  ]
+});
+
 </script>
 
 <style scoped>

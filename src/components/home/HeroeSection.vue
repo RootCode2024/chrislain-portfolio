@@ -24,7 +24,7 @@
         v-html="t('home.heroe.introDescription')"></div>
         <div class="mt-5 sm:mt-8 sm:flex sm:justify-left">
           <div class="">
-            <RouterLink to="/resume" class="flex justify-between space-x-2 text-slate-700 underline underline-offset-4 hover:underline-offset-0 dark:text-slate-100">
+            <RouterLink to="/resume" class="flex md:justify-between space-x-2 text-slate-700 underline underline-offset-4 hover:underline-offset-0 dark:text-slate-100">
               <span>{{ $t('home.heroe.myResume') }}</span>
               <span class="animate bounce-x">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">

@@ -9,25 +9,14 @@ const { toggleTheme } = useTheme();
 
 <template>
   <div class="flex flex-col min-h-screen">
-    <NavBar :toggleTheme="toggleTheme" />
+    <NavBar v-show="$route.name !== 'NotFound'" :toggleTheme="toggleTheme" />
     <div class="flex-grow lg:mt-36 mt-24">
       <RouterView />
     </div>
-    <Footer />
+    <Footer v-show="$route.name !== 'NotFound'" />
   </div>
 </template>
 
 <style scoped>
-/* Structure de mise en page */
-.min-h-screen {
-  min-height: 100vh;
-}
 
-.flex-grow {
-  flex-grow: 1;
-}
-
-footer {
-  margin-top: auto;
-}
 </style>

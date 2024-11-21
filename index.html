@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="">
+<html lang="fr">
   <head>
     <meta charset="UTF-8">
-    <link rel="icon" href="/src/assets/images/chrislain-light-logo.png">
+    <link rel="icon" href="favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Code With Chris</title>
+    <title>Chrislain AVOCEGAN - Développeur Full Stack</title>
   </head>
   <style>
       /* Mode clair (light) */
@@ -41,11 +41,24 @@
     <script type="module" src="/src/main.js"></script>
     <script>
         const toggleTheme = () => {
-    theme.value = theme.value === 'dark' ? 'light' : 'dark';
-    document.body.classList.remove('light', 'dark');
-    document.body.classList.add(theme.value);
-    localStorage.setItem('theme', theme.value);
-  };
+          theme.value = theme.value === 'dark' ? 'light' : 'dark';
+          document.body.classList.remove('light', 'dark');
+          document.body.classList.add(theme.value);
+          localStorage.setItem('theme', theme.value);
+        };
     </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Code With Chris",
+        "jobTitle": "Développeur Web Full Stack",
+        "url": "https://chrislainavocegan.site",
+        "sameAs": [
+          "https://github.com/RootCode2024",
+          "https://linkedin.com/in/chrislain-avocegan-314273315"
+        ]
+      }
+    </script>      
   </body>
 </html>

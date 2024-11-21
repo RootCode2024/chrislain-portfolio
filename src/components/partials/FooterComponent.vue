@@ -29,7 +29,7 @@
         </div>
       </div>
     </div>
-    <h1 class="text-sm text-center font-bold mt-2 lg:mt-10 p-2 lg:p-0">
+    <h1 class="text-sm text-center font-thin mt-2 lg:mt-10 p-2 lg:p-0">
       <p>&copy; 2024 Chrislain AVOCEGAN | {{ $t('home.footer.copyright') }}</p>
     </h1>
 

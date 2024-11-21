@@ -42,7 +42,7 @@
               <button
                 type="submit"
                 :disabled="isLoading"
-                class="bg-black text-white font-bold py-2 px-4 rounded transition duration-300"
+                class="bg-black text-white dark:bg-slate-100 dark:text-slate-700 font-bold py-2 px-4 rounded transition duration-300"
                 :class="{ 'bg-gray-500 cursor-not-allowed': isLoading, 'hover:bg-gray-800': !isLoading }"
               >
                 {{ isLoading ? t('contact.form.sendingButton') : t('contact.form.sendButton') }}
@@ -110,11 +110,12 @@
 </template>
 
 <script setup>
-  import emailjs from "emailjs-com";
-  import { ref } from "vue";
-  import { useI18n } from "vue-i18n";
+  import { ref } from "vue"
+  import emailjs from "emailjs-com"
+  import { useI18n } from "vue-i18n"
+  import { useHead } from '@vueuse/head'
 
-  const { t } = useI18n();
+  const { t } = useI18n()
 
   // Données du formulaire
   const formData = ref({
@@ -160,6 +161,49 @@
         isLoading.value = false; // Fin du chargement
       });
   };
+
+  useHead({
+  title: 'Contact - Code With Chris',
+  meta: [
+    {
+      name: 'description',
+      content: 'Contactez Chrislain AVOCEGAN, développeur web full stack spécialisé en Laravel, Vue.js, et Tailwind CSS. Posez vos questions ou collaborez sur vos projets web.'
+    },
+    {
+      name: 'keywords',
+      content: 'Contact, Code With Chris, Chrislain AVOCEGAN, Laravel, Vue.js, Tailwind CSS, Développeur Full Stack, Collaborer, Projets web'
+    },
+    {
+      property: 'og:title',
+      content: 'Contact - Code With Chris'
+    },
+    {
+      property: 'og:description',
+      content: 'Prenez contact avec Chrislain AVOCEGAN pour discuter de vos besoins en développement web et découvrir comment il peut vous aider à atteindre vos objectifs.'
+    },
+    {
+      property: 'og:image',
+      content: 'https://chrislainavocegan.site/preview-image.png'
+    },
+    {
+      property: 'og:url',
+      content: 'https://chrislainavocegan.site/contact'
+    },
+    {
+      property: 'og:type',
+      content: 'website'
+    },
+    {
+      name: 'author',
+      content: 'Chrislain AVOCEGAN'
+    },
+    {
+      name: 'robots',
+      content: 'index, follow'
+    }
+  ]
+});
+
 
 </script>
 

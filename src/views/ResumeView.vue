@@ -124,8 +124,9 @@
 
 
 <script setup>
-  import { ref, watch } from 'vue';
-  import { useI18n } from 'vue-i18n';
+  import { ref, watch } from 'vue'
+  import { useI18n } from 'vue-i18n'
+  import { useHead } from '@vueuse/head'
 
   const { t, locale } = useI18n(); // Récupère la locale courante et les fonctions de traduction
 
@@ -274,6 +275,49 @@
   watch(locale, () => {
     updateEducations();
   });
+
+  useHead({
+  title: 'Resume - Code With Chris',
+  meta: [
+    {
+      name: 'description',
+      content: 'Découvrez le parcours professionnel de Chrislain AVOCEGAN, développeur web full stack expert en Laravel, Vue.js, et Tailwind CSS. Compétences, expériences et réalisations en un coup d’œil.'
+    },
+    {
+      name: 'keywords',
+      content: 'Resume, CV, Code With Chris, Chrislain AVOCEGAN, Laravel, Vue.js, Tailwind CSS, Développeur Full Stack, Expériences, Compétences, Parcours professionnel'
+    },
+    {
+      property: 'og:title',
+      content: 'Resume - Code With Chris'
+    },
+    {
+      property: 'og:description',
+      content: 'Parcourez le CV de Chrislain AVOCEGAN, développeur web full stack spécialisé dans les technologies modernes comme Laravel, Vue.js, et Tailwind CSS.'
+    },
+    {
+      property: 'og:image',
+      content: 'https://chrislainavocegan.site/preview-image.png'
+    },
+    {
+      property: 'og:url',
+      content: 'https://chrislainavocegan.site/resume'
+    },
+    {
+      property: 'og:type',
+      content: 'profile'
+    },
+    {
+      name: 'author',
+      content: 'Chrislain AVOCEGAN'
+    },
+    {
+      name: 'robots',
+      content: 'index, follow'
+    }
+  ]
+});
+
 </script>
 
 

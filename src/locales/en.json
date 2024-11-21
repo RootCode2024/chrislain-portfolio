@@ -22,7 +22,7 @@
             "description": "My skills in web development."
         },
         "projects": {
-            "title": "My Works",
+            "title": "Works",
             "description": "Here are some projects I have worked on recently.",
             "gie": {
                 "title": "GIE Holding Group Diama",
@@ -187,5 +187,14 @@
         "location": {
           "title": "My Location"
         }
-    }      
+    },
+    "notFound": {
+        "title": "Chrislain Avocegan",
+        "not_found": "Page Not Found",
+        "oops": "Oops! The page you requested does not exist.",
+        "entered": "You entered: ",
+        "similar_page": "Perhaps you were looking for this page?",
+        "go_back": "Go Back",
+        "home": "Home"
+    }
 }

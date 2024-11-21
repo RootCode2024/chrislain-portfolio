@@ -188,6 +188,15 @@
       "location": {
         "title": "Ma Localisation"
       }
-    }    
+    },
+    "notFound": {
+      "title": "Chrislain Avocegan",
+      "not_found": "Page Introuvable",
+      "oops": "Oups ! La page que vous avez demandée n'existe pas.",
+      "entered": "Vous avez entré : ",
+      "similar_page": "Peut-être cherchiez-vous cette page ?",
+      "go_back": "Retour",
+      "home": "Accueil"
+    }      
 }
   
