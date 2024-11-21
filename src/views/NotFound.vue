@@ -25,12 +25,12 @@ onMounted(() => {
 
     <!-- Logo -->
     <div class="w-1/2 flex justify-center">
-      <img src="/src/assets/images/white_logo.png" alt="Your site logo" width="80" height="80" class="mb-6" />
+      <img src="/assets/images/white_logo.png" alt="Your site logo" width="80" height="80" class="mb-6" />
     </div>
 
     <!-- Contenu principal -->
     <div class="w-full max-w-lg p-6 bg-white shadow-lg rounded-lg">
-      <img src="/src/assets/images/404.svg" alt="404 Error" class="w-2/3 mx-auto mb-4" />
+      <img src="/assets/images/404.svg" alt="404 Error" class="w-2/3 mx-auto mb-4" />
 
       <h2 class="text-3xl font-bold text-gray-800 mb-2">{{ t('notFound.not_found') }}</h2>
       <p class="text-lg text-gray-600 mb-4">{{ t('notFound.oops') }}</p>
