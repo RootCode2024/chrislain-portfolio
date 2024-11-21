@@ -3,7 +3,7 @@
     <nav>
       <!-- Logo -->
       <RouterLink to="/">
-        <img :src="`/src/assets/images/chrislain-${theme}-logo.png`" alt="Logo Chrislain" class="w-8 h-8">
+        <img :src="`/assets/images/chrislain-${theme}-logo.png`" alt="Logo Chrislain" class="w-8 h-8">
       </RouterLink>
 
       <!-- Hamburger menu for mobile -->
