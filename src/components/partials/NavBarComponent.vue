@@ -3,7 +3,7 @@
     <nav>
       <!-- Logo -->
       <RouterLink to="/">
-        <img :src="`/assets/images/chrislain-${theme}-logo.png`" alt="Logo Chrislain" class="w-8 h-8">
+        <img :src="`/src/assets/images/chrislain-${theme}-logo.png`" alt="Logo Chrislain" class="w-8 h-8">
       </RouterLink>
 
       <!-- Hamburger menu for mobile -->
@@ -44,15 +44,15 @@
           <!-- Language Dropdown -->
           <div @click="toggleDropdown" class="relative">
             <div class="flex items-center cursor-pointer">
-              <img :src="locales === 'en' ? '/assets/images/flag-usa.svg' : '/assets/images/flag-france.svg'"
+              <img :src="locales === 'en' ? '/src/assets/images/flag-usa.svg' : '/src/assets/images/flag-france.svg'"
                    alt="Current Language" class="w-5 h-5 mr-2" />
             </div>
             <div v-if="dropdownOpen" class="absolute shadow-lg z-10 bg-white p-2 rounded-md">
               <div @click="changeLanguage('en')" class="cursor-pointer" v-if="locales === 'fr'">
-                <img src="/assets/images/flag-usa.svg" alt="USA Flag" class="w-5 h-5" />
+                <img src="/src/assets/images/flag-usa.svg" alt="USA Flag" class="w-5 h-5" />
               </div>
               <div @click="changeLanguage('fr')" class="cursor-pointer" v-else>
-                <img src="/assets/images/flag-france.svg" alt="France Flag" class="w-5 h-5" />
+                <img src="/src/assets/images/flag-france.svg" alt="France Flag" class="w-5 h-5" />
               </div>
             </div>
           </div>

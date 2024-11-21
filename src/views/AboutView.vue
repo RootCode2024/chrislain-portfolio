@@ -49,7 +49,7 @@
             </button>
           </div>
           <div class="md:w-2/3 md:h-2/3 sm:border rounded-lg bg-slate-700 dark:bg-slate-100 border-gray-200 relative">
-            <img class="sm:mt-2 sm:ml-2 animate-fade-up w-full h-full object-cover rounded-lg" src="/assets/images/chrislain.jpg" alt="Chrislain AVOCEGAN Photo" />
+            <img class="sm:mt-2 sm:ml-2 animate-fade-up w-full h-full object-cover rounded-lg" src="/src/assets/images/chrislain.jpg" alt="Chrislain AVOCEGAN Photo" />
           </div>
         </div>
       </div>

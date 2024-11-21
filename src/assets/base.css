@@ -1,0 +1,20 @@
+/* semantic color variables for this project */
+:root {
+  --color-background: var(--vt-c-white);
+  --color-accent: #ffffff;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-background: #0f7ae6;
+    --color-accent: #000000;
+  }
+}
+
+body {
+  color: var(--color-accent);
+
+background-position: center center;
+transition: background-color 0.1s , color 0.1s;
+background-color: var(--color-background);
+}
