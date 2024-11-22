@@ -14,6 +14,7 @@
                 v-for="(project, index) in translatedProjects"
                   :key="index"
               >
+              <a :href="project.link" target="_blanc">
                 <div
                   class="relative rounded-lg overflow-hidden transition-all ease-out duration-300 h-64 mob:h-auto"
                 >
@@ -29,6 +30,7 @@
                 <h3 class="flex justify-start text-md opacity-50">
                   <span class="bg-slate-700 dark:bg-slate-100 text-slate-100 dark:text-slate-700 p-1 rounded-xl">{{ project.tag }}</span>
                 </h3>
+              </a>
               </div>
             </div>
         </div>
