@@ -17,7 +17,6 @@
         class=""
         :class="{ 'open': mobileMenuOpen }"
       >
-      <div class="flex md:justify-between mx-auto px-auto text-center md:space-x-4">
         <li>
           <RouterLink to="/" class="hover:bg-slate-500 dark:hover:text-slate-300 rounded-md py-1 px-4" :class="{ 'dark:bg-slate-700 bg-slate-100 dark:text-white text-slate-700': $route.path === '/' }">
             {{ $t('home.navBar.home') }}
@@ -38,8 +37,6 @@
             {{ $t('home.navBar.contact') }}
           </RouterLink>
         </li>
-      </div>
-      <div class="flex md:justify-between mx-auto px-auto text-center md:space-x-6 ml-5 ">
         <li>
           <!-- Language Dropdown -->
           <div @click="toggleDropdown" class="relative">
@@ -67,7 +64,6 @@
             </span>
           </button>
         </li>
-      </div>
       </ul>
     </nav>
   </header>
@@ -138,6 +134,7 @@ ul {
 
 ul.open {
   display: flex !important; /* Afficher quand la classe est ajoutée */
+  @apply bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-100;
 }
 
 /* Styles pour les écrans plus larges */

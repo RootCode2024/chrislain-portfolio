@@ -37,7 +37,8 @@
                     </div>
                 </div>
             </div>
-            <button
+            <RouterLink
+                to="/resume"
                 class="sm:w-fit w-full group px-3.5 py-2 animate-fade-left animate-once animate-alternate bg-indigo-50 hover:bg-indigo-100 rounded-lg shadow-[0px_1px_2px_0px_rgba(16,_24,_40,_0.05)] transition-all duration-700 ease-in-out justify-center items-center flex">
                 <span
                     class="px-1.5 text-indigo-600 text-sm font-medium leading-6 group-hover:-translate-x-0.5 transition-all duration-700 ease-in-out">{{ t('about.myResume') }}</span>
@@ -46,7 +47,7 @@
                     <path d="M6.75265 4.49658L11.2528 8.99677L6.75 13.4996" stroke="#4F46E5" stroke-width="1.6"
                         stroke-linecap="round" stroke-linejoin="round" />
                 </svg>
-            </button>
+            </RouterLink>
           </div>
           <div class="md:w-2/3 md:h-2/3 sm:border rounded-lg bg-slate-700 dark:bg-slate-100 border-gray-200 relative">
             <img class="sm:mt-2 sm:ml-2 animate-fade-up w-full h-full object-cover rounded-lg" src="/assets/images/chrislain.jpg" alt="Chrislain AVOCEGAN Photo" />
@@ -60,6 +61,7 @@
 <script setup>
   import { useI18n } from 'vue-i18n'
   import { useHead } from '@vueuse/head'
+import { RouterLink } from 'vue-router';
   const { t } = useI18n()
 
 

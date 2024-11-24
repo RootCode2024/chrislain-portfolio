@@ -1,8 +1,9 @@
-import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
-import ContactView from '../views/ContactView.vue'
-import ResumeView from '../views/ResumeView.vue'
-import NotFound from '../views/NotFound.vue'
+import { createRouter, createWebHistory } from 'vue-router';
+import HomeView from '../views/HomeView.vue';
+import ContactView from '../views/ContactView.vue';
+import ResumeView from '../views/ResumeView.vue';
+import NotFound from '../views/NotFound.vue';
+import AboutView from '../views/AboutView.vue';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -25,17 +26,20 @@ const router = createRouter({
     {
       path: '/about',
       name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import('../views/AboutView.vue'),
+      component: AboutView,
     },
     {
       path: '/:pathMatch(.*)*',
       name: 'NotFound',
-      component: NotFound
-    }
+      component: NotFound,
+    },
   ],
-})
+  scrollBehavior(to, from, savedPosition) {
+    if (savedPosition) {
+      return savedPosition; // Restaure la position sauvegardée (lors d'un retour ou navigation arrière)
+    }
+    return { top: 0 }; // Scroll en haut de la page
+  },
+});
 
-export default router
+export default router;
