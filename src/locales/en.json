@@ -14,7 +14,7 @@
             "callMe" : "Call Me ChrisCoder",
             "nickName" : "ChrisCoder",
             "myWork": "Full Stack Developer",
-            "introDescription": "Your full-stack developer and Laravel expert. I spend my nights (and often my days) creating innovative web solutions with <a href='/projects' class='text-blue-500'>Laravel, Vue.js</a>, and <a href='/technologie' class='text-blue-500'>Tailwind CSS</a>, turning ideas into intuitive, functional, and aesthetic digital experiences. Passionate about code logic, my motivation arises from the complexity of each <a href='/projects' class='text-blue-500 hover:underline hover:underline-offset-2'>project</a>. With a strong taste for code aesthetics, I strive to create smooth and efficient code.",
+            "introDescription": "I am a passionate full-stack web developer with expertise in Laravel. I spend my nights (and often my days) creating innovative web solutions with <RouterLink to='#works' class='text-blue-500'>Laravel, Vue.js</RouterLink>, and <RouterLink to='/technologie' class='text-blue-500'>Tailwind CSS</RouterLink>, transforming ideas into intuitive, functional, and aesthetically pleasing digital experiences. Passionate about the logic of code, my motivation stems from the complexity of each <RouterLink to='#works' class='text-blue-500 hover:underline hover:underline-offset-2'>project</RouterLink>. With a strong taste for code aesthetics, I strive to create fluid and efficient code. I invite you to check out my <RouterLink to='/blog' class='text-blue-500 hover:underline hover:underline-offset-2'>blog</RouterLink> to learn more about my skills and experiences. ",
             "myResume": "My Resume"
         },
         "skills":{

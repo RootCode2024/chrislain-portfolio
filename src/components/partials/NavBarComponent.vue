@@ -33,6 +33,11 @@
           </RouterLink>
         </li>
         <li>
+          <RouterLink to="/posts" class="hover:bg-slate-500 dark:hover:text-slate-300 rounded-md py-1 px-4" :class="{ 'dark:bg-slate-700 bg-slate-100 dark:text-white text-slate-700': $route.path === '/posts' }">
+            Blog
+          </RouterLink>
+        </li>
+        <li>
           <RouterLink to="/contact" class="hover:bg-slate-500 dark:hover:text-slate-300 rounded-md py-1 px-4" :class="{ 'dark:bg-slate-700 bg-slate-100 dark:text-white text-slate-700': $route.path === '/contact' }">
             {{ $t('home.navBar.contact') }}
           </RouterLink>
