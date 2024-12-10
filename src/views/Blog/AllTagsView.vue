@@ -79,7 +79,7 @@
 <script setup>
 import { ref, onMounted } from 'vue';
 import { RouterLink, useRoute } from 'vue-router';
-import { supabase } from '../lib/supabaseClient';
+import { supabase } from '../../lib/supabaseClient';
 import { useI18n } from 'vue-i18n';
 
 const { t } = useI18n();
