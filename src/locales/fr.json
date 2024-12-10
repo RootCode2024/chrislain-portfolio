@@ -57,24 +57,24 @@
     "about": {
         "title": "A propos de moi",
         "description": "Je suis un développeur web passionné qui aime créer des expériences digitales uniques. Je suis toujours à la recherche de nouveaux défis et d'opportunités pour apprendre et grandir.",
-        "longDescription": "je suis Chrislain Avocegan, connu professionnellement sous le nom de ChrisCoder. Développeur web full-stack passionné, j'allie expertise technique et créativité pour concevoir des solutions web modernes, performantes et intuitives. Avec une spécialisation en Laravel, Vue.js, PHP, Tailwind CSS et WordPress, j'ai collaboré sur divers projets allant de sites vitrine à des applications web robustes pour des entreprises et des particuliers. Mon parcours m'a permis de maîtriser l'ensemble du processus de développement, depuis la conception initiale jusqu'au déploiement final, tout en garantissant des expériences utilisateurs optimales.Ce qui me distingue : Compétences Techniques : Une maîtrise approfondie des technologies back-end et front-end, couplée à une sensibilité pour le design UX/UI.Projets Réussis : J'ai travaillé sur des projets comme NH High School, une application de gestion scolaire, ou encore Glory's Nails, un site élégant pour un salon de bien-être féminin. Continu : Passionné par l'innovation, je consacre du temps à l'apprentissage de nouvelles technologies et techniques pour améliorer constamment mes compétences.Mon approche : Mon objectif est de résoudre des problèmes complexes avec des solutions simples, élégantes et fonctionnelles. Que ce soit pour une startup en quête de visibilité ou une entreprise établie souhaitant optimiser ses processus, je m'efforce d'offrir des services personnalisés et adaptés à chaque besoin.Quand je ne suis pas en train de coder, je me ressource avec des activités comme le roller-blade, je me plonge dans des mangas inspirants, ou je crée des designs graphiques.",
+        "longDescription": "je suis Chrislain Avocegan, connu professionnellement sous le nom de ChrisCoder. Développeur web full-stack passionné, j'allie expertise technique et créativité pour concevoir des solutions web modernes, performantes et intuitives. Avec une spécialisation en Laravel, Vue.js, PHP, Tailwind CSS et WordPress, j'ai collaboré sur divers projets allant de sites vitrine à des applications web robustes pour des entreprises et des particuliers. Mon parcours m'a permis de maîtriser l'ensemble du processus de développement, depuis la conception initiale jusqu'au déploiement final, tout en garantissant des expériences utilisateurs optimales.<br /><hr><p  class='my-2'>Ce qui me distingue :</p> <br /> <p>Compétences Techniques :</p> Une maîtrise approfondie des technologies back-end et front-end, couplée à une sensibilité pour le design UX/UI. <br /><br /><p  class='my-2'>Projets Réussis :</p> J'ai travaillé sur des projets comme NH High School, une application de gestion scolaire, ou encore Glory's Nails, un site élégant pour un salon de bien-être féminin. <br /><br /><p  class='my-2'>Continu :</p> Passionné par l'innovation, je consacre du temps à l'apprentissage de nouvelles technologies et techniques pour améliorer constamment mes compétences. <br /><br /><p  class='my-2'>Mon approche :</p> Mon objectif est de résoudre des problèmes complexes avec des solutions simples, élégantes et fonctionnelles. <br /><br />Que ce soit pour une startup en quête de visibilité ou une entreprise établie souhaitant optimiser ses processus, je m'efforce d'offrir des services personnalisés et adaptés à chaque besoin.Quand je ne suis pas en train de coder, je me ressource avec des activités comme le roller-blade, je me plonge dans des mangas inspirants, ou je crée des designs graphiques.",
         "myResume": "Mon CV",
         "sections": {
             "workedYears": {
                 "title": "Années d'expériences",
-                "description": "J'ai travaillé plus de 5 ans dans le domaine du développement web, notamment en utilisant Laravel et Vue.js pour des projets passionnants."
+                "description": "J'ai travaillé plusieurs années dans le domaine du développement web, notamment en utilisant Laravel et Vue.js pour des projets passionnants."
             },
             "workedProjects": {
                 "title": "Projets travaillé",
-                "description": "J'ai travaillé sur plus de 20 projets, notamment des sites web dynamiques et des applications web full-stack."
+                "description": "J'ai travaillé sur plus de 11 projets, notamment des sites web dynamiques et des applications web full-stack."
             },
             "certifications": {
                 "title": "Certifications",
-                "description": "J'ai obtenu plus de 10 certifications pour le web, notamment en utilisant Laravel et Vue.js pour des projets passionnants."
+                "description": "J'ai obtenu plusieurs certifications pour le web, notamment en utilisant Laravel et Vue.js pour des projets passionnants."
             },
             "happyClients": {
                 "title": "Clients satisfaits",
-                "description": "J'ai travaille sur plus de 20 projets, notamment des sites web dynamiques et des applications web full-stack."
+                "description": "J'ai travaille sur plus de 11 projets, notamment des sites web dynamiques et des applications web full-stack pour des clients internationaux"
             }
         }
     },
@@ -189,6 +189,15 @@
         "title": "Ma Localisation"
       }
     },
+    "blog": {
+      "loading": "Chargement en cours",
+      "post": {
+        "error": "Une erreur s'est produite lors du chargement des Articles. <br>Veuillez vérifier votre Connexion..."
+      },
+      "tag": {
+        "error": "Une erreur s'est produite lors du chargement des Catégories. <br>Veuillez vérifier votre Connexion..."
+      }
+    },
     "notFound": {
       "title": "Chrislain Avocegan",
       "not_found": "Page Introuvable",
@@ -197,6 +206,6 @@
       "similar_page": "Peut-être cherchiez-vous cette page ?",
       "go_back": "Retour",
       "home": "Accueil"
-    }      
+    }     
 }
   

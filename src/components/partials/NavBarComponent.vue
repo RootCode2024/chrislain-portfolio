@@ -19,27 +19,27 @@
       >
         <li>
           <RouterLink to="/" class="hover:bg-slate-500 dark:hover:text-slate-300 rounded-md py-1 px-4" :class="{ 'dark:bg-slate-700 bg-slate-100 dark:text-white text-slate-700': $route.path === '/' }">
-            {{ $t('home.navBar.home') }}
+            {{ t('home.navBar.home') }}
           </RouterLink>
         </li>
         <li>
           <RouterLink to="/about" class="hover:bg-slate-500 dark:hover:text-slate-300 rounded-md py-1 px-4" :class="{ 'dark:bg-slate-700 bg-slate-100 dark:text-white text-slate-700': $route.path === '/about' }">
-            {{ $t('home.navBar.about') }}
+            {{ t('home.navBar.about') }}
           </RouterLink>
         </li>
         <li>
           <RouterLink to="/resume" class="hover:bg-slate-500 dark:hover:text-slate-300 rounded-md py-1 px-4" :class="{ 'dark:bg-slate-700 bg-slate-100 dark:text-white text-slate-700': $route.path === '/resume' }">
-            {{ $t('home.navBar.resume') }}
+            {{ t('home.navBar.resume') }}
           </RouterLink>
         </li>
         <li>
-          <RouterLink to="/posts" class="hover:bg-slate-500 dark:hover:text-slate-300 rounded-md py-1 px-4" :class="{ 'dark:bg-slate-700 bg-slate-100 dark:text-white text-slate-700': $route.path === '/posts' }">
+          <RouterLink v-if="isDevelopment" to="/posts" class="hover:bg-slate-500 dark:hover:text-slate-300 rounded-md py-1 px-4" :class="{ 'dark:bg-slate-700 bg-slate-100 dark:text-white text-slate-700': $route.path === '/posts' }">
             Blog
           </RouterLink>
         </li>
         <li>
           <RouterLink to="/contact" class="hover:bg-slate-500 dark:hover:text-slate-300 rounded-md py-1 px-4" :class="{ 'dark:bg-slate-700 bg-slate-100 dark:text-white text-slate-700': $route.path === '/contact' }">
-            {{ $t('home.navBar.contact') }}
+            {{ t('home.navBar.contact') }}
           </RouterLink>
         </li>
         <li>
@@ -79,16 +79,18 @@ import { ref, onMounted } from 'vue';
 import { useI18n } from 'vue-i18n';
 import { RouterLink } from 'vue-router';
 
-const { locale } = useI18n();
+const { t, locale } = useI18n();
 const theme = ref(localStorage.getItem('theme') || 'light');
 const dropdownOpen = ref(false);
 const mobileMenuOpen = ref(false);
-const locales = ref('en');
+const locales = ref('fr');
 
 const toggleDropdown = () => { dropdownOpen.value = !dropdownOpen.value; };
 const toggleMobileMenu = () => { mobileMenuOpen.value = !mobileMenuOpen.value; };
 const changeLanguage = (selectedLang) => { locale.value = selectedLang; locales.value = selectedLang; };
 const toggleTheme = () => { theme.value = theme.value === 'dark' ? 'light' : 'dark'; document.body.className = theme.value; localStorage.setItem('theme', theme.value); };
+
+const isDevelopment = import.meta.env.VITE_APP_ENV === 'development'
 
 onMounted(() => { changeLanguage(locales.value); });
 </script>

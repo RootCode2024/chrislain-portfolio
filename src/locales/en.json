@@ -188,6 +188,15 @@
           "title": "My Location"
         }
     },
+    "blog": {
+        "loading": "Loading",
+        "post": {
+          "error": "Error operated on pots loading. <br>Please check your Connection Status..."
+        },
+        "tag": {
+          "error": "Error operated on tags loading. <br>Please check your Connection Status..."
+        }
+      },
     "notFound": {
         "title": "Chrislain Avocegan",
         "not_found": "Page Not Found",

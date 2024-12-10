@@ -5,8 +5,7 @@
         <h2 class="text-2xl animate-fade-right lg:text-4xl font-thin my-5 lg:flex lg:justify-start bg-gradient-to-b from-indigo-400 to-green-600 bg-clip-text text-transparent tracking-tight">
           {{ t('about.title') }}.
         </h2>
-        <p class="text-slate-700 animate-fade-up dark:text-slate-100 text-base font-normal leading-relaxed text-justify py-12">
-          {{ t('about.longDescription') }}t
+        <p class="text-slate-700 animate-fade-up dark:text-slate-100 text-base font-normal leading-relaxed text-justify py-12" v-html="t('about.longDescription')">
         </p>
         <div class="w-full justify-start items-center xl:gap-12 gap-10 grid lg:grid-cols-2 grid-cols-1">
           <div class="w-full flex-col justify-center lg:items-start items-center gap-10 inline-flex">
@@ -19,7 +18,7 @@
                     </div>
                     <div
                         class="w-full h-full animate-fade-up p-3.5 rounded-xl border border-gray-200 hover:border-gray-400 transition-all duration-700 ease-in-out flex-col justify-start items-start gap-2.5 inline-flex">
-                        <h4 class="text-graslate-700 dark:text-slate-100 text-2xl font-bold font-manrope leading-9">+20 {{ t('about.sections.workedProjects.title') }}</h4>
+                        <h4 class="text-graslate-700 dark:text-slate-100 text-2xl font-bold font-manrope leading-9">+11 {{ t('about.sections.workedProjects.title') }}</h4>
 
                         <p class="text-gray-500 dark:text-gray-300 text-base font-normal leading-relaxed">{{ t('about.sections.workedProjects.description') }}</p>
                     </div>

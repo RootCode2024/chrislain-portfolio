@@ -6,15 +6,6 @@
         { "id": "4", "title": "Whatsapp", "icon":"/assets/images/whatsapp.svg", "link": "https://wa.me/221776815208" }
     ],
     "dataBlog": [
-        { "id": "1", "title": "Understanding Vue.js", "author": "Chrislain Avocegan", "description": "A deep dive into Vue.js framework.", "content": "Content about Vue.js", "preview_image": "/assets/images/vuejs.png", "tags": ["Vue.js", "JavaScript"], "category": "Web Development", "created_at": "2023-10-01" },
-        { "id": "2", "title": "Mastering Tailwind CSS", "author": "Chrislain Avocegan", "description": "A guide to styling with Tailwind CSS.", "content": "Content about Tailwind CSS", "preview_image": "/assets/images/tailwind.png", "tags": ["Tailwind", "CSS"], "category": "Web Design", "created_at": "2023-09-15" },
-        { "id": "3", "title": "Introduction to Laravel", "author": "Chrislain Avocegan", "description": "Getting started with Laravel.", "content": "Content about Laravel", "preview_image": "/assets/images/laravel.png", "tags": ["Laravel", "PHP"], "category": "Backend Development", "created_at": "2023-08-20" },
-        { "id": "4", "title": "Building with WordPress", "author": "Chrislain Avocegan", "description": "Creating websites using WordPress.", "content": "Content about WordPress", "preview_image": "/assets/images/wordpress.png", "tags": ["WordPress", "CMS"], "category": "Web Development", "created_at": "2023-07-30" },
-        { "id": "5", "title": "JavaScript Basics", "author": "Chrislain Avocegan", "description": "Learn the basics of JavaScript.", "content": "Content about JavaScript", "preview_image": "/assets/images/javascript.png", "tags": ["JavaScript"], "category": "Programming", "created_at": "2023-06-25" },
-        { "id": "6", "title": "Advanced CSS Techniques", "author": "Chrislain Avocegan", "description": "Enhance your CSS skills.", "content": "Content about CSS", "preview_image": "/assets/images/css.png", "tags": ["CSS", "Web Design"], "category": "Web Design", "created_at": "2023-05-17" },
-        { "id": "7", "title": "PHP for Beginners", "author": "Chrislain Avocegan", "description": "A beginner's guide to PHP.", "content": "Content about PHP", "preview_image": "/assets/images/php.png", "tags": ["PHP", "Backend"], "category": "Backend Development", "created_at": "2023-04-10" },
-        { "id": "8", "title": "Responsive Web Design", "author": "Chrislain Avocegan", "description": "Techniques for responsive design.", "content": "Content about responsive design", "preview_image": "/assets/images/responsive.png", "tags": ["Responsive Design", "CSS"], "category": "Web Design", "created_at": "2023-03-05" },
-        { "id": "9", "title": "SEO Best Practices", "author": "Chrislain Avocegan", "description": "Improve your site's SEO.", "content": "Content about SEO", "preview_image": "/assets/images/seo.png", "tags": ["SEO", "Marketing"], "category": "Digital Marketing", "created_at": "2023-02-20" },
-        { "id": "10", "title": "Web Performance Optimization", "author": "Chrislain Avocegan", "description": "Optimizing web performance.", "content": "Content about web performance", "preview_image": "/assets/images/performance.png", "tags": ["Performance", "Web"], "category": "Web Development", "created_at": "2023-01-15" }
+
     ]
 }

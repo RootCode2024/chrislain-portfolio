@@ -1,26 +1,23 @@
 <script setup>
-import { ref, onMounted } from "vue";
-import { useRoute, useRouter } from "vue-router";
-import { useI18n } from "vue-i18n";
+  import { ref, onMounted } from "vue"
+  import { useRoute, useRouter } from "vue-router"
+  import { useI18n } from "vue-i18n"
 
-// Déclarer les outils nécessaires
-const mounted = ref(false);
-const route = useRoute();
-const router = useRouter();
-const similarLink = "/contact";
+  const mounted = ref(false)
+  const route = useRoute()
+  const router = useRouter()
+  const similarLink = "/contact"
 
-// Accéder à la fonction de traduction
-const { t, locales } = useI18n();
+  const { t } = useI18n()
 
-// Monter le composant
-onMounted(() => {
-  mounted.value = true;
-});
+  onMounted(() => {
+    mounted.value = true
+  })
 </script>
 
 <template>
   <div v-if="mounted" class="flex flex-col items-center justify-center min-h-screen text-center p-6">
-    <!-- Titre -->
+
     <h1 class="md:text-4xl text-2xl font-thin text-white mb-4">{{ t('notFound.title') }}</h1>
 
     <!-- Logo -->

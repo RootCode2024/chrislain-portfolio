@@ -1,6 +1,5 @@
 <template>
-  <div>
-    <!-- Breadcrumb Navigation -->
+  <div v-if="isDevelopment">
     <nav class="container mx-auto p-4" aria-label="Breadcrumb">
       <ol class="flex items-center space-x-4">
         <li>
@@ -24,11 +23,9 @@
         </li>
       </ol>
     </nav>
-
-    <!-- Main Content -->
     <div class="container mx-auto px-4 py-6">
       <template v-if="loading">
-        <p>Chargement...</p>
+        <p>{{ t('blog.loading') }}</p>
       </template>
       <template v-else-if="error">
         <p class="text-red-500">{{ error }}</p>
@@ -40,36 +37,39 @@
         <!-- Post Image -->
         <div class="mb-6">
           <img
-            :src="post.image"
+            :src="'https://uejplumqagbzkycguuyp.supabase.co/storage/v1/object/FileStorage/' + post.image"
             :alt="post.title"
-            class="w-full rounded-lg shadow-md"
+            class="w-full h-96 rounded-lg shadow-md"
           />
         </div>
 
         <!-- Post Metadata -->
         <p class="text-sm text-gray-600 mb-4">
-          Publié le {{ new Date(post.created_at).toLocaleDateString('fr-FR', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }) }}
+          Publié {{ formattedDate }}
         </p>
         <hr class="my-4" />
 
         <!-- Post Content -->
         <div
           class="prose prose-sm sm:prose lg:prose-lg xl:prose-xl mx-auto"
-          v-html="post.content"
+          v-html="contentOutput"
         ></div>
 
         <!-- Related Posts -->
         <section class="mt-12">
           <h2 class="text-2xl font-semibold mb-6">Articles similaires</h2>
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <template v-if="relatedPosts.length === 0">
+            <p class="text-gray-600">Aucun article similaire trouvé.</p>
+          </template>
+          <div v-else class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             <div
               v-for="related in relatedPosts"
               :key="related.id"
-              class="bg-white shadow-md rounded-lg p-4 hover:shadow-lg"
+              class="bg-white shadow-md rounded-lg p-4 hover:shadow-lg transition duration-300"
             >
-              <RouterLink :to="`/posts/${related.id}`">
+              <RouterLink :to="`/post/${related.id}`">
                 <img
-                  :src="related.image"
+                  :src="'https://uejplumqagbzkycguuyp.supabase.co/storage/v1/object/FileStorage/' + related.image"
                   :alt="related.title"
                   class="w-full h-40 object-cover rounded-md mb-4"
                 />
@@ -82,7 +82,12 @@
         <!-- Comments Section -->
         <section class="mt-12">
           <h2 class="text-2xl font-semibold mb-6">Commentaires</h2>
-          <div v-if="comments.length === 0" class="text-gray-600">Aucun commentaire pour l'instant.</div>
+          <template v-if="loadingComments">
+            <p>Chargement des commentaires...</p>
+          </template>
+          <template v-else-if="comments.length === 0">
+            <p class="text-gray-600">Aucun commentaire pour l'instant.</p>
+          </template>
           <div v-else class="space-y-4">
             <div
               v-for="comment in comments"
@@ -90,7 +95,9 @@
               class="bg-gray-100 p-4 rounded-md"
             >
               <p class="text-sm font-semibold">{{ comment.author }}</p>
-              <p class="text-sm text-gray-600">{{ comment.created_at }}</p>
+              <p class="text-sm text-gray-600">
+                {{ new Date(comment.created_at).toLocaleDateString('fr-FR') }}
+              </p>
               <p class="mt-2">{{ comment.content }}</p>
             </div>
           </div>
@@ -106,7 +113,7 @@
             ></textarea>
             <button
               @click="submitComment"
-              class="mt-4 bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600"
+              class="mt-4 bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 transition duration-300"
             >
               Publier
             </button>
@@ -118,22 +125,45 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue';
-import { supabase } from '../lib/supabaseClient';
+import { formatDistanceToNow } from 'date-fns'
+import { fr } from 'date-fns/locale'
+import { supabase } from '../../lib/supabaseClient'
+import { ref, onMounted, computed, watch } from 'vue'
+import { marked } from 'marked'
+
+import { useI18n } from 'vue-i18n'
+const { t } = useI18n()
 
 const props = defineProps({
   id: {
     type: [String, Number],
     required: true,
   },
-});
+})
 
-const post = ref(null);
-const loading = ref(true);
-const error = ref(null);
-const relatedPosts = ref([]);
-const comments = ref([]);
-const newComment = ref('');
+const isDevelopment = import.meta.env.VITE_APP_ENV !== 'production'
+
+const post = ref(null)
+const loading = ref(true)
+const error = ref(null)
+
+const relatedPosts = ref([])
+
+const comments = ref([])
+const newComment = ref('')
+const loadingComments = ref(true)
+
+const contentOutput = computed(() => {
+  if (post.value?.content) {
+    try {
+      return marked(post.value.content)
+    } catch (error) {
+      console.error('Erreur lors de la conversion du contenu Markdown :', error)
+      return '<p>Erreur de rendu du contenu.</p>'
+    }
+  }
+  return '<p>Contenu indisponible.</p>'
+})
 
 const fetchPost = async () => {
   try {
@@ -141,16 +171,16 @@ const fetchPost = async () => {
       .from('posts')
       .select()
       .eq('id', props.id)
-      .single();
+      .single()
 
-    if (fetchError) throw fetchError;
-    post.value = data;
+    if (fetchError) throw fetchError
+    post.value = data
   } catch (err) {
-    error.value = err.message;
+    error.value = err.message
   } finally {
-    loading.value = false;
+    loading.value = false
   }
-};
+}
 
 const fetchRelatedPosts = async () => {
   try {
@@ -158,44 +188,72 @@ const fetchRelatedPosts = async () => {
       .from('posts')
       .select()
       .neq('id', props.id)
-      .limit(3);
-    relatedPosts.value = data;
+      .limit(3)
+    relatedPosts.value = data
   } catch (err) {
-    console.error(err);
+    console.error(err)
   }
-};
+}
 
 const fetchComments = async () => {
   try {
+    loadingComments.value = true;
     const { data } = await supabase
       .from('comments')
       .select()
-      .eq('post_id', props.id);
-    comments.value = data;
+      .eq('post_id', props.id)
+    comments.value = data
   } catch (err) {
-    console.error(err);
+    console.error(err)
+  } finally {
+    loadingComments.value = false
   }
-};
+}
 
 const submitComment = async () => {
-  if (!newComment.value) return;
+  if (!newComment.value.trim()) {
+    return alert('Le commentaire ne peut pas être vide.')
+  }
   try {
     const { error: submitError } = await supabase
       .from('comments')
       .insert([{ content: newComment.value, post_id: props.id }]);
-    if (submitError) throw submitError;
-    newComment.value = '';
-    fetchComments();
+    if (submitError) throw submitError
+    newComment.value = ''
+    fetchComments()
   } catch (err) {
-    console.error(err);
+    console.error(err)
   }
-};
+}
 
-onMounted(() => {
+const formattedDate = computed(() => {
+  if (post.value?.created_at) {
+    return formatDistanceToNow(new Date(post.value.created_at), {
+      addSuffix: true,
+      locale: fr,
+    });
+  }
+  return 'Date inconnue';
+})
+
+// Recharger les données lors du changement de l'ID
+watch(() => props.id, () => {
+  loading.value = true;
+  error.value = null;
+  post.value = null;
+  relatedPosts.value = [];
+  comments.value = [];
+
   fetchPost();
   fetchRelatedPosts();
   fetchComments();
-});
+})
+
+onMounted(() => {
+  fetchPost()
+  fetchRelatedPosts()
+  fetchComments()
+})
 </script>
 
 <style scoped>
