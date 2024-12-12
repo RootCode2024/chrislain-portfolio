@@ -4,6 +4,8 @@
   import Footer from './components/partials/FooterComponent.vue'
   import useTheme from './components/services/useTheme'
   import { inject } from "@vercel/analytics"
+  import { SpeedInsights } from '@vercel/speed-insights/vue'
+
   inject()
 
   const { toggleTheme } = useTheme()
@@ -14,6 +16,7 @@
 </script>
 
 <template>
+  <SpeedInsights />
   <div>
     <div class="flex flex-col min-h-screen">
       <NavBar v-show="$route.name !== 'NotFound'" :toggleTheme="toggleTheme" />
