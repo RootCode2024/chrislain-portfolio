@@ -1,9 +1,9 @@
 import { createHead } from '@vueuse/head'
-import './assets/styles/tailwind.css'
+import './../public/assets/styles/tailwind.css'
 import { createApp } from 'vue'
 import router from './router'
 import App from './App.vue'
-import './assets/main.css'
+import './../public/assets/main.css'
 import i18n from './i18n'
 
 const head = createHead()
