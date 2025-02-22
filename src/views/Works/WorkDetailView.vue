@@ -9,7 +9,7 @@
       <img :src="project.image" :alt="project.title" class="w-full h-full object-cover rounded-lg mb-4">
 
       <!-- Nom du site -->
-      <h2 class="text-2xl font-semibold text-white">{{ project.siteName }}</h2>
+      <h2 class="text-2xl font-semibold dark:text-white text-gray-900">{{ project.siteName }}</h2>
       <p class="text-gray-300 text-sm">{{ project.siteName }}</p>
 
       <!-- Description -->
