@@ -1,72 +1,72 @@
 <template>
-    <div class="container mx-auto px-6 py-12">
-      <h1 class="text-4xl font-bold text-center dark:text-white mb-10">Mes Réalisations</h1>
+  <div class="container mx-auto px-6 py-12">
+    <h1 class="text-4xl font-bold text-center dark:text-white mb-10">Mes Réalisations</h1>
 
-      <!-- FILTRES -->
-      <div class="flex justify-center gap-4 mb-8">
-        <button
-          v-for="category in categories"
-          :key="category"
-          @click="selectedCategory = category"
-          class="px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-300"
-          :class="{
-            'bg-blue-600 text-white': selectedCategory === category,
-            'bg-gray-300 text-gray-700 hover:bg-gray-200': selectedCategory !== category
-          }"
-        >
-          {{ category }}
-        </button>
-      </div>
+    <!-- FILTRES -->
+    <div class="flex justify-center gap-4 mb-8">
+      <button
+        v-for="technology in technologies"
+        :key="technology"
+        @click="selectedTechnology = technology"
+        class="px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-300"
+        :class="{
+          'bg-blue-600 text-white': selectedTechnology === technology,
+          'bg-gray-300 text-gray-700 hover:bg-gray-200': selectedTechnology !== technology
+        }"
+      >
+        {{ technology }}
+      </button>
+    </div>
 
-      <!-- LISTE DES PROJETS -->
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <div
-          v-for="(project, index) in filteredProjects"
-          :key="index"
-          class="bg-gray-200 dark:bg-gray-700 p-6 rounded-2xl shadow-lg transition-transform hover:scale-105"
-        >
-          <img :src="project.image" :alt="project.title" class="w-full h-48 object-cover rounded-lg mb-4">
+    <!-- LISTE DES PROJETS -->
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div
+        v-for="(project, index) in filteredProjects"
+        :key="index"
+        class="bg-gray-200 dark:bg-gray-700 p-6 rounded-2xl shadow-lg transition-transform hover:scale-105"
+      >
+        <img :src="project.image" :alt="project.title" class="w-full h-48 object-cover rounded-lg mb-4">
 
-          <h2 class="text-2xl font-semibold text-gray-700 dark:text-white">{{ project.title }}</h2>
-          <p class="dark:text-gray-300 text-gray-700 text-sm italic">{{ project.siteName }}</p>
+        <h2 class="text-2xl font-semibold text-gray-700 dark:text-white">{{ project.title }}</h2>
+        <p class="dark:text-gray-300 text-gray-700 text-sm italic">{{ project.siteName }}</p>
 
-          <!-- Dans votre template Vue.js -->
-          <p class="text-gray-800 dark:text-gray-400 mt-2">{{ truncateWords(project.description, 30) }}</p>
+        <p class="text-gray-800 dark:text-gray-400 mt-2">{{ truncateWords(project.description, 30) }}</p>
 
-          <div class="mt-4 flex flex-wrap gap-2">
-            <span v-for="tag in project.tags" :key="tag"
-              class="bg-blue-600 text-white text-xs px-3 py-1 rounded-full">
-              {{ tag }}
-            </span>
-          </div>
+        <div class="mt-4 flex flex-wrap gap-2">
+          <span v-for="tag in project.tags" :key="tag"
+            class="bg-blue-600 text-white text-xs px-3 py-1 rounded-full">
+            {{ tag }}
+          </span>
+        </div>
 
-          <div class="mt-4 flex flex-wrap gap-2">
-            <span v-for="tech in project.technologies" :key="tech"
-              class="bg-gray-700 text-gray-300 text-xs px-3 py-1 rounded-full">
-              {{ tech }}
-            </span>
-          </div>
+        <div class="mt-4 flex flex-wrap gap-2">
+          <span v-for="tech in project.technologies" :key="tech"
+            class="bg-gray-700 dark:bg-gray-500 text-gray-300 text-xs px-3 py-1 rounded-full">
+            {{ tech }}
+          </span>
+        </div>
 
-          <div class="mt-6 flex justify-between">
-            <a :href="project.website" target="_blank"
-              class="text-green-400 hover:text-green-300 text-sm">
-              🔗 Voir le site
-            </a>
-            <RouterLink :to="project.detailsLink"
-              class="text-gray-400 hover:text-gray-300 text-sm">
-              🔍 Détails
-            </RouterLink>
-          </div>
+        <div class="mt-6 flex justify-between">
+          <a :href="project.website" target="_blank"
+            v-if="project.website"
+            class="text-green-400 hover:text-green-300 text-sm">
+            🔗 Voir le site
+          </a>
+          <RouterLink :to="project.detailsLink"
+            class="text-gray-400 hover:text-gray-300 text-sm">
+            🔍 Détails
+          </RouterLink>
         </div>
       </div>
     </div>
-  </template>
+  </div>
+</template>
 
 <script setup>
-  import { ref, computed } from "vue";
-  import { RouterLink } from "vue-router";
+import { ref, computed } from "vue";
+import { RouterLink } from "vue-router";
 
-  const projects = ref([
+const projects = ref([
   {
     title: "Portfolio",
     siteName: "Mon Portfolio",
@@ -74,7 +74,6 @@
     image: "/assets/images/portfolio.png",
     tags: ["Portfolio", "Web"],
     technologies: ["Vue.js", "Supabase", "Tailwind CSS"],
-    category: "Web",
     website: "https://chrislainavocegan.site",
     detailsLink: "/work/1"
   },
@@ -85,8 +84,6 @@
     image: "/assets/images/amazone.png",
     tags: ["Dashboard", "Admin"],
     technologies: ["Vue.js", "Laravel", "MySQL"],
-    category: "Dashboard",
-    website: "#",
     detailsLink: "/work/2"
   },
   {
@@ -96,7 +93,6 @@
     image: "/assets/images/giehgd.png",
     tags: ["Site Institutionnel", "Entreprise"],
     technologies: ["WordPress"],
-    category: "Site Institutionnel",
     website: "https://holdinggroupdiama.com",
     detailsLink: "/work/3"
   },
@@ -107,7 +103,6 @@
     image: "/assets/images/fte.png",
     tags: ["Site Événementiel", "Événement"],
     technologies: ["WordPress"],
-    category: "Site Événementiel",
     website: "https://futuretransportexpo.com",
     detailsLink: "/work/4"
   },
@@ -118,39 +113,39 @@
     image: "/assets/images/flexinterim.png",
     tags: ["Site Institutionnel", "Recrutement"],
     technologies: ["WordPress"],
-    category: "Site Institutionnel",
     website: "https://flex-interim.com",
     detailsLink: "/work/5"
   }
 ]);
 
-  const truncateWords = (value, numWords) =>
-  {
-    if (!value){return ''};
-    const words = value.split(/\s+/);
-    if (words.length <= numWords) return value;
-    return words.slice(0, numWords).join(' ') + '...';
-  };
+const truncateWords = (value, numWords) => {
+  if (!value) return '';
+  const words = value.split(/\s+/);
+  if (words.length <= numWords) return value;
+  return words.slice(0, numWords).join(' ') + '...';
+};
 
-  const categories = ref(["Tous", "Web", "E-commerce", "Dashboard", "Mobile"]);
-  const selectedCategory = ref("Tous");
+// Extraire les technologies uniques
+const technologies = ref(["Tous", ...new Set(projects.value.flatMap(p => p.technologies))]);
+const selectedTechnology = ref("Tous");
 
-  const filteredProjects = computed(() => {
-    return selectedCategory.value === "Tous"
-      ? projects.value
-      : projects.value.filter(project => project.category === selectedCategory.value);
-  });
+// Filtrer les projets par technologie
+const filteredProjects = computed(() => {
+  return selectedTechnology.value === "Tous"
+    ? projects.value
+    : projects.value.filter(project => project.technologies.includes(selectedTechnology.value));
+});
 </script>
 
 <style scoped>
-  /* Dégradé de fond */
-  body {
-    background: #1e293b;
-    color: white;
-  }
+/* Dégradé de fond */
+body {
+  background: #1e293b;
+  color: white;
+}
 
-  /* Animation au survol */
-  .hover\:scale-105 {
-    transition: transform 0.3s ease-in-out;
-  }
+/* Animation au survol */
+.hover\:scale-105 {
+  transition: transform 0.3s ease-in-out;
+}
 </style>

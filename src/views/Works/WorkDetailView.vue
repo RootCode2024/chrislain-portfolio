@@ -6,7 +6,7 @@
     <!-- Conteneur principal -->
     <div class="bg-gray-800 p-6 rounded-2xl shadow-lg">
       <!-- Image du projet -->
-      <img :src="project.image" :alt="project.title" class="w-full h-48 object-cover rounded-lg mb-4">
+      <img :src="project.image" :alt="project.title" class="w-full h-full object-cover rounded-lg mb-4">
 
       <!-- Nom du site -->
       <h2 class="text-2xl font-semibold text-white">{{ project.siteName }}</h2>
