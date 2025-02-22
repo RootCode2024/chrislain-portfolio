@@ -125,21 +125,21 @@
 </template>
 
 <script setup>
-import { formatDistanceToNow } from 'date-fns'
-import { fr } from 'date-fns/locale'
-import { supabase } from '../../lib/supabaseClient'
-import { ref, onMounted, computed, watch } from 'vue'
-import { marked } from 'marked'
+  import { formatDistanceToNow } from 'date-fns'
+  import { fr } from 'date-fns/locale'
+  import { supabase } from '../../lib/supabaseClient'
+  import { ref, onMounted, computed, watch } from 'vue'
+  import { marked } from 'marked'
 
-import { useI18n } from 'vue-i18n'
-const { t } = useI18n()
+  import { useI18n } from 'vue-i18n'
+  const { t } = useI18n()
 
-const props = defineProps({
-  id: {
-    type: [String, Number],
-    required: true,
-  },
-})
+  const props = defineProps({
+    id: {
+      type: [String, Number],
+      required: true,
+    },
+  })
 
 const isDevelopment = import.meta.env.VITE_APP_ENV !== 'production'
 

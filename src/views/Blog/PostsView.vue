@@ -1,100 +1,98 @@
 <script setup>
-import { formatDistanceToNow } from 'date-fns'
-import { fr } from 'date-fns/locale'
-import { supabase } from '../../lib/supabaseClient'
-import { RouterLink } from 'vue-router'
-import { ref, onMounted, computed } from 'vue'
-import { useI18n } from 'vue-i18n'
+  import { formatDistanceToNow } from 'date-fns'
+  import { fr } from 'date-fns/locale'
+  import { supabase } from '../../lib/supabaseClient'
+  import { RouterLink } from 'vue-router'
+  import { ref, onMounted, computed } from 'vue'
+  import { useI18n } from 'vue-i18n'
 
-const { t } = useI18n()
+  const { t } = useI18n()
 
-const posts = ref([])
-const loading = ref(true)
-const error = ref(false)
+  const posts = ref([])
+  const loading = ref(true)
+  const error = ref(false)
 
-const tags = ref([])
-const loadingTag = ref(true)
-const errorTag = ref(false)
+  const tags = ref([])
+  const loadingTag = ref(true)
+  const errorTag = ref(false)
 
+  async function getPosts() {
+    try {
+      const { data, error: fetchError } = await supabase
+        .from('posts')
+        .select(`
+          id,
+          title,
+          description,
+          image,
+          created_at,
+          post_tags (
+            tags (id, name)
+          )
+        `);
 
+      if (fetchError) throw fetchError;
 
-async function getPosts() {
-  try {
-    const { data, error: fetchError } = await supabase
-      .from('posts')
-      .select(`
-        id,
-        title,
-        description,
-        image,
-        created_at,
-        post_tags (
-          tags (id, name)
-        )
-      `);
-
-    if (fetchError) throw fetchError;
-
-    posts.value = data.map(post => ({
-      ...post,
-      tags: post.post_tags.map(pt => pt.tags),
-    }));
-  } catch (err) {
-    error.value = true
-    console.log(err.message)
-  } finally {
-    loading.value = false;
-  }
-}
-
-async function getTags() {
-  try {
-    const { data: dataTag, error: fetchError } = await supabase
-      .from('tags')
-      .select('id, name');
-
-    if (fetchError) throw fetchError;
-
-    tags.value = dataTag;
-  } catch (error) {
-    errorTag.value = true;
-    console.error(error.message);
-  } finally {
-    loadingTag.value = false;
-  }
-}
-
-const formattedDate = computed(() => {
-  return (date) => {
-    if (date) {
-      return formatDistanceToNow(new Date(date), {
-        addSuffix: true,
-        locale: fr, // Pour le français
-      });
+      posts.value = data.map(post => ({
+        ...post,
+        tags: post.post_tags.map(pt => pt.tags),
+      }));
+    } catch (err) {
+      error.value = true
+      console.log(err.message)
+    } finally {
+      loading.value = false;
     }
-    return 'Date inconnue';
   }
-})
 
+  async function getTags() {
+    try {
+      const { data: dataTag, error: fetchError } = await supabase
+        .from('tags')
+        .select('id, name');
 
-function handleFilterChange(value) {
-  const filteredPosts = posts.value.slice().sort((a, b) => {
-    if (value === '') {
-      return 0
-    } else if (value === 'Les Plus anciens') {
-      return a.created_at > b.created_at ? 1 : -1
-    } else if (value === 'Les Plus récent') {
-      return a.created_at < b.created_at ? 1 : -1
+      if (fetchError) throw fetchError;
+
+      tags.value = dataTag;
+    } catch (error) {
+      errorTag.value = true;
+      console.error(error.message);
+    } finally {
+      loadingTag.value = false;
+    }
+  }
+
+  const formattedDate = computed(() => {
+    return (date) => {
+      if (date) {
+        return formatDistanceToNow(new Date(date), {
+          addSuffix: true,
+          locale: fr, // Pour le français
+        });
+      }
+      return 'Date inconnue';
     }
   })
 
-  posts.value = filteredPosts
-}
 
-onMounted(() => {
-  getPosts();
-  getTags();
-});
+  function handleFilterChange(value) {
+    const filteredPosts = posts.value.slice().sort((a, b) => {
+      if (value === '') {
+        return 0
+      } else if (value === 'Les Plus anciens') {
+        return a.created_at > b.created_at ? 1 : -1
+      } else if (value === 'Les Plus récent') {
+        return a.created_at < b.created_at ? 1 : -1
+      }
+    })
+
+    posts.value = filteredPosts
+  }
+
+  onMounted(() => {
+    getPosts();
+    getTags();
+  });
 
 </script>
 

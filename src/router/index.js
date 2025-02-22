@@ -14,10 +14,12 @@ import { createRouter, createWebHistory } from 'vue-router'
 const routes = [
   { path: '/', component: () => import('../views/HomeView.vue') },
   { path: '/contact', component: () => import('../views/ContactView.vue') },
+  { path: '/works', component: () => import('../views/WorksView.vue') },
   { path: '/resume', component: () => import('../views/ResumeView.vue') },
   { path: '/about', component: () => import('../views/AboutView.vue') },
   { path: '/posts', component: () => import('../views/Blog/PostsView.vue') },
   { path: '/post/:id', component: () => import('../views/Blog/PostDetailView.vue'), props: true },
+  { path: '/work/:id', component: () => import('../views/Works/WorkDetailView.vue'), props: true },
   { path: '/tag/:id', component: () => import('../views/Blog/AllTagsView.vue'), props: true },
   { path: '/settings', component: () => import('../views/Dashboard/SettingsView.vue') },
   { path: '/:pathMatch(.*)*', component: () => import('../views/NotFound.vue') },

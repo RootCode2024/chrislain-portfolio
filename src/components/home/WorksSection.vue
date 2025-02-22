@@ -33,6 +33,11 @@
               </a>
               </div>
             </div>
+            <div class="my-5">
+              <RouterLink to="/works" class="bg-indigo-600 text-white hover:bg-indigo-700 py-2 px-4 rounded">
+                {{ $t('home.projects.seeMore') }}
+              </RouterLink>
+            </div>
         </div>
 
       </div>

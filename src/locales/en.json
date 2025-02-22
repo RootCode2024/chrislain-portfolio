@@ -23,6 +23,7 @@
         },
         "projects": {
             "title": "Works",
+            "seeMore": "See More",
             "description": "Here are some projects I have worked on recently.",
             "gie": {
                 "title": "GIE Holding Group Diama",
