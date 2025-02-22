@@ -1,7 +1,7 @@
 <template>
   <div class="container mx-auto px-6 py-12">
     <!-- Titre principal -->
-    <h1 class="text-4xl font-bold text-center text-white mb-10">{{ project.title }}</h1>
+    <h1 class="text-4xl font-bold text-center dark:text-white text-gray-900 mb-10">{{ project.title }}</h1>
 
     <!-- Conteneur principal -->
     <div class="bg-gray-800 p-6 rounded-2xl shadow-lg">
@@ -9,7 +9,7 @@
       <img :src="project.image" :alt="project.title" class="w-full h-full object-cover rounded-lg mb-4">
 
       <!-- Nom du site -->
-      <h2 class="text-2xl font-semibold dark:text-white text-gray-900">{{ project.siteName }}</h2>
+      <h2 class="text-2xl font-semibold text-white">{{ project.siteName }}</h2>
       <p class="text-gray-300 text-sm">{{ project.siteName }}</p>
 
       <!-- Description -->
