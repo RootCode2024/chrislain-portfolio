@@ -1,46 +1,51 @@
 <template>
-  <section class="py-6 animate-fade-up animate-duration-[2000ms] animate-alternate">
-    <div class="container mx-auto px-4 text-center">
-      <div class="w-full">
+  <section class="py-12 animate-fade-up animate-duration-[1500ms]">
+    <div class="container mx-auto px-6 text-center">
 
-
-        <!-- Liste des projets -->
-        <div class="mt-10 lg:mt-10 mb-10 lg:mb-30 p-2 lg:p-0">
-            <h1 class="text-2xl lg:text-4xl font-thin lg:flex lg:justify-start">{{ $t('home.projects.title') }}.</h1>
-            <hr />
-            <div class="mt-5 lg:mt-10 grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div
-                class="overflow-hidden rounded-lg p-2 lg:p-4 first:ml-0 link shadow-sm"
-                v-for="(project, index) in translatedProjects"
-                  :key="index"
-              >
-              <a :href="project.link" target="_blanc">
-                <div
-                  class="relative rounded-lg overflow-hidden transition-all ease-out duration-300 h-64 mob:h-auto"
-                >
-                  <img
-                  class="h-full w-full object-cover hover:scale-110 transition-all ease-out duration-300"
-                    :src="project.image"
-                    :alt="project.imageAlt"
-                  />
-                </div>
-                <h2 class="flex justify-start md:text-3xl text-2xl my-2">
-                  {{ project.title }}
-                </h2>
-                <h3 class="flex justify-start text-md opacity-50">
-                  <span class="bg-slate-700 dark:bg-slate-100 text-slate-100 dark:text-slate-700 p-1 rounded-xl">{{ project.tag }}</span>
-                </h3>
-              </a>
-              </div>
-            </div>
-            <div class="my-5">
-              <RouterLink to="/works" class="bg-indigo-600 text-white hover:bg-indigo-700 py-2 px-4 rounded">
-                {{ $t('home.projects.seeMore') }}
-              </RouterLink>
-            </div>
-        </div>
-
+      <!-- Titre principal -->
+      <div class="w-full mb-12">
+        <h1 class="text-4xl lg:text-5xl font-light text-gray-900 dark:text-white lg:text-left">
+          {{ $t('home.projects.title') }}.
+        </h1>
+        <div class="w-24 h-1 bg-indigo-600 mt-3 lg:mt-5 lg:ml-0 mx-auto lg:mx-0"></div>
       </div>
+
+      <!-- Section Projets en Vedette -->
+      <div class="mb-16">
+        <h2 class="text-2xl lg:text-3xl font-semibold text-gray-800 dark:text-white mb-6">
+          🚀 Projets en Vedette
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <ProjectCard
+            v-for="(project, index) in featuredProjects"
+            :key="index"
+            :project="project"
+          />
+        </div>
+      </div>
+
+      <!-- Section Autres Projets -->
+      <h2 class="text-2xl lg:text-3xl font-semibold text-gray-800 dark:text-white mb-6">
+        📂 Autres Projets
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <ProjectCard
+          v-for="(project, index) in otherProjects"
+          :key="index"
+          :project="project"
+        />
+      </div>
+
+      <!-- Voir plus -->
+      <div class="mt-10">
+        <RouterLink
+          to="/works"
+          class="bg-indigo-600 text-white font-medium px-6 py-3 rounded-lg transition-all hover:bg-indigo-700 hover:shadow-md"
+        >
+          {{ $t('home.projects.seeMore') }}
+        </RouterLink>
+      </div>
+
     </div>
   </section>
 </template>
@@ -48,48 +53,69 @@
 <script setup>
 import { computed } from 'vue';
 import { useI18n } from 'vue-i18n';
+import ProjectCard from './ProjectCard.vue'; // Composant pour chaque carte projet
 
-const { t } = useI18n(); // Traductions
+const { t } = useI18n();
 
-// Données des projets
-const projectsData = [
+// Projets en vedette (Laravel + Vue.js et Angular)
+const featuredProjects = computed(() => [
   {
-    key: 'gie',
-    image: '/assets/images/giehgd.png',
-    link: 'https://www.holdinggroupdiama.com',
-    className: 'bg-green-500',
-    imageAlt: 'Projet Gie holding group diama par Chris'
+    key: 'amazone-tchad',
+    title: 'Amazone Tchad',
+    description: 'Développement du dashboard administrateur avec Laravel 10 et Vue.js 3.',
+    image: '/assets/images/amazone.png',
+    link: '#',
+    tag: 'Laravel & Vue.js',
+    tagColor: 'bg-red-500',
   },
   {
-    key: 'future',
+    key: 'school-management',
+    title: 'School Management',
+    description: 'Application de gestion scolaire.',
+    image: '/assets/images/school-management.png',
+    link: '#',
+    tag: 'Api Laravel',
+    tagColor: 'bg-blue-500',
+  },
+  {
+    key: 'angular-project',
+    title: 'Site FSPPI',
+    description: 'Intervention sur le frontend d’un projet Angular.',
+    image: '/assets/images/angular-project.png',
+    link: '#',
+    tag: 'Angular',
+    tagColor: 'bg-orange-500',
+  }
+]);
+
+// Autres projets
+const otherProjects = computed(() => [
+  {
+    key: 'api-laravel',
+    title: 'Projet Privé',
+    description: 'Développement d’une API Laravel pour le backend.',
+    image: '/assets/images/api-laravel.png',
+    link: '#',
+    tag: 'API Laravel',
+    tagColor: 'bg-gray-700',
+  },
+  {
+    key: 'future-transport',
+    title: 'Future Transport Expo',
+    description: 'Développement et SEO pour un site événementiel.',
     image: '/assets/images/fte.png',
     link: 'https://www.futuretransportexpo.com',
-    className: 'bg-indigo-500',
-    imageAlt: 'Projet Future Transport Expo par Chris'
+    tag: 'SEO & Dev',
+    tagColor: 'bg-indigo-500',
   },
   {
     key: 'portfolio',
+    title: 'Portfolio',
+    description: 'Mon portfolio personnel avec Vue.js et Tailwind CSS.',
     image: '/assets/images/portfolio.png',
     link: 'https://www.chrislainavocegan.site',
-    className: 'bg-gray-500',
-    imageAlt: 'Projet Portfolio par Chris'
-  },
-  {
-    key: 'flex-interim',
-    image: '/assets/images/flexinterim.png',
-    link: 'https://www.flex-interim.com',
-    className: 'bg-gray-500',
-    imageAlt: 'Projet SEO Flex Interim par Chris'
-  },
-];
-
-// Traduire les projets
-const translatedProjects = computed(() =>
-  projectsData.map((project) => ({
-    ...project,
-    title: t(`home.projects.${project.key}.title`),
-    description: t(`home.projects.${project.key}.description`),
-    tag: t(`home.projects.${project.key}.tag`, { defaultValue: 'Website' }),
-  }))
-);
+    tag: 'Vue.js',
+    tagColor: 'bg-green-500',
+  }
+]);
 </script>

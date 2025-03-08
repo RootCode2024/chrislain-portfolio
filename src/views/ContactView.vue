@@ -131,36 +131,38 @@
 
   // Fonction pour envoyer l'email
   const handleSubmit = () => {
-    isLoading.value = true;
-    success.value = false;
-    error.value = false;
+  console.log('Form submission triggered');
+  isLoading.value = true;
+  success.value = false;
+  error.value = false;
 
-    emailjs
-      .send(
-        "service_s8592se",
-        "template_ik22uc1",
-        formData.value,
-        "T_lLQKcpcNCRBI1MHVxxJ"
-      )
-      .then(
-        () => {
-          success.value = true; // Succès
-          formData.value = { name: "", email: "", message: "" };
+  emailjs
+  .send(
+    "service_l3hiz3b",      // Votre ID de service
+    "template_ik22uc1",     // Votre ID de modèle
+    formData.value,         // Données du formulaire
+    "wYSc5hqM1T8_k1WQW"     // Nouvelle clé publique
+  )
+  .then(
+    () => {
+      success.value = true; // Succès
+      formData.value = { name: "", email: "", message: "" };
 
-          // Réinitialiser success après 5 secondes
-          setTimeout(() => {
-            success.value = false;
-          }, 5000);
-        },
-        (err) => {
-          console.error("Erreur :", err);
-          error.value = true; // Erreur
-        }
-      )
-      .finally(() => {
-        isLoading.value = false; // Fin du chargement
-      });
-  };
+      // Réinitialiser success après 5 secondes
+      setTimeout(() => {
+        success.value = false;
+      }, 5000);
+    },
+    (err) => {
+      console.error("Erreur :", err);
+      error.value = true; // Erreur
+    }
+  )
+  .finally(() => {
+    isLoading.value = false; // Fin du chargement
+  });
+};
+
 
   useHead({
   title: 'Contact - Code With Chris',
