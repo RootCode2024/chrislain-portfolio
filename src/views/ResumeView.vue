@@ -130,6 +130,7 @@
 
   const downloadResume = () => {
     const lang = selectedLanguage.value
+    console.log('langue selectionné : ',  selectedLanguage.value)
     const link = document.createElement('a')
     link.href = `/assets/cv/chrislain_avocegan_cv_${lang}.pdf`
     link.download = `chrislain_avocegan_cv_${lang}.pdf`
