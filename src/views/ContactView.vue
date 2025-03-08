@@ -75,7 +75,7 @@
             </p>
             <p class="mb-4">
               <strong>{{ t('contact.information.phoneLabel') }}: </strong>
-              <span class="text-blue-500">+221 77 681 52 08</span>
+              <span class="text-blue-500">+221 77 761 45 55</span>
             </p>
             <p class="mb-4">
               <strong>{{ t('contact.information.comeUpLabel') }}: </strong>
