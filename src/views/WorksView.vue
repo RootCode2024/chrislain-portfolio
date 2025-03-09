@@ -18,39 +18,13 @@
       </button>
     </div>
 
-    <!-- PROJETS EN VEDETTE -->
-    <h2 class="text-2xl font-bold text-gray-700 dark:text-white mb-6">Projets en vedette</h2>
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-      <div
-        v-for="project in featuredProjects"
-        :key="project.key"
-        class="relative bg-gray-800 dark:bg-gray-700 p-6 rounded-2xl shadow-lg transition-transform hover:scale-105"
-      >
-        <img :src="project.image" :alt="project.title" class="w-full h-48 object-cover rounded-lg mb-4">
-        <span :class="['text-white text-xs px-3 py-1 rounded-full absolute top-3 left-3', project.tagColor]">
-          {{ project.tag }}
-        </span>
-
-        <h2 class="text-xl font-semibold text-white">{{ project.title }}</h2>
-        <p class="text-gray-300 mt-2">{{ project.description }}</p>
-
-        <div class="mt-4">
-          <a :href="project.link"
-          v-if="project.link != '#'"
-          target="_blank"
-            class="text-blue-400 hover:text-blue-300 text-sm">
-            🔗 Voir le projet
-          </a>
-        </div>
-      </div>
-    </div>
 
     <!-- AUTRES PROJETS -->
     <h2 class="text-2xl font-bold text-gray-700 dark:text-white mt-12 mb-6">Autres projets</h2>
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
       <div
-        v-for="(project, index) in filteredProjects"
-        :key="index"
+        v-for="project in filteredProjects"
+        :key="project.id"
         class="relative bg-gray-200 dark:bg-gray-700 p-6 rounded-2xl shadow-lg transition-transform hover:scale-105"
       >
         <img :src="project.image" :alt="project.title" class="w-full h-48 object-cover rounded-lg mb-4">
@@ -75,8 +49,8 @@
         </div>
 
         <div class="mt-6 flex justify-between">
-          <a :href="project.link"
-          v-if="project.link != '#'"
+          <a :href="project.website"
+          v-if="project.website !== '#'"
           target="_blank"
             class="text-green-400 hover:text-green-300 text-sm">
             🔗 Voir le site
@@ -95,92 +69,106 @@
 import { ref, computed } from "vue";
 import { RouterLink } from "vue-router";
 
-const featuredProjects = computed(() => [
+// Données de projets
+const featuredProjects = ref([
   {
-    key: 'amazone-tchad',
-    title: 'Amazone Tchad',
-    description: 'Développement du dashboard administrateur avec Laravel 10 et Vue.js 3.',
-    image: '/assets/images/amazone.png',
-    link: '#',
-    tag: 'Laravel & Vue.js',
-    tagColor: 'bg-red-500',
+    id: 1,
+    title: "FSPII - Application de Gestion Scolaire",
+    siteName: "FSPII",
+    description: "J'ai pris en charge le développement du frontend de l'application FSPII en utilisant Angular. Cette application vise à faciliter la gestion des informations scolaires, offrant une interface conviviale pour les administrateurs, les enseignants et les étudiants.",
+    image: "/assets/images/fsppi.PNG",
+    tags: ["Gestion Scolaire", "Angular", "Frontend"],
+    technologies: ["Angular", "TypeScript"],
+    category: "Application Web",
+    website: "#",
+    detailsLink: "/work/fsppi"
   },
   {
-    key: 'school-management',
-    title: 'School Management',
-    description: 'Application de gestion scolaire.',
-    image: '/assets/images/work_image.png',
-    link: '#',
-    tag: 'Api Laravel',
-    tagColor: 'bg-blue-500',
+    id: 2,
+    title: "School Management - API de Gestion Scolaire",
+    siteName: "School Management API",
+    description: "Pour le projet School Management, j'ai conçu et développé une API robuste avec Laravel. Cette API gère efficacement les données scolaires, permettant une intégration fluide avec diverses interfaces frontend et garantissant une gestion sécurisée des informations sensibles.",
+    image: "/assets/images/work_image.png",
+    tags: ["API", "Laravel", "Backend"],
+    technologies: ["Laravel", "PHP", "PostGreSql", "RESTful APIs"],
+    category: "API Backend",
+    website: "#",
+    detailsLink: "/work/school_management"
   },
   {
-    key: 'angular-project',
-    title: 'Site FSPPI',
-    description: 'Intervention sur le frontend d’un projet Angular.',
-    image: '/assets/images/fsppi.PNG',
-    link: 'https://fsppi.org',
-    tag: 'Angular',
-    tagColor: 'bg-orange-500',
+    id: 3,
+    title: "Amazone Tchad - Plateforme de Réservation",
+    siteName: "Amazone Tchad",
+    description: "Pour Amazone Tchad, j'ai développé à la fois le frontend et l'API backend en utilisant Vue.js 3 et Laravel. La plateforme facilite les réservations de vols, d'hôtels et de locations de voitures, offrant une expérience utilisateur fluide et un système de gestion efficace pour les administrateurs.",
+    image: "/assets/images/amazone.png",
+    tags: ["Vue.js 3", "Laravel", "Full Stack"],
+    technologies: ["Vue.js 3", "Laravel", "MySQL", "API RESTful"],
+    category: "Application Web",
+    website: "#",
+    detailsLink: "/work/amazone_tchad"
+  },
+  {
+    id: 4,
+    title: "Future Transport Expo - Site Événementiel",
+    siteName: "Future Transport Expo",
+    description: "J'ai conçu et développé le site événementiel Future Transport Expo avec WordPress. Le site fournit des informations détaillées sur l'événement, y compris les exposants, les conférences et les programmes, tout en permettant aux participants de s'inscrire en ligne.",
+    image: "/assets/images/fte.png",
+    tags: ["Événementiel", "WordPress", "Site Web"],
+    technologies: ["WordPress"],
+    category: "Site Événementiel",
+    website: "https://futuretransportexpo.com",
+    detailsLink: "/work/future_transport_expo"
+  },
+  {
+    id: 5,
+    title: "GIE Holding Group Diama - Site Institutionnel",
+    siteName: "GIE Holding Group Diama",
+    description: "Pour GIE Holding Group Diama, j'ai développé un site institutionnel avec WordPress. Le site présente l'entreprise, ses services et inclut des formulaires de contact pour faciliter les interactions avec les clients potentiels.",
+    image: "/assets/images/giehgd.png",
+    tags: ["Institutionnel", "WordPress", "Site Web"],
+    technologies: ["WordPress"],
+    category: "Site Institutionnel",
+    website: "https://gieholdinggroupdiama.com",
+    detailsLink: "/work/gie_holding_group_diama"
+  },
+  {
+    id: 6,
+    title: "Mon Portfolio - Portfolio Personnel",
+    siteName: "Mon Portfolio",
+    description: "J'ai créé mon portfolio personnel en utilisant Vue.js pour le frontend et Express.js pour le backend. Le site présente mes projets, mes compétences et mon parcours professionnel, offrant une interface moderne et réactive.",
+    image: "/assets/images/portfolio.png",
+    tags: ["Portfolio", "Vue.js 3", "Express.js"],
+    technologies: ["Vue.js 3", "Express.js", "Node.js", "PostGreSql"],
+    category: "Portfolio Personnel",
+    website: "https://chrislainavocegan.site",
+    detailsLink: "/work/mon_portfolio"
   }
 ]);
 
-const otherProjects = computed(() => [
-  {
-    key: 'api-laravel',
-    title: 'Projet Privé',
-    description: 'Développement d’une API Laravel pour le backend.',
-    image: '/assets/images/work_image.png',
-    link: '#',
-    tag: 'API Laravel',
-    tagColor: 'bg-gray-700',
-  },
-  {
-    key: 'future-transport',
-    title: 'Future Transport Expo',
-    description: 'Développement et SEO pour un site événementiel.',
-    image: '/assets/images/fte.png',
-    link: 'https://www.futuretransportexpo.com',
-    tag: 'SEO & Dev',
-    tagColor: 'bg-indigo-500',
-  },
-  {
-    key: 'portfolio',
-    title: 'Portfolio',
-    description: 'Mon portfolio personnel avec Vue.js et Tailwind CSS.',
-    image: '/assets/images/portfolio.png',
-    link: 'https://www.chrislainavocegan.site',
-    tag: 'Vue.js',
-    tagColor: 'bg-green-500',
-  }
+const technologies = ref([
+  "Tous",
+  ...new Set(featuredProjects.value.flatMap(p => p.technologies))
 ]);
-
-const projects = ref([...otherProjects.value]); // Fusionne tous les projets
-
-const truncateWords = (value, numWords) => {
-  if (!value) return '';
-  const words = value.split(/\s+/);
-  if (words.length <= numWords) return value;
-  return words.slice(0, numWords).join(' ') + '...';
-};
-
-const technologies = ref(["Tous", ...new Set(projects.value.flatMap(p => p.tag))]);
 const selectedTechnology = ref("Tous");
 
 const filteredProjects = computed(() => {
   return selectedTechnology.value === "Tous"
-    ? projects.value
-    : projects.value.filter(project => project.tag === selectedTechnology.value);
+    ? featuredProjects.value
+    : featuredProjects.value.filter(project =>
+        project.technologies.includes(selectedTechnology.value)
+      );
 });
+
+const truncateWords = (text, wordLimit) => {
+  const words = text.split(" ");
+  if (words.length <= wordLimit) {
+    return text;
+  } else {
+    return words.slice(0, wordLimit).join(" ") + " ...";
+  }
+};
 </script>
 
 <style scoped>
-body {
-  background: #1e293b;
-  color: white;
-}
-
-.hover\:scale-105 {
-  transition: transform 0.3s ease-in-out;
-}
+/* Ajouter vos styles ici si nécessaire */
 </style>
