@@ -110,6 +110,6 @@ watch(locale, () => {
 
 <style scoped>
 .text {
-  @apply bg-gradient-to-r from-indigo-400 to-green-600 bg-clip-text text-transparent tracking-tight;
+  @apply bg-gradient-to-r from-indigo-600 to-green-800 bg-clip-text text-transparent tracking-tight;
 }
 </style>
