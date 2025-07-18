@@ -75,6 +75,10 @@
             </p>
             <p class="mb-4">
               <strong>{{ t('contact.information.phoneLabel') }}: </strong>
+              <span class="text-blue-500">+229 01 56 11 53 63</span>
+            </p>
+            <p class="mb-4">
+              <strong>{{ t('contact.information.phoneLabel') }} (whatsapp): </strong>
               <span class="text-blue-500">+221 77 761 45 55</span>
             </p>
             <p class="mb-4">
@@ -95,7 +99,7 @@
         </div>
 
         <!-- Localisation -->
-        <div class="mt-8">
+        <!-- <div class="mt-8">
           <h2 class="text-2xl font-bold mb-4">{{ t('contact.location.title') }}</h2>
           <iframe
             class="w-full h-64"
@@ -103,7 +107,7 @@
             allowfullscreen=""
             loading="lazy"
           ></iframe>
-        </div>
+        </div> -->
       </div>
     </div>
   </div>

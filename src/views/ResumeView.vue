@@ -25,9 +25,10 @@
             <!-- Coordonnées -->
             <div class="section">
               <h3 class="font-semibold">{{ t('resume.contact.title') }}</h3>
-              <p><strong>{{ t('resume.contact.phone') }} :</strong> +221 77 761 45 55</p>
+              <p><strong>{{ t('resume.contact.phone') }} (whatsapp):</strong> +221 77 761 45 55</p>
+              <p><strong>{{ t('resume.contact.phone') }} :</strong> +229 01 56 11 53 63</p>
               <p><strong>{{ t('resume.contact.email') }} :</strong> chrislainavocegan24@gmail.com</p>
-              <p><strong>{{ t('resume.contact.address') }} :</strong> Dakar, Sénégal.</p>
+              <p><strong>{{ t('resume.contact.address') }} :</strong> Cotonou, Bénin.</p>
             </div>
 
             <!-- Formation -->
