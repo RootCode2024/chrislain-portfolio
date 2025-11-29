@@ -1,41 +1,43 @@
 <template>
-  <section class="py-12 animate-fade-up animate-duration-[1500ms]">
-    <div class="container mx-auto px-6 text-center">
-      <!-- Titre principal -->
-      <div class="w-full mb-4">
-        <h1 class="text-2xl lg:text-4xl font-light text-gray-900 dark:text-white lg:text-left">
-          {{ $t('home.projects.title') }}.
-        </h1>
-        <div class="w-24 h-1 bg-indigo-600 mt-3 lg:mt-5 lg:ml-0 mx-auto lg:mx-0"></div>
-      </div>
-      <hr>
-
-      <!-- Section Projets en Vedette -->
-      <div class="mb-16">
-        <h2 class="text-2xl lg:text-3xl font-semibold text-gray-800 dark:text-white mb-6">
-          Projets Principaux
-        </h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <ProjectCard
-            v-for="(project, index) in featuredProjects"
-            :key="index"
-            :project="project"
-          />
+  <section class="animate-fade-up animate-delay-200">
+    <!-- Header -->
+    <div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+      <div>
+        <div class="flex items-center gap-3 mb-4">
+          <div class="p-2 bg-emerald-100 dark:bg-emerald-900/30 rounded-lg text-emerald-600 dark:text-emerald-400">
+            <Layers :size="24" />
+          </div>
+          <h2 class="text-3xl lg:text-4xl font-bold text-slate-900 dark:text-white">
+            {{ $t('home.projects.title') }}
+          </h2>
         </div>
+        <p class="text-slate-600 dark:text-slate-400 max-w-xl">
+           Une sélection de mes travaux récents, allant des applications web complexes aux sites vitrines.
+        </p>
       </div>
 
-      <!-- Voir plus -->
-      <div class="mt-10">
-        <RouterLink
-          to="/works"
-          class="bg-indigo-600 text-white font-medium px-6 py-3 rounded-lg transition-all hover:bg-indigo-700 hover:shadow-md inline-flex items-center"
-        >
-          {{ $t('home.projects.seeMore') }}
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
-            <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
-          </svg>
-        </RouterLink>
-      </div>
+      <RouterLink to="/works" 
+        class="hidden md:flex items-center gap-2 text-sm font-semibold text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300 transition-colors">
+        {{ $t('home.projects.seeMore') }}
+        <ArrowRight :size="16" />
+      </RouterLink>
+    </div>
+
+    <!-- Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <ProjectCard
+        v-for="(project, index) in featuredProjects"
+        :key="index"
+        :project="project"
+      />
+    </div>
+
+    <!-- Mobile 'See More' -->
+    <div class="mt-8 md:hidden text-center">
+      <RouterLink to="/works" class="btn-primary inline-flex items-center gap-2 px-6 py-3 bg-slate-900 dark:bg-white text-white dark:text-slate-900 rounded-lg font-medium">
+         {{ $t('home.projects.seeMore') }}
+         <ArrowRight :size="16" />
+      </RouterLink>
     </div>
   </section>
 </template>

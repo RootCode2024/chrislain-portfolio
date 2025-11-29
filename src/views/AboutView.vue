@@ -1,223 +1,313 @@
 <template>
-  <div class="relative py-16 overflow-hidden">
-    <!-- Background decorative elements -->
+  <div class="relative min-h-screen transition-colors duration-500">
+    <div class="container mx-auto px-6 py-16 max-w-7xl">
 
-    <div class="container mx-auto mb-10 relative">
-      <div class="max-w-6xl mx-auto px-6">
-        <!-- Enhanced title with better typography -->
-        <div class="text-center lg:text-left mb-16">
-          <h2
-          class="text-2xl lg:text-4xl animate-fade-right font-thin my-5 lg:flex lg:justify-start bg-gradient-to-b from-indigo-400 to-green-600 bg-clip-text text-transparent tracking-tight animate-fade-in-down"
-        >  {{ t('about.title') }}.
-          </h2>
-          <p class="text-lg lg:text-xl text-gray-600 dark:text-gray-300 font-light tracking-wide animate-fade-in-up delay-100">
-            <span class="text-indigo-600 dark:text-indigo-400">// Zylo</span> - Crafting digital experiences with passion
-          </p>
-        </div>
-
-        <!-- Enhanced description with better spacing -->
-        <div class="prose dark:prose-invert max-w-none text-justify mb-20 px-6 md:px-0">
-          <div class="bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 shadow-lg animate-fade-in-up delay-200">
-            <p class="text-lg leading-relaxed mb-6 text-gray-700 dark:text-gray-300 italic">
-              <span class=" space-y-4" v-html="t('about.longDescription')"></span>
-            </p>
+      <!-- Hero Section -->
+      <div class="grid lg:grid-cols-2 gap-12 items-center mb-24">
+        <!-- Text Content -->
+        <div class="order-2 lg:order-1">
+          <div class="overflow-hidden mb-3">
+            <h1 class="hero-title text-3xl lg:text-5xl font-bold text-slate-900 dark:text-white leading-tight">
+              {{ t('about.title') }}
+              <span class="block text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-emerald-500 mt-1">
+                {{ t('home.heroe.fullName') }}
+              </span>
+            </h1>
           </div>
-        </div>
 
-        <!-- Enhanced stats grid with better animations -->
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-20">
-          <StatCard
-            :value="t('about.sections.workedYears.description')"
-            :label="t('about.sections.workedYears.title')"
-            icon="👨‍💻"
-            class="animate-fade-in-up delay-300"
-          />
-          <StatCard
-            value="50+"
-            :label="t('about.sections.workedProjects.title')"
-            icon="🚀"
-            class="animate-fade-in-up delay-400"
-          />
-          <StatCard
-            :value="t('about.sections.certifications.description')"
-            :label="t('about.sections.certifications.title')"
-            icon="🏆"
-            class="animate-fade-in-up delay-500"
-          />
-          <StatCard
-            :value="t('about.sections.happyClients.description')"
-            :label="t('about.sections.happyClients.title')"
-            icon="❤️"
-            class="animate-fade-in-up delay-600"
-          />
-        </div>
+          <div class="hero-text opacity-0 transform translate-y-8">
+            <p class="text-lg text-slate-600 dark:text-slate-300 mb-6 leading-relaxed">
+              <span class="font-semibold text-indigo-600 dark:text-indigo-400">// Zylo</span> - {{
+                t('about.description') }}
+            </p>
 
-        <!-- Enhanced main content grid -->
-        <div class="grid lg:grid-cols-2 gap-16 items-start">
-          <!-- Left column - Experience timeline -->
-          <div class="animate-fade-in-left delay-700">
-            <div class="mb-12">
-              <h3 class="text-2xl font-semibold mb-8 text-indigo-600 dark:text-indigo-400 flex items-center">
-                <div class="p-2 bg-indigo-100 dark:bg-indigo-900/30 rounded-lg mr-3">
-                  <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="currentColor" stroke-width="2"/>
-                    <path d="M12 6V12L16 14" stroke="currentColor" stroke-width="2"/>
-                  </svg>
-                </div>
-                {{ t('resume.experience.title') }}
-              </h3>
-
-              <Timeline :items="t('resume.experience.items')" />
-            </div>
-
-            <!-- Enhanced CTA button -->
-            <div class="flex flex-col sm:flex-row gap-4">
-              <RouterLink
-                to="/resume"
-                class="group inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white text-lg font-medium rounded-xl shadow-lg transition-all duration-300 ease-in-out transform hover:-translate-y-1 hover:shadow-xl"
-              >
-                <span>{{ t('about.myResume') }}</span>
-                <svg class="ml-3 group-hover:translate-x-2 transition-transform duration-300" width="18" height="18" viewBox="0 0 18 18" fill="none">
-                  <path d="M6.75265 4.49658L11.2528 8.99677L6.75 13.4996" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
+            <div class="flex flex-wrap gap-3">
+              <RouterLink to="/resume"
+                class="group inline-flex items-center gap-2 px-6 py-2.5 bg-slate-900 dark:bg-white text-white dark:text-slate-900 rounded-lg font-medium text-sm hover:shadow-md transition-all">
+                <FileText :size="16" />
+                {{ t('about.myResume') }}
               </RouterLink>
 
-              <button class="group inline-flex items-center justify-center px-8 py-4 bg-white dark:bg-gray-800 border-2 border-indigo-600 text-indigo-600 dark:text-indigo-400 text-lg font-medium rounded-xl shadow-lg transition-all duration-300 ease-in-out transform hover:-translate-y-1 hover:shadow-xl">
-                <span>Get In Touch</span>
-                <svg class="ml-3 group-hover:scale-110 transition-transform duration-300" width="18" height="18" viewBox="0 0 24 24" fill="none">
-                  <path d="M21 8L12 13L3 8M21 8V16C21 16.5523 20.5523 17 20 17H4C3.44772 17 3 16.5523 3 16V8M21 8L20.1154 7.25792C19.8467 7.06902 19.5272 6.96967 19.2 6.96967H4.8C4.47279 6.96967 4.15332 7.06902 3.88462 7.25792L3 8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                </svg>
-              </button>
-            </div>
-          </div>
-
-          <!-- Right column - Enhanced profile image -->
-          <div class="relative flex justify-center animate-fade-in-right delay-800">
-            <div class="relative group">
-              <!-- Floating elements around image -->
-              <div class="absolute -top-4 -left-4 w-8 h-8 bg-indigo-500 rounded-full opacity-80 animate-bounce delay-1000"></div>
-              <div class="absolute -bottom-6 -right-6 w-6 h-6 bg-green-500 rounded-full opacity-80 animate-bounce delay-1500"></div>
-              <div class="absolute top-1/2 -left-8 w-4 h-4 bg-purple-500 rounded-full opacity-80 animate-pulse delay-2000"></div>
-
-              <!-- Main image container -->
-              <div class="relative overflow-hidden rounded-2xl shadow-2xl">
-                <img
-                  class="w-full max-w-md transform transition-all duration-700 group-hover:scale-105"
-                  src="/assets/images/chrislain.jpg"
-                  alt="Chrislain AVOCEGAN Photo"
-                >
-                <!-- Gradient overlay -->
-                <div class="absolute inset-0 bg-gradient-to-br from-indigo-500/10 via-transparent to-green-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
-
-                <!-- Interactive highlight border -->
-                <div class="absolute inset-0 rounded-2xl ring-2 ring-indigo-500/0 group-hover:ring-indigo-500/50 transition-all duration-700"></div>
-              </div>
-
-              <!-- Background glow effect -->
-              <div class="absolute inset-0 rounded-2xl bg-gradient-to-br from-indigo-500 to-green-500 opacity-20 blur-xl transform scale-110 group-hover:opacity-30 transition-opacity duration-700"></div>
+              <RouterLink to="/contact"
+                class="inline-flex items-center gap-2 px-6 py-2.5 border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-300 rounded-lg font-medium text-sm hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+                <Mail :size="16" />
+                Contact
+              </RouterLink>
             </div>
           </div>
         </div>
+
+        <!-- Image -->
+        <div class="order-1 lg:order-2 flex justify-center lg:justify-end">
+          <div
+            class="hero-image relative w-full max-w-sm aspect-square rounded-2xl overflow-hidden shadow-xl opacity-0 scale-95">
+            <img src="/assets/images/chrislain.jpg" alt="Chrislain Avocegan"
+              class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700" />
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-900/40 to-transparent"></div>
+
+            <!-- Status Badge -->
+            <div
+              class="absolute bottom-4 left-4 right-4 p-3 bg-white/95 dark:bg-slate-800/95 backdrop-blur-sm rounded-lg">
+              <div class="flex items-center gap-2">
+                <div class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></div>
+                <p class="text-xs font-semibold text-slate-900 dark:text-white">Open to Opportunities</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Stats Section -->
+      <div class="stats-container grid grid-cols-2 md:grid-cols-4 gap-4 mb-24 opacity-0">
+        <div v-for="(stat, index) in stats" :key="index"
+          class="p-4 rounded-xl border border-slate-200 dark:border-slate-700 hover:border-indigo-300 dark:hover:border-indigo-700 transition-colors group">
+
+          <!-- Icon Container -->
+          <div
+            class="mb-3 w-10 h-10 rounded-lg bg-indigo-50 dark:bg-indigo-900/30 flex items-center justify-center text-indigo-600 dark:text-indigo-400 group-hover:scale-110 transition-transform duration-300">
+            <component :is="stat.icon" :size="20" stroke-width="2" />
+          </div>
+
+          <div class="text-2xl font-bold text-slate-900 dark:text-white mb-0.5">{{ stat.value }}</div>
+          <div class="text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wide">{{ stat.label }}
+          </div>
+        </div>
+      </div>
+
+      <!-- Content Grid -->
+      <div class="grid lg:grid-cols-12 gap-12">
+
+        <!-- Left Column: Story & Skills -->
+        <div class="lg:col-span-5 space-y-12">
+          <!-- My Story -->
+          <div class="story-section opacity-0">
+            <div class="flex items-center gap-2 mb-4">
+              <User :size="20" class="text-indigo-600 dark:text-indigo-400" />
+              <h2 class="text-2xl font-bold text-slate-900 dark:text-white">My Story</h2>
+            </div>
+            <div class="prose dark:prose-invert text-slate-600 dark:text-slate-400 leading-relaxed text-sm">
+              <p>{{ truncatedStory }}</p>
+              <RouterLink to="/resume"
+                class="inline-flex items-center gap-1 text-indigo-600 dark:text-indigo-400 hover:underline text-sm mt-2">
+                Read more
+                <ArrowRight :size="14" />
+              </RouterLink>
+            </div>
+          </div>
+
+          <!-- Skills -->
+          <div class="skills-section opacity-0">
+            <div class="flex items-center gap-2 mb-4">
+              <Code :size="20" class="text-emerald-600 dark:text-emerald-400" />
+              <h2 class="text-2xl font-bold text-slate-900 dark:text-white">{{ t('home.skills.title') }}</h2>
+            </div>
+
+            <div class="space-y-6">
+              <div v-for="(category, index) in skillCategories" :key="index">
+                <h3 class="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-3">{{
+                  category.title }}</h3>
+                <div class="flex flex-wrap gap-2">
+                  <span v-for="skill in category.items" :key="skill"
+                    class="px-3 py-1.5 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-md text-xs font-medium hover:bg-indigo-50 dark:hover:bg-indigo-900/30 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors cursor-default">
+                    {{ skill }}
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Experience Timeline -->
+        <div class="lg:col-span-7">
+          <div class="timeline-section opacity-0">
+            <div class="flex items-center gap-2 mb-6">
+              <Briefcase :size="20" class="text-indigo-600 dark:text-indigo-400" />
+              <h2 class="text-2xl font-bold text-slate-900 dark:text-white">{{ t('resume.experience.title') }}</h2>
+            </div>
+
+            <div class="relative pl-6 border-l border-slate-200 dark:border-slate-700 space-y-8">
+              <div v-for="(item, index) in $tm('resume.experience.items')" :key="index"
+                class="timeline-item relative group">
+                <!-- Dot -->
+                <div
+                  class="absolute -left-[25px] top-0 w-3 h-3 rounded-full border-2 border-white dark:border-slate-900 bg-slate-400 dark:bg-slate-600 group-hover:bg-indigo-600 group-hover:scale-125 transition-all duration-300">
+                </div>
+
+                <div
+                  class="p-5 rounded-xl border border-slate-200 dark:border-slate-700 hover:border-indigo-300 dark:hover:border-indigo-700 transition-all duration-300">
+                  <div class="flex flex-wrap justify-between items-start gap-3 mb-3">
+                    <div>
+                      <h3
+                        class="text-base font-bold text-slate-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
+                        {{ item.role }}
+                      </h3>
+                      <p class="text-sm text-slate-500 dark:text-slate-400 font-medium">{{ item.company }}</p>
+                    </div>
+                    <span
+                      class="px-2.5 py-1 bg-indigo-50 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 text-xs font-semibold rounded-md">
+                      {{ item.period }}
+                    </span>
+                  </div>
+
+                  <ul class="space-y-1.5">
+                    <li v-for="(detail, i) in item.details" :key="i"
+                      class="flex items-start gap-2 text-slate-600 dark:text-slate-300 text-xs">
+                      <Check :size="14" class="text-emerald-500 shrink-0 mt-0.5" />
+                      {{ detail }}
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </div>
 </template>
 
 <script setup>
+import { onMounted, computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useHead } from '@vueuse/head'
 import { RouterLink } from 'vue-router'
-import StatCard from '@/components/elements/StatCard.vue'
-import Timeline from '@/components/elements/TimeLine.vue'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { FileText, Mail, User, Code, Briefcase, Check, ArrowRight, Clock, Rocket, Award, Users } from 'lucide-vue-next'
 
-const { t } = useI18n()
+gsap.registerPlugin(ScrollTrigger)
 
+const { t, tm } = useI18n()
+
+// SEO
 useHead({
-  title: t('about.title') + ' - Zylo',
+  title: computed(() => `${t('about.title')} - Zylo`),
   meta: [
-    {
-      name: 'description',
-      content: t('about.description')
-    },
-    {
-      property: 'og:title',
-      content: t('about.title') + ' - Zylo'
-    },
-    {
-      property: 'og:description',
-      content: t('about.description')
-    }
+    { name: 'description', content: computed(() => t('about.description')) }
   ]
 })
+
+// Truncated Story (max 280 characters)
+const truncatedStory = computed(() => {
+  const fullStory = t('about.longDescription')
+  const cleanStory = fullStory.replace(/<[^>]*>/g, '') // Remove HTML tags
+  return cleanStory.length > 280 ? cleanStory.substring(0, 280) + '...' : cleanStory
+})
+
+// Stats Data
+const stats = computed(() => [
+  {
+    value: '5+',
+    label: t('about.sections.workedYears.title'),
+    icon: Clock
+  },
+  {
+    value: '20+',
+    label: t('about.sections.workedProjects.title'),
+    icon: Rocket
+  },
+  {
+    value: '5+',
+    label: t('about.sections.certifications.title'),
+    icon: Award
+  },
+  {
+    value: '30+',
+    label: t('about.sections.happyClients.title'),
+    icon: Users
+  }
+])
+
+// Skills Data
+const skillCategories = computed(() => [
+  {
+    title: t('resume.professionalSkills.title'),
+    items: tm('resume.professionalSkills.items')
+  },
+  {
+    title: t('resume.softSkills.title'),
+    items: tm('resume.softSkills.items')
+  },
+  {
+    title: t('resume.languages.title'),
+    items: tm('resume.languages.items')
+  }
+])
+
+onMounted(() => {
+  // Hero Animations
+  const tl = gsap.timeline()
+
+  tl.from('.hero-title', {
+    y: 30,
+    opacity: 0,
+    duration: 0.8,
+    ease: 'power3.out'
+  })
+    .to('.hero-text', {
+      y: 0,
+      opacity: 1,
+      duration: 0.6,
+      ease: 'power3.out'
+    }, '-=0.4')
+    .to('.hero-image', {
+      scale: 1,
+      opacity: 1,
+      duration: 0.8,
+      ease: 'power2.out'
+    }, '-=0.6')
+
+  // Scroll Animations
+  gsap.to('.stats-container', {
+    scrollTrigger: {
+      trigger: '.stats-container',
+      start: 'top 80%',
+    },
+    opacity: 1,
+    y: 0,
+    duration: 0.6
+  })
+
+  gsap.to('.story-section', {
+    scrollTrigger: {
+      trigger: '.story-section',
+      start: 'top 80%',
+    },
+    opacity: 1,
+    y: 0,
+    duration: 0.6
+  })
+
+  gsap.to('.skills-section', {
+    scrollTrigger: {
+      trigger: '.skills-section',
+      start: 'top 80%',
+    },
+    opacity: 1,
+    y: 0,
+    duration: 0.6
+  })
+
+  gsap.to('.timeline-section', {
+    scrollTrigger: {
+      trigger: '.timeline-section',
+      start: 'top 80%',
+    },
+    opacity: 1,
+    y: 0,
+    duration: 0.6
+  })
+
+  gsap.from('.timeline-item', {
+    scrollTrigger: {
+      trigger: '.timeline-section',
+      start: 'top 70%',
+    },
+    y: 20,
+    opacity: 0,
+    duration: 0.5,
+    stagger: 0.15
+  })
+})
 </script>
-
-<style scoped>
-/* Enhanced animations */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes fadeInLeft {
-  from {
-    opacity: 0;
-    transform: translateX(-30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes fadeInRight {
-  from {
-    opacity: 0;
-    transform: translateX(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-.animate-fade-in-up {
-  animation: fadeInUp 0.8s ease-out forwards;
-}
-
-.animate-fade-in-left {
-  animation: fadeInLeft 0.8s ease-out forwards;
-}
-
-.animate-fade-in-right {
-  animation: fadeInRight 0.8s ease-out forwards;
-}
-
-/* Delay classes for staggered animations */
-.delay-100 { animation-delay: 0.1s; }
-.delay-200 { animation-delay: 0.2s; }
-.delay-300 { animation-delay: 0.3s; }
-.delay-400 { animation-delay: 0.4s; }
-.delay-500 { animation-delay: 0.5s; }
-.delay-600 { animation-delay: 0.6s; }
-.delay-700 { animation-delay: 0.7s; }
-.delay-800 { animation-delay: 0.8s; }
-.delay-1000 { animation-delay: 1s; }
-.delay-1500 { animation-delay: 1.5s; }
-.delay-2000 { animation-delay: 2s; }
-
-/* Enhanced prose styling */
-.prose :deep(a) {
-  @apply text-indigo-600 dark:text-indigo-400 hover:text-indigo-800 dark:hover:text-indigo-300 transition-colors duration-300;
-}
-
-/* Smooth scrolling for better UX */
-html {
-  scroll-behavior: smooth;
-}
-</style>

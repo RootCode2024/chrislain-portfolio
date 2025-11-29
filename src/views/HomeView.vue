@@ -1,7 +1,13 @@
 <template>
-  <div class="relative">
-    <div class="container mx-auto mb-10">
-      <div class="max-w-6xl mx-auto p-4">
+  <div class="relative min-h-screen overflow-hidden">
+    <!-- Background Ambient Effects (Global pour la Home) -->
+    <div class="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none -z-10">
+      <div class="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-indigo-500/10 rounded-full blur-[100px] animate-pulse"></div>
+      <div class="absolute bottom-[10%] right-[-5%] w-[400px] h-[400px] bg-emerald-500/10 rounded-full blur-[100px]"></div>
+    </div>
+
+    <div class="container mx-auto">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-24">
         <HeroeSection />
         <SkillsSection />
         <WorksSection />
@@ -11,50 +17,38 @@
 </template>
 
 <script setup>
-  import HeroeSection from '../components/home/HeroeSection.vue'
-  import SkillsSection from '../components/home/SkillsSection.vue'
-  import WorksSection from '../components/home/WorksSection.vue'
-  import { useHead } from '@vueuse/head'
-  import { ref, onMounted } from 'vue'
+import HeroeSection from '../components/home/HeroeSection.vue'
+import SkillsSection from '../components/home/SkillsSection.vue'
+import WorksSection from '../components/home/WorksSection.vue'
+import { useHead } from '@vueuse/head'
 
-  const theme = ref('light')
-
-  onMounted(() => {
-    const storedTheme = localStorage.getItem('theme');
-    if (storedTheme) {
-      theme.value = storedTheme;
+useHead({
+  title: 'Code With Chris',
+  meta: [
+    {
+      name: 'description',
+      content: 'Portfolio de Chrislain AVOCEGAN, développeur web full stack spécialisé en Laravel, Vue.js, et Tailwind CSS.'
+    },
+    {
+      name: 'keywords',
+      content: 'Portfolio, Vue.js, Laravel, Tailwind CSS, Développeur Full Stack'
+    },
+    {
+      property: 'og:title',
+      content: 'Portfolio - Code With Chris'
+    },
+    {
+      property: 'og:description',
+      content: 'Découvrez les projets et les compétences de Chris, développeur web full stack.'
+    },
+    {
+      property: 'og:image',
+      content: 'https://chrislainavocegan.site/preview-image.png'
+    },
+    {
+      property: 'og:url',
+      content: 'https://chrislainavocegan.site'
     }
-    document.body.classList.add(theme.value);
-  });
-
-  
-  useHead({
-    title: 'Code With Chris',
-    meta: [
-      {
-        name: 'description',
-        content: 'Portfolio de Chrislain AVOCEGAN, développeur web full stack spécialisé en Laravel, Vue.js, et Tailwind CSS.'
-      },
-      {
-        name: 'keywords',
-        content: 'Portfolio, Vue.js, Laravel, Tailwind CSS, Développeur Full Stack'
-      },
-      {
-        property: 'og:title',
-        content: 'Portfolio - Code With Chris'
-      },
-      {
-        property: 'og:description',
-        content: 'Découvrez les projets et les compétences de Chris, développeur web full stack.'
-      },
-      {
-        property: 'og:image',
-        content: 'https://chrislainavocegan.site/preview-image.png'
-      },
-      {
-        property: 'og:url',
-        content: 'https://chrislainavocegan.site'
-      }
-    ]
-  });
+  ]
+});
 </script>

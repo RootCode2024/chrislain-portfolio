@@ -1,37 +1,43 @@
 <template>
-  <section class="py-12 animate-fade-up animate-duration-[2000ms] animate-alternate">
-    <div class="container mx-auto px-4">
-      <div class="w-full">
-        <!-- Titre -->
-        <div class="p-2 lg:p-0">
-          <h2 class="text-2xl lg:text-4xl font-thin lg:flex lg:justify-start">
-            {{ t('home.skills.title') }}.
-          </h2>
-          <div class="w-24 h-1 bg-indigo-600 mt-3 lg:mt-5 lg:ml-0 mx-auto lg:mx-0"></div>
-          <hr class="my-4 border-gray-300 dark:border-gray-600" />
-          <p class="text-gray-600 dark:text-gray-400 mb-8">
-            {{ t('home.skills.description') }}
-          </p>
+  <section class="animate-fade-up">
+    <!-- Header -->
+    <div class="mb-12">
+      <div class="flex items-center gap-3 mb-4">
+        <div class="p-2 bg-indigo-100 dark:bg-indigo-900/30 rounded-lg text-indigo-600 dark:text-indigo-400">
+          <Cpu :size="24" />
         </div>
+        <h2 class="text-3xl lg:text-4xl font-bold text-slate-900 dark:text-white">
+          {{ t('home.skills.title') }}
+        </h2>
+      </div>
+      <p class="text-slate-600 dark:text-slate-400 max-w-2xl leading-relaxed">
+        {{ t('home.skills.description') }}
+      </p>
+    </div>
 
-        <!-- Grille des compétences -->
-        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-8">
-          <!-- Compétences dynamiques -->
-          <div v-for="skill in skills" :key="skill.name" class="skill-card group">
-            <div class="skill-icon bg-white">
-              <img :src="skill.icon" :alt="skill.name" class="h-10 w-10">
-            </div>
-            <h3 class="skill-name">{{ skill.name }}</h3>
-            <div class="w-full mt-3">
-              <div class="flex justify-between text-xs text-gray-500 dark:text-gray-400 mb-1">
-                <span>{{ t(`home.skills.levels.${skill.levelKey}`) }}</span>
-                <span>{{ skill.percentage }}%</span>
-              </div>
-              <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-                <div class="h-2 rounded-full"
-                     :style="{ width: skill.percentage + '%', backgroundColor: skill.color }"></div>
-              </div>
-            </div>
+    <!-- Tech Grid -->
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      <div v-for="(skill, index) in skills" :key="skill.name" 
+           class="group relative bg-white dark:bg-slate-800/50 backdrop-blur-sm border border-slate-200 dark:border-slate-700 rounded-2xl p-6 hover:border-indigo-500/50 dark:hover:border-indigo-500/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
+           :style="{ animationDelay: `${index * 100}ms` }">
+        
+        <!-- Glow Effect on Hover -->
+        <div class="absolute inset-0 bg-gradient-to-br from-indigo-500/5 to-purple-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+        
+        <div class="relative z-10 flex flex-col items-center text-center gap-4">
+          <!-- Icon Container -->
+          <div class="w-16 h-16 p-3 bg-slate-50 dark:bg-slate-900 rounded-xl shadow-inner group-hover:scale-110 transition-transform duration-300 flex items-center justify-center">
+            <img :src="skill.icon" :alt="skill.name" class="w-10 h-10 object-contain" loading="lazy">
+          </div>
+          
+          <div>
+            <h3 class="font-bold text-slate-900 dark:text-white mb-1.5">{{ skill.name }}</h3>
+            
+            <!-- Level Badge -->
+            <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium border"
+                  :class="getLevelClasses(skill.levelKey)">
+              {{ t(`home.skills.levels.${skill.levelKey}`) }}
+            </span>
           </div>
         </div>
       </div>
@@ -41,87 +47,59 @@
 
 <script setup>
 import { useI18n } from 'vue-i18n'
+import { Cpu } from 'lucide-vue-next'
 
 const { t } = useI18n()
 
-const skills = [
-  {
-    name: 'Laravel',
-    icon: 'https://laravel.com/img/logomark.min.svg',
-    color: '#FF2D20',
-    levelKey: 'advanced',
-    percentage: 90
-  },
-  {
-    name: 'Vue.js',
-    icon: 'https://vuejs.org/logo.svg',
-    color: '#4FC08D',
-    levelKey: 'advanced',
-    percentage: 85
-  },
-  {
-    name: 'Angular',
-    icon: 'https://angular.io/assets/images/logos/angular/angular.svg',
-    color: '#DD0031',
-    levelKey: 'intermediate',
-    percentage: 70
-  },
-  {
-    name: 'Express.js',
-    icon: 'https://img.icons8.com/?size=100&id=kg46nzoJrmTR&format=png&color=000000',
-    color: '#000000',
-    levelKey: 'intermediate',
-    percentage: 75
-  },
-  {
-    name: 'Tailwind CSS',
-    icon: 'https://img.icons8.com/?size=100&id=CIAZz2CYc6Kc&format=png&color=000000',
-    color: '#06B6D4',
-    levelKey: 'advanced',
-    percentage: 95
-  },
-  {
-    name: 'WordPress',
-    icon: 'https://img.icons8.com/?size=100&id=13664&format=png&color=000000',
-    color: '#21759B',
-    levelKey: 'advanced',
-    percentage: 85
-  },
-  {
-    name: 'Git/GitHub',
-    icon: 'https://upload.wikimedia.org/wikipedia/commons/e/e0/Git-logo.svg',
-    color: '#F05032',
-    levelKey: 'advanced',
-    percentage: 90
-  },
-  {
-    name: 'Figma',
-    icon: 'https://upload.wikimedia.org/wikipedia/commons/3/33/Figma-logo.svg',
-    color: '#F24E1E',
-    levelKey: 'advanced',
-    percentage: 80
+// Fonction pour styliser le badge selon le niveau
+const getLevelClasses = (level) => {
+  if (level === 'advanced') {
+    return 'bg-emerald-50 text-emerald-700 border-emerald-100 dark:bg-emerald-900/20 dark:text-emerald-400 dark:border-emerald-800'
   }
+  return 'bg-blue-50 text-blue-700 border-blue-100 dark:bg-blue-900/20 dark:text-blue-400 dark:border-blue-800'
+}
+
+const skills = [
+  { 
+    name: 'Laravel', 
+    icon: 'https://laravel.com/img/logomark.min.svg', 
+    levelKey: 'advanced' 
+  },
+  { 
+    name: 'NestJS', 
+    icon: 'https://d33wubrfki0l68.cloudfront.net/e937e774cbbe23635999615ad5d7732decad182a/26072/logo-small.ede75a6b.svg', 
+    levelKey: 'advanced' 
+  },
+  { 
+    name: 'Express.js', 
+    // Utilisation d'une icone blanche pour le dark mode si besoin, ou standard
+    icon: 'https://upload.wikimedia.org/wikipedia/commons/6/64/Expressjs.png', 
+    levelKey: 'advanced' 
+  },
+  { 
+    name: 'WordPress', 
+    icon: 'https://s.w.org/style/images/about/WordPress-logotype-wmark.png', 
+    levelKey: 'advanced' 
+  },
+  { 
+    name: 'Figma', 
+    icon: 'https://upload.wikimedia.org/wikipedia/commons/3/33/Figma-logo.svg', 
+    levelKey: 'advanced' 
+  },
+  { 
+    name: 'Nuxt.js', 
+    icon: 'https://nuxt.com/assets/design-kit/icon-green.svg', 
+    levelKey: 'intermediate' 
+  },
+  { 
+    name: 'Flutter', 
+    icon: 'https://storage.googleapis.com/cms-storage-bucket/0dbfcc7a59cd1cf16282.png', 
+    levelKey: 'intermediate' 
+  },
+  { 
+    name: 'Git/GitHub', 
+    icon: 'https://upload.wikimedia.org/wikipedia/commons/e/e0/Git-logo.svg', 
+    levelKey: 'advanced' 
+  },
 ]
 </script>
-
-<style scoped>
-.skill-card {
-  @apply p-6 rounded-xl border border-gray-200 dark:border-gray-700 transition-all duration-300;
-  @apply hover:shadow-lg hover:border-transparent dark:hover:shadow-gray-800/50;
-  @apply hover:transform hover:-translate-y-1;
-  @apply flex flex-col items-center text-center;
-}
-
-.skill-icon {
-  @apply w-16 h-16 rounded-xl flex items-center justify-center mb-4;
-  @apply transition-all duration-300 group-hover:rotate-6 group-hover:scale-110;
-}
-
-.skill-name {
-  @apply text-lg font-semibold text-gray-800 dark:text-gray-200 mb-3;
-}
-
-.dark .skill-card {
-  @apply bg-gray-800/30;
-}
-</style>

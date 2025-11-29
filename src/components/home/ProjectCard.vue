@@ -1,37 +1,56 @@
 <template>
-  <div class="bg-white dark:bg-gray-900 rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 h-full flex flex-col border border-gray-200 dark:border-gray-800">
-    <div class="relative h-40 overflow-hidden rounded-t-2xl bg-gray-50 dark:bg-gray-800">
-      <img :src="project.image" :alt="project.title" class="w-full h-full object-contain p-3 transition-transform duration-500 hover:scale-105" />
-      <span :class="`${project.tagColor || randomTagColor} text-xs font-medium px-2 py-0.5 rounded-full absolute top-3 right-3 shadow-sm`">
-        {{ project.tag }}
-      </span>
-    </div>
-    <div class="p-5 flex-grow flex flex-col">
-      <div class="flex items-center mb-2">
-        <div v-html="project.icon" class="text-indigo-500 dark:text-indigo-400 mr-2 text-lg"></div>
-        <h3 class="text-lg font-semibold text-gray-900 dark:text-white truncate">{{ project.title }}</h3>
+  <div class="group relative flex flex-col h-full bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 overflow-hidden hover:shadow-2xl hover:shadow-indigo-500/10 transition-all duration-300 hover:-translate-y-1">
+    
+    <!-- Image Container with Overlay -->
+    <div class="relative h-48 overflow-hidden bg-slate-100 dark:bg-slate-800">
+      <img 
+        :src="project.image" 
+        :alt="project.title" 
+        loading="lazy" 
+        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
+      />
+      
+      <!-- Overlay Gradient (Darkens on hover) -->
+      <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent opacity-60 group-hover:opacity-40 transition-opacity"></div>
+      
+      <!-- Tag -->
+      <div class="absolute top-4 right-4">
+        <span class="px-3 py-1 text-xs font-semibold tracking-wide text-white bg-white/20 backdrop-blur-md border border-white/20 rounded-full shadow-sm">
+          {{ project.tag }}
+        </span>
       </div>
-      <p class="text-gray-500 dark:text-gray-300 mb-3 text-sm flex-grow">{{ project.description }}</p>
-      <div class="flex space-x-2 mt-auto">
-        <a
-          v-if="project.link && project.link !== '#'"
-          :href="project.link"
-          target="_blank"
-          class="flex-1 text-center bg-indigo-500 hover:bg-indigo-600 text-white font-medium px-3 py-1.5 rounded-lg transition-colors duration-200 text-sm flex items-center justify-center gap-1"
-        >
-          Voir le projet
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-          </svg>
+    </div>
+
+    <!-- Content -->
+    <div class="flex-1 p-6 flex flex-col">
+      <div class="flex items-start justify-between mb-3">
+        <h3 class="text-lg font-bold text-slate-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
+          {{ project.title }}
+        </h3>
+        <!-- Dynamic Icon mapping if needed, or static -->
+        <component :is="getIcon(project.icon)" class="text-slate-400" :size="20" />
+      </div>
+      
+      <p class="text-sm text-slate-600 dark:text-slate-400 mb-6 line-clamp-2 flex-grow">
+        {{ project.description }}
+      </p>
+
+      <!-- Actions -->
+      <div class="flex items-center gap-3 mt-auto pt-4 border-t border-slate-100 dark:border-slate-800">
+        <a v-if="project.link && project.link !== '#'" 
+           :href="project.link" 
+           target="_blank" 
+           rel="noopener noreferrer"
+           class="flex-1 inline-flex justify-center items-center gap-2 px-4 py-2 bg-slate-900 dark:bg-white text-white dark:text-slate-900 text-sm font-medium rounded-lg hover:bg-indigo-600 dark:hover:bg-indigo-50 transition-colors">
+          <span>Visiter</span>
+          <ExternalLink :size="14" />
         </a>
-        <button
-          @click="$emit('viewDetails', project.detailsLink)"
-          class="flex-1 text-center border border-indigo-400 text-indigo-500 hover:bg-indigo-50 dark:hover:bg-gray-800 font-medium px-3 py-1.5 rounded-lg transition-colors duration-200 text-sm flex items-center justify-center gap-1"
-        >
-          Détails
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-          </svg>
+        
+        <button 
+           @click="$emit('viewDetails', project.detailsLink)"
+           class="flex-1 inline-flex justify-center items-center gap-2 px-4 py-2 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 text-sm font-medium rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+          <span>Détails</span>
+          <Info :size="14" />
         </button>
       </div>
     </div>
@@ -39,34 +58,23 @@
 </template>
 
 <script setup>
-import { computed } from 'vue';
+import { ExternalLink, Info, LayoutDashboard, Database, Globe, Smartphone, ShoppingBag } from 'lucide-vue-next'
 
 const props = defineProps({
-  project: {
-    type: Object,
-    required: true
-  }
+  project: { type: Object, required: true }
 });
 
 defineEmits(['viewDetails']);
 
-const tagColors = [
-  'bg-indigo-100 text-indigo-700',
-  'bg-green-100 text-green-700',
-  'bg-pink-100 text-pink-700',
-  'bg-yellow-100 text-yellow-700',
-  'bg-blue-100 text-blue-700',
-  'bg-purple-100 text-purple-700'
-];
-
-const randomTagColor = computed(() => {
-  if (props.project?.title) {
-    let hash = 0;
-    for (let i = 0; i < props.project.title.length; i++) {
-      hash = props.project.title.charCodeAt(i) + ((hash << 5) - hash);
-    }
-    return tagColors[Math.abs(hash) % tagColors.length];
-  }
-  return tagColors[Math.floor(Math.random() * tagColors.length)];
-});
+// Helper simple pour mapper les string icons vers les composants Lucide
+const getIcon = (name) => {
+  const icons = {
+    'LayoutDashboard': LayoutDashboard,
+    'Database': Database,
+    'Globe': Globe,
+    'Smartphone': Smartphone,
+    'ShoppingBag': ShoppingBag
+  };
+  return icons[name] || Globe; // Fallback
+};
 </script>

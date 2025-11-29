@@ -1,165 +1,201 @@
 <template>
-  <header class="navbar">
-    <nav>
+  <!-- Main Floating Navbar Container -->
+  <header class="fixed top-4 left-0 right-0 z-50 px-4 flex justify-center animate-fade-down">
+    <nav class="w-full max-w-4xl bg-white/70 dark:bg-slate-900/70 backdrop-blur-xl border border-white/20 dark:border-slate-700/50 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 px-4 py-2.5 flex items-center justify-between">
+      
       <!-- Logo -->
-      <RouterLink to="/">
-        <img :src="`/assets/images/chrislain-${theme}-logo.png`" alt="Logo Chrislain" class="w-8 h-8">
+      <RouterLink to="/" class="flex-shrink-0 ml-2 hover:scale-105 transition-transform" aria-label="Retour à l'accueil">
+        <img :src="`/assets/images/chrislain-${theme}-logo.png`" 
+             alt="Logo" 
+             class="w-8 h-8 object-contain" />
       </RouterLink>
 
-      <!-- Hamburger menu for mobile -->
-      <button @click="toggleMobileMenu" class="mobile-menu-btn md:hidden">
-        <span v-if="!mobileMenuOpen">☰</span>
-        <span v-else>✕</span>
-      </button>
-
-      <!-- Navigation links -->
-      <ul
-        class=""
-        :class="{ 'open': mobileMenuOpen }"
-      >
-        <li>
-          <RouterLink to="/" class="hover:bg-slate-500 dark:hover:text-slate-300 rounded-md py-1 px-4" :class="{ 'dark:bg-slate-700 bg-slate-100 dark:text-white text-slate-700': $route.path === '/' }">
-            {{ t('home.navBar.home') }}
+      <!-- Desktop Navigation -->
+      <ul class="hidden md:flex items-center gap-1 absolute left-1/2 -translate-x-1/2">
+        <li v-for="link in navLinks" :key="link.path">
+          <RouterLink 
+            :to="link.path"
+            class="relative px-4 py-2 rounded-full text-sm font-medium transition-all duration-300"
+            :class="isActive(link.path) 
+              ? 'bg-white dark:bg-slate-800 text-indigo-600 dark:text-indigo-400 shadow-sm' 
+              : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100/50 dark:hover:bg-slate-800/50'"
+          >
+            {{ link.label }}
           </RouterLink>
-        </li>
-        <li>
-          <RouterLink to="/about" class="hover:bg-slate-500 dark:hover:text-slate-300 rounded-md py-1 px-4" :class="{ 'dark:bg-slate-700 bg-slate-100 dark:text-white text-slate-700': $route.path === '/about' }">
-            {{ t('home.navBar.about') }}
-          </RouterLink>
-        </li>
-        <li>
-          <RouterLink to="/resume" class="hover:bg-slate-500 dark:hover:text-slate-300 rounded-md py-1 px-4" :class="{ 'dark:bg-slate-700 bg-slate-100 dark:text-white text-slate-700': $route.path === '/resume' }">
-            {{ t('home.navBar.resume') }}
-          </RouterLink>
-        </li>
-        <li>
-          <RouterLink v-if="isDevelopment" to="/posts" class="hover:bg-slate-500 dark:hover:text-slate-300 rounded-md py-1 px-4" :class="{ 'dark:bg-slate-700 bg-slate-100 dark:text-white text-slate-700': $route.path === '/posts' }">
-            Blog
-          </RouterLink>
-        </li>
-        <li>
-          <RouterLink to="/contact" class="hover:bg-slate-500 dark:hover:text-slate-300 rounded-md py-1 px-4" :class="{ 'dark:bg-slate-700 bg-slate-100 dark:text-white text-slate-700': $route.path === '/contact' }">
-            {{ t('home.navBar.contact') }}
-          </RouterLink>
-        </li>
-        <li>
-          <!-- Language Dropdown -->
-          <div @click="toggleDropdown" class="relative">
-            <div class="flex items-center cursor-pointer">
-              <img :src="locales === 'en' ? '/assets/images/flag-usa.svg' : '/assets/images/flag-france.svg'"
-                   alt="Current Language" class="w-5 h-5 mr-2" />
-            </div>
-            <div v-if="dropdownOpen" class="absolute shadow-lg z-10 bg-white p-2 rounded-md">
-              <div @click="changeLanguage('en')" class="cursor-pointer" v-if="locales === 'fr'">
-                <img src="/assets/images/flag-usa.svg" alt="USA Flag" class="w-5 h-5" />
-              </div>
-              <div @click="changeLanguage('fr')" class="cursor-pointer" v-else>
-                <img src="/assets/images/flag-france.svg" alt="France Flag" class="w-5 h-5" />
-              </div>
-            </div>
-          </div>
-        </li>
-        <li>
-          <!-- Theme Toggle -->
-          <button @click="toggleTheme" class="theme-toggle-btn">
-            <span class="icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-6 h-6" stroke-width="1.5" stroke="currentColor" fill="none">
-                <path stroke-linecap="round" stroke-linejoin="round" :d="theme === 'dark' ? 'M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z' : 'M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z'" />
-              </svg>
-            </span>
-            <span class="hidden">.</span>
-          </button>
         </li>
       </ul>
+
+      <!-- Right Actions (Theme, Lang, Mobile Toggle) -->
+      <div class="flex items-center gap-2">
+        
+        <!-- Language Switcher -->
+        <div class="relative group">
+          <button 
+            @click="toggleDropdown" 
+            class="p-2 rounded-full text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors flex items-center gap-1"
+          >
+             <img :src="locales === 'en' ? '/assets/images/flag-usa.svg' : '/assets/images/flag-france.svg'" 
+                  class="w-5 h-5 rounded-full object-cover shadow-sm" alt="Lang" />
+             <ChevronDown :size="14" class="opacity-50" />
+          </button>
+
+          <!-- Dropdown -->
+          <Transition
+            enter-active-class="transition duration-200 ease-out"
+            enter-from-class="transform scale-95 opacity-0"
+            enter-to-class="transform scale-100 opacity-100"
+            leave-active-class="transition duration-75 ease-in"
+            leave-from-class="transform scale-100 opacity-100"
+            leave-to-class="transform scale-95 opacity-0"
+          >
+            <div v-if="dropdownOpen" class="absolute top-full right-0 mt-2 w-32 bg-white dark:bg-slate-800 rounded-xl shadow-xl border border-slate-100 dark:border-slate-700 overflow-hidden py-1">
+              <button 
+                v-for="lang in ['fr', 'en']" 
+                :key="lang"
+                @click="changeLanguage(lang)"
+                class="w-full flex items-center gap-3 px-4 py-2 text-sm hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-colors"
+                :class="locales === lang ? 'text-indigo-600 dark:text-indigo-400 font-medium' : 'text-slate-600 dark:text-slate-300'"
+              >
+                <img :src="lang === 'en' ? '/assets/images/flag-usa.svg' : '/assets/images/flag-france.svg'" class="w-4 h-4 rounded-full" />
+                {{ lang === 'en' ? 'English' : 'Français' }}
+              </button>
+            </div>
+          </Transition>
+        </div>
+
+        <!-- Theme Toggle -->
+        <button 
+          @click="toggleTheme" 
+          class="p-2 rounded-full text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+          :aria-label="theme === 'dark' ? 'Mode clair' : 'Mode sombre'"
+        >
+          <Sun v-if="theme === 'dark'" :size="20" class="text-yellow-400" />
+          <Moon v-else :size="20" class="text-indigo-600" />
+        </button>
+
+        <!-- Mobile Menu Button -->
+        <button 
+          @click="toggleMobileMenu" 
+          class="md:hidden p-2 rounded-full text-slate-900 dark:text-white bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"
+        >
+          <Menu v-if="!mobileMenuOpen" :size="20" />
+          <X v-else :size="20" />
+        </button>
+      </div>
     </nav>
   </header>
+
+  <!-- Mobile Menu Overlay -->
+  <Transition
+    enter-active-class="transition duration-300 ease-out"
+    enter-from-class="transform -translate-y-10 opacity-0"
+    enter-to-class="transform translate-y-0 opacity-100"
+    leave-active-class="transition duration-200 ease-in"
+    leave-from-class="transform translate-y-0 opacity-100"
+    leave-to-class="transform -translate-y-10 opacity-0"
+  >
+    <div v-if="mobileMenuOpen" class="fixed inset-0 z-40 bg-slate-50/95 dark:bg-slate-950/95 backdrop-blur-xl md:hidden flex flex-col pt-24 px-6">
+      <nav class="flex flex-col gap-2">
+        <RouterLink 
+          v-for="link in navLinks" 
+          :key="link.path"
+          :to="link.path"
+          @click="mobileMenuOpen = false"
+          class="p-4 rounded-xl text-lg font-medium transition-all"
+          :class="isActive(link.path) 
+            ? 'bg-indigo-50 dark:bg-indigo-900/20 text-indigo-600 dark:text-indigo-400' 
+            : 'text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800'"
+        >
+          <div class="flex items-center gap-3">
+             <component :is="link.icon" :size="20" />
+             {{ link.label }}
+          </div>
+        </RouterLink>
+      </nav>
+      
+      <div class="mt-auto mb-8 text-center text-xs text-slate-400">
+        &copy; {{ new Date().getFullYear() }} Code With Chris
+      </div>
+    </div>
+  </Transition>
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, computed, watch } from 'vue';
 import { useI18n } from 'vue-i18n';
-import { RouterLink } from 'vue-router';
+import { useRoute } from 'vue-router';
+import { 
+  Menu, X, Sun, Moon, ChevronDown, 
+  Home, User, FileText, Send, Terminal 
+} from 'lucide-vue-next';
 
 const { t, locale } = useI18n();
+const route = useRoute();
+
 const theme = ref(localStorage.getItem('theme') || 'light');
 const dropdownOpen = ref(false);
 const mobileMenuOpen = ref(false);
-const locales = ref('fr');
-
-const toggleDropdown = () => { dropdownOpen.value = !dropdownOpen.value; };
-const toggleMobileMenu = () => { mobileMenuOpen.value = !mobileMenuOpen.value; };
-const changeLanguage = (selectedLang) => { locale.value = selectedLang; locales.value = selectedLang; };
-const toggleTheme = () => { theme.value = theme.value === 'dark' ? 'light' : 'dark'; document.body.className = theme.value; localStorage.setItem('theme', theme.value); };
-
+const locales = ref(locale.value);
 const isDevelopment = import.meta.env.VITE_APP_ENV === 'development'
 
-onMounted(() => { changeLanguage(locales.value); });
+// Navigation Data
+const navLinks = computed(() => {
+  const links = [
+    { path: '/', label: t('home.navBar.home'), icon: Home },
+    { path: '/about', label: t('home.navBar.about'), icon: User },
+    { path: '/resume', label: t('home.navBar.resume'), icon: FileText },
+    { path: '/contact', label: t('home.navBar.contact'), icon: Send },
+  ];
+  
+  if (isDevelopment) {
+    links.splice(3, 0, { path: '/posts', label: 'Blog', icon: Terminal });
+  }
+  
+  return links;
+});
+
+// Helpers
+const isActive = (path) => route.path === path;
+
+const toggleDropdown = () => { dropdownOpen.value = !dropdownOpen.value; };
+
+const toggleMobileMenu = () => { 
+  mobileMenuOpen.value = !mobileMenuOpen.value; 
+  // Prevent scrolling when menu is open
+  if (mobileMenuOpen.value) {
+    document.body.style.overflow = 'hidden';
+  } else {
+    document.body.style.overflow = '';
+  }
+};
+
+const changeLanguage = (selectedLang) => { 
+  locale.value = selectedLang; 
+  locales.value = selectedLang; 
+  dropdownOpen.value = false;
+};
+
+const toggleTheme = () => { 
+  theme.value = theme.value === 'dark' ? 'light' : 'dark'; 
+  document.body.className = theme.value; 
+  localStorage.setItem('theme', theme.value); 
+};
+
+// Close dropdown when clicking outside (simple implementation)
+onMounted(() => { 
+  changeLanguage(locales.value); 
+  document.body.className = theme.value;
+
+  window.addEventListener('click', (e) => {
+    const target = e.target;
+    if (!target.closest('.group')) {
+      dropdownOpen.value = false;
+    }
+  });
+});
+
+// Reset overflow if screen resized while menu open
+watch(mobileMenuOpen, (val) => {
+   if (!val) document.body.style.overflow = '';
+});
 </script>
-
-<style scoped>
-/* Navigation principale */
-.navbar {
-  position: fixed;
-  left: 0;
-  right: 0;
-  max-width: 800px;
-  margin: 0 auto;
-  background-color: var(--navbar-bg, #fff);
-  @apply dark:bg-slate-600 md:top-8 top-0 md:rounded-2xl rounded-none;
-  @apply dark:opacity-90;
-  padding: 10px 20px;
-  z-index: 1000;
-}
-
-.navbar nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-/* Bouton du menu mobile */
-.mobile-menu-btn {
-  background: none;
-  border: none;
-  cursor: pointer;
-  font-size: 1.5rem;
-}
-
-/* Styles pour le menu mobile */
-ul {
-  display: none; /* Caché par défaut */
-  flex-direction: column;
-  gap: 10px;
-  position: absolute;
-  top: 70px;
-  left: 0;
-  right: 0;
-  @apply text-center;
-  border-radius: 0 0 10px 10px;
-  padding: 10px;
-  z-index: 999;
-}
-
-ul.open {
-  display: flex !important; /* Afficher quand la classe est ajoutée */
-  @apply bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-100;
-}
-
-/* Styles pour les écrans plus larges */
-@media (min-width: 768px) {
-  ul {
-    display: flex !important; /* Toujours afficher les liens */
-    position: static;
-    flex-direction: row;
-    gap: 20px;
-    padding: 0;
-    background: none;
-    border-radius: 0;
-  }
-
-  .mobile-menu-btn {
-    display: none; /* Cacher le bouton mobile */
-  }
-}
-</style>
-

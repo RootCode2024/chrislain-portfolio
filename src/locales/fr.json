@@ -93,9 +93,13 @@
     "contact": {
       "title": "Contact",
       "phone": "Téléphone",
+      "phoneNumber": "+229 01 56 11 53 63",
       "email": "Email",
+      "emailAddress": "chrislainavocegan1@gmail.com",
       "address": "Adresse",
-      "city": "Dakar, Sénégal"
+      "city": "Cotonou, Bénin",
+      "website": "Site web",
+      "websiteUrl": "www.chrislain-portfolio.vercel.app"
     },
     "education": {
       "title": "Formation",
@@ -118,7 +122,7 @@
         {
           "role": "Chargé de Projet Laravel",
           "company": "Nahema-Heaven Co.",
-          "period": "Depuis Février 2023",
+          "period": "Février 2023 - Avril 2025",
           "details": [
             "Élaboration du plan de projet et gestion des calendriers",
             "Gestion des ressources et du budget",
@@ -132,7 +136,8 @@
           "details": [
             "Élaboration de maquettes avec Figma",
             "Création de sites web responsive avec WordPress",
-            "Participation aux réunions et suivi des projets"
+            "Participation aux réunions de suivi de projet",
+            "Suivi de l'avancement des projets en collaboration avec les équipes concernées"
           ]
         },
         {
@@ -140,11 +145,35 @@
           "company": "PMD Developer, Dakar",
           "period": "Février 2020 - Juin 2022",
           "details": [
-            "Développement backend avec PHP",
-            "Participation à l'élaboration des plans de projet"
+            "Assistance au développement de projets back-end avec PHP",
+            "Participation à l'élaboration des plans de projet (calendriers, jalons et livrables)"
           ]
         }
       ]
+    },
+    "freelance": {
+      "title": "Réalisations Freelance",
+      "items": [
+        "Enash Solutions : Développé avec Nuxt.js, API NestJS, S3 et Stripe (En cours de finalisation)",
+        "Bylin : Développement complet d'un site E-commerce avec intégration de paiement (API Fedapay) utilisant Filament (Laravel) et Nuxt.js",
+        "lassissi.tech : Mini site e-commerce développé avec Laravel et Vue.js",
+        "Dashboard admin pour Amazone-Tchad : Système de gestion de réservations développé avec Laravel et Vue.js",
+        "Conception d'API pour une plateforme de réservation : Développement back-end avec Laravel",
+        "Développement front-end pour FSSPI.org : Développé avec Angular",
+        "Portfolio personnel : Développé avec Vue.js 3 et Express.js"
+      ]
+    },
+    "professionalSkills": {
+      "title": "Compétences Professionnelles",
+      "items": ["Laravel", "Vue.js", "Nuxt.js", "NestJS", "WordPress", "Figma"]
+    },
+    "softSkills": {
+      "title": "Compétences Douces",
+      "items": ["Compétences organisationnelles", "Communication", "Leadership", "Logiciels de gestion de projet"]
+    },
+    "languages": {
+      "title": "Langues",
+      "items": ["Français", "Anglais"]
     },
     "skills": {
       "title": "Compétences",

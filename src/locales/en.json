@@ -93,9 +93,13 @@
     "contact": {
       "title": "Contact",
       "phone": "Phone",
+      "phoneNumber": "+229 01 56 11 53 63",
       "email": "Email",
+      "emailAddress": "chrislainavocegan1@gmail.com",
       "address": "Address",
-      "city": "Dakar, Senegal"
+      "city": "Cotonou, Benin",
+      "website": "Website",
+      "websiteUrl": "www.chrislain-portfolio.vercel.app"
     },
     "education": {
       "title": "Education",
@@ -118,11 +122,11 @@
         {
           "role": "Laravel Project Manager",
           "company": "Nahema-Heaven Co.",
-          "period": "Since February 2023",
+          "period": "February 2023 - April 2025",
           "details": [
             "Project plan development and schedule management",
             "Resource and budget management",
-            "Risk management (identification and mitigation)"
+            "Risk management (risk identification, handling unexpected events)"
           ]
         },
         {
@@ -130,21 +134,46 @@
           "company": "Rohaya Holding, Rufisque",
           "period": "September 2022 - January 2023",
           "details": [
-            "Mockup design with Figma",
-            "Creating responsive websites with WordPress",
-            "Participation in meetings and project follow-up"
+            "Creation of mockups using Figma",
+            "Creation of responsive websites using WordPress",
+            "Participation in project follow-up meetings",
+            "Monitoring project progress in collaboration with relevant teams"
           ]
         },
         {
-          "role": "Project Assistant Intern",
+          "role": "Intern Project Manager",
           "company": "PMD Developer, Dakar",
           "period": "February 2020 - June 2022",
           "details": [
-            "Backend development with PHP",
-            "Participation in project plans development"
+            "Assistance in back-end project development with PHP",
+            "Participation in the development of project plans (schedules, milestones, and deliverables)"
           ]
         }
       ]
+    },
+    "freelance": {
+      "title": "Freelance Achievements",
+      "items": [
+        "Enash Solutions: Built with Nuxt.js, NestJS API, S3, and Stripe (Currently being finalized)",
+        "Bylin: Complete E-commerce site development with payment integration (Fedapay API) using Filament (Laravel) and Nuxt.js",
+        "lassissi.tech: Mini e-commerce site built with Laravel and Vue.js",
+        "Admin dashboard for Amazone-Tchad: Booking management system built with Laravel and Vue.js",
+        "API design for a booking platform: Back-end development with Laravel",
+        "Front-end development for FSSPI.org: Built with Angular",
+        "Personal portfolio: Developed with Vue.js 3 and Express.js"
+      ]
+    },
+    "professionalSkills": {
+      "title": "Professional Skills",
+      "items": ["Laravel", "Vue.js", "Nuxt.js", "NestJS", "WordPress", "Figma"]
+    },
+    "softSkills": {
+      "title": "Soft Skills",
+      "items": ["Organizational skills", "Communication", "Leadership", "Project management software"]
+    },
+    "languages": {
+      "title": "Languages",
+      "items": ["French", "English"]
     },
     "skills": {
       "title": "Skills",

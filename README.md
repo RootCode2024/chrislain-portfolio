@@ -88,7 +88,7 @@ Ce projet met en avant mes compétences, expériences, et réalisations en tant 
 ## 📬 Me contacter
 
 Envoyez-moi un message via le formulaire de contact ou par email :  
-- **E-mail :** chrislainavocegan24@gmail.com  
+- **E-mail :** chrislainavocegan1@gmail.com  
 - **LinkedIn :** [Chrislain Avocegan](https://www.linkedin.com/in/chrislain-avocegan-314273315)  
 - **Portfolio en ligne :** [chrislainavocegan.site](https://chrislainavocegan.site)
 
